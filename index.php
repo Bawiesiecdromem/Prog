@@ -10,15 +10,15 @@ and open the template in the editor.
         <title>Przepiórka</title>
     </head>
     <body>
-        <script>
-            var $folder_path="/v.";
-            var $version="0.1a";
-            var &path=$folder_path+$version+"/index.php";
-        </script>
-        <a href="/v.0.1a/index.php"></a>
+        <a href="ADBI_v.0.2a/index.php">tutaj</a>
         <?php
-            
-        ?>
         
+        ?>
+        <script>
+            var folder_path="/v.";
+            var version="0.1a";
+            var path=folder_path+version+"/index.php";
+            
+        </script>
     </body>
 </html>
