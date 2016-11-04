@@ -1,15 +1,32 @@
 <?php
-$con = new mysqli('localhost','root','','adbi_db');
 $submit = $_POST['formsend'];
-$fu_email = $_POST['fu_email'];
-$fu_nick = $_POST['fu_nick'];
-$fu_password = $_POST['fu_password'];
-$fu_name = $_POST['fu_name'];
-$fu_forename = $_POST['fu_forename'];
-$fu_phone = $_POST['fu_phone'];
-$fu_birth = $_POST['fu_birth'];
-
-$query = "INSERT INTO t_users VALUES (null,$fu_email,$fu_nick,$fu_password,$fu_name,$fu_forename,$fu_phone,$fu_birth,'')";
-$r = mysql_query($con->$query);
-
+$fu_email = strip_tags($_POST['fu_email']);
+$fu_nick = strip_tags($_POST['fu_nick']);
+$fu_password = strip_tags($_POST['fu_password']);
+$rpassword = strip_tags($_POST['rpassword']);
+$fu_name = strip_tags($_POST['fu_name']);
+$fu_forename = strip_tags($_POST['fu_forename']);
+$fu_phone = strip_tags($_POST['fu_phone']);
+$fu_birth = strip_tags($_POST['fu_birth']);
+$date = date("Y-m-d");
+if($submit){
+	if($fu_email&&$fu_nick&&$fu_password&&$fu_name&&$fu_forename&&$fu_phone&&$fu_birth){
+		if($fu_password==$$rpassword){
+			$con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
+			mysql_select_db('adbi_db') or die ('Nie znaleziono bazy');
+			$query =  mysql_query("INSERT INTO t_users VALUES ('',$fu_email,$fu_nick,$fu_password,$fu_name,$fu_forename,$fu_phone,$fu_birth,'')");
+			echo 'Pomyślnie zarejestrowano';
+			header('location: /');
+			exit;
+		}
+		else 
+	die("Hasła nie są takie same, przemyśl swój błąd");
+	$url = $_SERVER['HTTP_REFERER']; 
+	echo '<meta http-equiv="refresh" content="5;URL=' . $url . '">';
+	}
+}
+else
+	echo "<b>Wszystkie</b> pola muszą być wypełnione, poczekaj 5 sec";
+	$url = $_SERVER['HTTP_REFERER']; 
+	echo '<meta http-equiv="refresh" content="5;URL=' . $url . '">';
 ?>
