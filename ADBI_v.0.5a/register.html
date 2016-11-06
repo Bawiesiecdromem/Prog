@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rejstracja</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/register_validation.js"></script>
+    </head>
+    <body>
+        <form action="fregister.php" method="POST">
+            E-mail:<input type="text" name="fu_email" required>
+            <span class="komentarz" style="float:left;"></span><br><br>
+            Nick:<input type="text" name="fu_nick" required>
+            <span class="komentarz" style="float:left;"></span><br><br>
+            Hasło:<input type="text" name="fu_password" required>
+            <span class="komentarz" style="float:left;"></span><br><br>
+            Powtórz hasło:<input type="text" name="rpassword" required>
+            <span class="komentarz" style="float:left;"></span><br><br>
+            Imię:<input type="text" name="fu_name" required>
+            <span class="komentarz" style="float:left;"></span><br><br>
+            Nazwisko:<input type="text" name="fu_forename" required>
+            <span class="komentarz" style="float:left;"></span><br><br>
+            Telefon:<input type="text" name="fu_phone" required>
+            <span class="komentarz" style="float:left;"></span><br><br>
+            Data urodzenia:<input type="text" name="fu_birth" required>
+            <span class="komentarz" style="float:left;"></span><br><br>
+            <input type="submit" name="formsend" value="Wyślij!">
+        </form>
+    </body>
+</html>
