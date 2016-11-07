@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rejstracja</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="scripts/register_validation.js"></script>
+	<link rel="stylesheet" href="styles/registerinvalidfields.css">
+	</head>
+    <body>
+        <div class="container">
+            <form id="formularz" action="fregister.php" method="POST">
+                <div class="row">
+                    <div class="col-md-1">
+
+                    </div>
+                    <div class="col-md-5">
+                        E-mail:<br>
+                        <input type="text" id="fu_email" name="fu_email" required>
+                        <span class="komentarz" style="float:left;"></span><br><br>
+                        Nick:<br>
+                        <input type="text" id="fu_nick" name="fu_nick" required>
+                        <span class="komentarz" style="float:left;"></span><br><br>
+                        Hasło:<br>
+                        <input type="text" name="fu_password" required>
+                        <span class="komentarz" style="float:left;"></span><br><br>
+                        Powtórz hasło:<br>
+                        <input type="text" name="rpassword" required>
+                        <span class="komentarz" style="float:left;"></span><br><br>
+                    </div>
+                    <div class="col-md-5">
+                        Imię:<br>
+                        <input type="text" id="fu_name" name="fu_name" required>
+                        <span class="komentarz" style="float:left;"></span><br><br>
+                        Nazwisko:<br>
+                        <input type="text" id="fu_forename" name="fu_forename" required>
+                        <span class="komentarz" style="float:left;"></span><br><br>
+                        Telefon:<br>
+                        <input type="text" id="fu_phone" name="fu_phone" required>
+                        <span class="komentarz" style="float:left;"></span><br><br>
+                        Data urodzenia:<br>
+                        <input type="text" id="fu_birth" name="fu_birth" required>
+                        <span class="komentarz" style="float:left;"></span><br><br>
+                        
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                </div>
+                <div class="row">
+                    <center><input type="submit" name="formsend" value="Wyślij!"></center>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
