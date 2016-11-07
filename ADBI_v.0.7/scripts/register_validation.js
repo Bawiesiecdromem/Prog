@@ -17,7 +17,7 @@ $(document).ready(function() {
 $('#fu_nick').on('blur', function() {
  var input = $(this);
  var name_length = input.val().length;
- if(name_length >= 5 && name_length <= 32){
+ if(name_length >= 5 && name_length <= 20){
  input.removeClass("invalid").addClass("valid");
  input.next('.komentarz').text("Jest dobrze").removeClass("alert alert-warning").addClass("alert alert-success");
  }
@@ -30,26 +30,26 @@ $('#fu_nick').on('blur', function() {
  $('#fu_name').on('blur', function() {
  var input = $(this);
  var name_length = input.val().length;
- if(name_length >= 1 && name_length <= 32){
+ if(name_length >= 5 && name_length <= 20){
  input.removeClass("invalid").addClass("valid");
  input.next('.komentarz').text("Jest dobrze").removeClass("alert alert-warning").addClass("alert alert-success");
  }
  else{
  input.removeClass("valid").addClass("invalid");
- input.next('.komentarz').text("Od 1 do 32 znaków!").removeClass("alert alert-success").addClass("alert alert-warning"); 
+ input.next('.komentarz').text("Od 5 do 20 znaków!").removeClass("alert alert-success").addClass("alert alert-warning"); 
  }
  });
  
   $('#fu_forename').on('blur', function() {
  var input = $(this);
  var name_length = input.val().length;
- if(name_length >= 1 && name_length <= 32){
+ if(name_length >= 5 && name_length <= 20){
  input.removeClass("invalid").addClass("valid");
  input.next('.komentarz').text("Jest dobrze").removeClass("alert alert-warning").addClass("alert alert-success");
  }
  else{
  input.removeClass("valid").addClass("invalid");
- input.next('.komentarz').text("Od 1 do 32 znaków!").removeClass("alert alert-success").addClass("alert alert-warning"); 
+ input.next('.komentarz').text("Od 5 do 20 znaków!").removeClass("alert alert-success").addClass("alert alert-warning"); 
  }
  }); 
 
@@ -69,7 +69,7 @@ $('#fu_nick').on('blur', function() {
  
  $('#fu_birth').on('blur', function() {
  var input = $(this);
- var pattern = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/i;
+ var pattern = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/i;
  var is_email = pattern.test(input.val());
  if(is_email){
  input.removeClass("invalid").addClass("valid");
@@ -77,7 +77,7 @@ $('#fu_nick').on('blur', function() {
  }
  else{
  input.removeClass("valid").addClass("invalid");
- input.next('.komentarz').text("Wprowadź poprawną date(rok-miesiąc-dzień)").removeClass("alert alert-success").addClass("alert alert-warning");
+ input.next('.komentarz').text("Wprowadź poprawną date(dzień-miesiąc-rok)").removeClass("alert alert-success").addClass("alert alert-warning");
  }
  }); 
  
