@@ -1,4 +1,9 @@
 input.invalid{
-	background-color: lightcoral;
+    background-color: lightcoral;
 }
-class.komentarz{}
+.komentarz{
+    margin-top: 2px;
+    color: red;
+    float: left;
+    font-size: 12px;
+}
