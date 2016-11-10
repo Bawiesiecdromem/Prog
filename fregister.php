@@ -9,15 +9,30 @@ $fu_forename = strip_tags($_POST['fu_forename']);
 $fu_phone = strip_tags($_POST['fu_phone']);
 $fu_birth = strip_tags($_POST['fu_birth']);
 $fu_date = date("Y-m-d");
+
 if($submit){
     if($fu_email&&$fu_nick&&$fu_password&&$rpassword&&$fu_name&&$fu_forename&&$fu_phone&&$fu_birth&&$fu_date){
 	if($fu_password==$rpassword){
             $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
             mysql_select_db('adbi_db',$con) or die ('Nie znaleziono bazy');
+            $email_check = mysql_query("SELECT count(*) FROM t_users WHERE u_email='.$fu_email.'");
+            echo($email_check);
+            if($email_check>0){
+                echo "Podany email jest zajęty";    
+                header('location: register.php');
+                exit;
+            }    
+            else {
+                header('location: index.php');
+                exit;
+            }
+            else {
             $query =  mysql_query("INSERT INTO t_users (u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth, u_date) VALUES ('$fu_email','$fu_nick','$fu_password','$fu_name','$fu_forename','$fu_phone','$fu_birth','$fu_date')");
             echo 'Pomyślnie zarejestrowano';
             header('location: index.php');
-            exit;
+            exit;                
+            }        
+            
         }
         else{
             die("Hasła nie są takie same, przemyśl swój błąd");
