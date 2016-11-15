@@ -1,4 +1,8 @@
 <?php
+session_start();
+if ($_SESSION['u_email']){
+    header('location: oszust.html');
+}
 $submit = $_POST['formsend'];
 $fu_email = strip_tags($_POST['fu_email']);
 $fu_nick = strip_tags($_POST['fu_nick']);
@@ -24,7 +28,6 @@ if($submit){
             else{
             $query =  mysql_query("INSERT INTO t_users (u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth, u_date) VALUES ('$fu_email','$fu_nick','$fu_password','$fu_name','$fu_forename','$fu_phone','$fu_birth','$fu_date')");
             echo 'Pomyślnie zarejestrowano';
-            session_start();
             $session_query = mysql_query("SELECT * FROM t_users WHERE u_email='$fu_email'");
             $numrows = mysql_num_rows($session_query);
             if ($numrows!=0){
@@ -36,9 +39,11 @@ if($submit){
                 }
                 if ($fu_email==$session_u_email&&$fu_password==$session_u_password){
                     echo "Trwa przekierowanie, jeżeli nie nastąpi w przeciągu 5 sec naciśnij  <a href='uzytkownik.php'>TUTAJ </a>";
-                    header('Location: index.php');
                     $_SESSION['u_email']=$fu_email;
-                    print $_SESSION['u_nick'];
+                    header('Location: f_sessionuserdatacreate.php');
+                }
+                else{
+                    echo "Wystąpił błąd przy przetwarzaniu danych";
                 }
             }
             exit;

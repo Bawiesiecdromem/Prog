@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>f_register.php</url>
+            <bookmark id="1">
+                <name/>
+                <line>57</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Gry/Xampp/htdocs/ADBI/f_login.php</file>
+            <file>file:/E:/Gry/Xampp/htdocs/ADBI/scripts/adbi_master_controller.js</file>
             <file>file:/E:/Gry/Xampp/htdocs/ADBI/page_register.html</file>
             <file>file:/E:/Gry/Xampp/htdocs/ADBI/page_login.html</file>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/styles/registerinvalidfields.css</file>
+            <file>file:/E:/Gry/Xampp/htdocs/ADBI/page_myaccount.php</file>
             <file>file:/E:/Gry/Xampp/htdocs/ADBI/index.php</file>
+            <file>file:/E:/Gry/Xampp/htdocs/ADBI/f_sessionuserdatacreate.php</file>
+            <file>file:/E:/Gry/Xampp/htdocs/ADBI/f_logout.php</file>
             <file>file:/E:/Gry/Xampp/htdocs/ADBI/f_register.php</file>
         </group>
     </open-files>
