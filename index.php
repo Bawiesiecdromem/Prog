@@ -13,6 +13,10 @@
         <script src="scripts/adbi_master_controller.js"></script>
     </head>
     <body>
+        <?php
+            session_start();
+            error_reporting(0);
+        ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-1">
@@ -32,16 +36,20 @@
                     
                 </div>
                 <div class="col-md-1">
-                    <button onclick="location.href='page_register.html'">Register</button>
-                    <button onclick="location.href='page_login.html'">Login</button>
-                    <button onclick="location.href='f_logout.php'">Logout</button>
+                    <?php
+                        if ($_SESSION['u_email']){
+                            echo '<button onclick="location.href=`f_logout.php`">Logout</button>';
+                        }
+                        else{
+                            echo '<button onclick="location.href=`page_register.html`">Register</button>';
+                            echo '<button onclick="location.href=`page_login.html`">Login</button>';
+                        }
+                    ?>
                 </div>
             </div>
         </div>
         <?php
-            session_start();
-            error_reporting(0);
-            if ($_SESSION['u_nick']){
+            if ($_SESSION['u_email']){
                 echo "Witaj, ".$_SESSION['u_nick']."!";
             }
         ?>
