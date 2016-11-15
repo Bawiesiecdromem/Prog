@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Logowanie</title>
+        <!--\/ADBIBASICLINKS\/-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="styles/bootstrap.css">
+        <link rel="stylesheet" href="styles/bootstrap-theme.css">
+        <!--/\ADBIBASICLINKS/\-->
+        <link rel="stylesheet" href="styles/st_login.css">
+	</head>
+    <body>
+        <div class="container">
+            <form id="form_login" action="f_login.php" method="POST">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <p>E-mail:<br></p>
+                            <input type="text" id="fu_email" name="fu_email" required>
+                            <span class="komentarz"></span><br><br>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="form-group">
+                            <p>Hasło:<br></p>
+                            <input type="text" name="fu_password" required>
+                            <span class="komentarz"></span><br><br>
+                            <br>
+                            <br>
+                        </div>
+                        <center><input type="submit" name="formsend" value="Wyślij!" class='btn-danger'></center>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
