@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+td:first-child {
+    padding-right: 50px;
+    background-color: red;
+}
+td:last-child {
+    float: right;
+    min-width: 25px;
+    background-color: lightpink;
+}

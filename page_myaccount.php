@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    error_reporting(0);
+    if (!$_SESSION['userverificationkey']){
+        header('location: oszust.html');
+    }
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -11,16 +18,13 @@
         <link rel="stylesheet" href="styles/bootstrap-theme.css">
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
-        <script src="scripts/adbi_master_controller.js"></script>
+        <link rel="stylesheet" href="styles/st_page_myaccount.css">
+        <script src="scripts/adbi_master.js"></script>
     </head>
-    <body>
-        <?php
-            session_start();
-            error_reporting(0);
-        ?>
+    <body ng-app="AdbiApp">
         <div class="container adbi_class_wholepage">
             <!--\/NAV\/-->
-            <div class="row">
+            <div class="row" ng-controller="AdbiNavbarController">
                 <div class="col-md-12">
                     <nav class="navbar navbar-inverse navbar-fixed-top">
                         <div class="container">
@@ -31,23 +35,23 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand" href="">T.T</a>
+                                <a class="navbar-brand" href="">{{navp1}}</a>
                             </div>
                             <div id="navbar" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="index.php">Strona główna</a></li>
-                                    <li><a href="" target="_blank">T.T</a></li>
-                                    <li><a href="" target="_blank">T.T</a></li>
+                                    <li><a href="index.php">{{navp2}}</a></li>
+                                    <li><a href="" target="_blank">{{navp3}}</a></li>
+                                    <li><a href="" target="_blank">{{navp4}}</a></li>
                                     <?php
                                         if ($_SESSION['userverificationkey']){
                                             echo '<li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$_SESSION['u_nick'].'<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="">T.T</a></li>
+                                            <li><a href="">{{MyAds}}</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="">Moje konto</a></li>
+                                            <li><a href="page_myaccount.php">{{MyAccount}}</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="f_logout.php">;-; Wyloguj ;-;</a></li>
+                                            <li><a href="f_logout.php">{{Logout}}</a></li>
                                         </ul>
                                     </li>';
                                         }
@@ -63,41 +67,55 @@
                 </div>
             </div>
             <!--/\NAV/\-->
-            <div class="row">
-                <div class="col-md-1" style='background-color: red'>
-                    test<br>
-                    test<br>
-                    test<br>
-                    test<br>
-                    test<br>
-                </div>
+            <div class="row" ng-controller="AdbiUserFormController">
                 <div class="col-md-3" style='background-color: yellow'>
-                    Witamy, witamy! Proszę rozgość się, nasi develperzy właśnie tworzą fotele.
+                    Informacje osobowe i prywatność:<br>
                 </div>
-                <div class="col-md-4" style='background-color: lightgreen'>
-                    <div ng-app="HelloWorldApp">
-                        <div ng-controller="HelloWorldController">
-                            <h1>{{greeting}}</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" style='background-color: yellow'>
-                    test<br>
-                    test<br>
-                    test<br>
-                    test<br>
-                    test<br>
-                </div>
-                <div class="col-md-1" style='background-color: red'>
+                <div class="col-md-6" style='background-color: lightgreen'>
                     <?php
-                        if ($_SESSION['u_email']){
-                            echo '<button onclick="location.href=`f_logout.php`" class="btn btn-danger">Logout</button>';
-                        }
-                        else{
-                            echo '<button onclick="location.href=`page_register.html`">Register</button>';
-                            echo '<button onclick="location.href=`page_login.html`">Login</button>';
-                        }
+                    echo "
+                    <table>
+                        <tr>
+                            <td>{{Email}}</td>
+                            <td>".$_SESSION['u_email']."</td>
+                            <td>Edytuj</td>
+                        </tr>
+                        <tr>
+                            <td>{{Nick}}</td>
+                            <td>".$_SESSION['u_nick']."</td>
+                            <td>Edytuj</td>
+                        </tr>
+                        <tr>
+                            <td>{{Password}}</td>
+                            <td>".$_SESSION['u_password']."</td>
+                            <td>Edytuj</td>
+                        </tr>
+                        <tr>
+                            <td>{{Name}}</td>
+                            <td>".$_SESSION['u_name']."</td>
+                            <td>Edytuj</td>
+                        </tr>
+                        <tr>
+                            <td>{{Forename}}</td>
+                            <td>".$_SESSION['u_forename']."</td>
+                            <td>Edytuj</td>
+                        </tr>
+                        <tr>
+                            <td>{{Phone}}</td>
+                            <td>".$_SESSION['u_phone']."</td>
+                            <td>Edytuj</td>
+                        </tr>
+                        <tr>
+                            <td>{{Birth}}</td>
+                            <td>".$_SESSION['u_birth']."</td>
+                            <td>Edytuj</td>
+                        </tr>
+                    </table>
+                    ";
                     ?>
+                </div>
+                <div class="col-md-3" style='background-color: yellow'>
+                    test<br>
                 </div>
             </div>
             <div class="row">
@@ -107,11 +125,6 @@
                 </div>
             </div>
         </div>
-        <?php
-            if ($_SESSION['u_email']){
-                echo "Witaj, ".$_SESSION['u_nick']."!";
-            }
-        ?>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

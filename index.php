@@ -11,16 +11,16 @@
         <link rel="stylesheet" href="styles/bootstrap-theme.css">
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
-        <script src="scripts/adbi_master_controller.js"></script>
+        <script src="scripts/adbi_master.js"></script>
     </head>
-    <body>
+    <body ng-app="AdbiApp">
         <?php
             session_start();
             error_reporting(0);
         ?>
         <div class="container adbi_class_wholepage">
             <!--\/NAV\/-->
-            <div class="row">
+            <div class="row" ng-controller="AdbiNavbarController">
                 <div class="col-md-12">
                     <nav class="navbar navbar-inverse navbar-fixed-top">
                         <div class="container">
@@ -31,23 +31,23 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand" href="">T.T</a>
+                                <a class="navbar-brand" href="">{{navp1}}</a>
                             </div>
                             <div id="navbar" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="index.php">Strona główna</a></li>
-                                    <li><a href="" target="_blank">T.T</a></li>
-                                    <li><a href="" target="_blank">T.T</a></li>
+                                    <li class="active"><a href="index.php">{{navp2}}</a></li>
+                                    <li><a href="" target="_blank">{{navp3}}</a></li>
+                                    <li><a href="" target="_blank">{{navp4}}</a></li>
                                     <?php
                                         if ($_SESSION['userverificationkey']){
                                             echo '<li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$_SESSION['u_nick'].'<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="">T.T</a></li>
+                                            <li><a href="">{{MyAds}}</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="">Moje konto</a></li>
+                                            <li><a href="page_myaccount.php">{{MyAccount}}</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="f_logout.php">;-; Wyloguj ;-;</a></li>
+                                            <li><a href="f_logout.php">{{Logout}}</a></li>
                                         </ul>
                                     </li>';
                                         }
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <!--/\NAV/\-->
-            <div class="row">
+            <div class="row" ng-controller="AdbiController">
                 <div class="col-md-1" style='background-color: red'>
                     test<br>
                     test<br>
@@ -75,8 +75,8 @@
                     Witamy, witamy! Proszę rozgość się, nasi develperzy właśnie tworzą fotele.
                 </div>
                 <div class="col-md-4" style='background-color: lightgreen'>
-                    <div ng-app="HelloWorldApp">
-                        <div ng-controller="HelloWorldController">
+                    <div>
+                        <div>
                             <h1>{{greeting}}</h1>
                         </div>
                     </div>
