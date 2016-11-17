@@ -47,4 +47,25 @@ angular.module('AdbiApp', [])
             $scope.TitlePageLogin = "Logowanie";
             $scope.TitlePageMyAccount = "Moje Konto";
             $scope.TitlePageAddNewAd = "Dodaj nowe ogłoszenie";
+})
+        .controller('AdbiNewAdController', function($scope) {
+            $scope.TypeOfTypes = "Wybierz typ:";
+            $scope.Type1 = "Post";
+            $scope.Type2 = "Zdjęcie";
+            $scope.Type3 = "Ogłoszenie";
+})
+        .controller('AdbiPageAccountEdit', function($scope,$http) {
+	    $scope.edit = function(u_id, u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth)
+	{
+		$scope.u_id=u_id;
+		$scope.u_email=u_email;
+		$scope.u_nick=u_nick;
+		$scope.u_password=u_password;
+		$scope.u_name=u_name;
+		$scope.u_forename=u_forename;
+		$scope.u_phone=u_phone;
+		$scope.u_birth=u_birth;
+		$scope.btnName="Edytuj";
+		$scope.displayStud();
+	};
 });

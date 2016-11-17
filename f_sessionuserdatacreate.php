@@ -11,10 +11,10 @@ if ($_SESSION['u_email']){
             while ($row = mysql_fetch_assoc($session_query)){
             $session_u_id = $row['u_id'];
             $_SESSION['u_id'] = $session_u_id;
-            //$session_u_email = $row['u_email'];
-            //$_SESSION['u_email'] = $session_u_email;
-            //$session_u_nick = $row['u_nick'];
-            //$_SESSION['u_nick'] = $session_u_nick;
+            $session_u_email = $row['u_email'];
+            $_SESSION['u_email'] = $session_u_email;
+            $session_u_nick = $row['u_nick'];
+            $_SESSION['u_nick'] = $session_u_nick;
             $session_u_password = $row['u_password'];
             $_SESSION['u_password'] = $session_u_password;
             $session_u_name = $row['u_name'];

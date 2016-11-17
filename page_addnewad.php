@@ -68,13 +68,13 @@
             </div>
             <!--/\NAV/\-->
             <div class="row">
-                <div class="col-md-3" style='background-color: yellow'>
-                    test<br>
+                <div class="col-md-4" ng-controller="AdbiNewAdController" style='background-color: yellow'>
+                    {{TypeOfTypes}}<br>
+                    {{Type1}}<br>
+                    {{Type2}}<br>
+                    {{Type3}}<br>
                 </div>
-                <div class="col-md-6" style='background-color: lightgreen'>
-                    test<br>
-                </div>
-                <div class="col-md-3" style='background-color: yellow'>
+                <div class="col-md-8" style='background-color: lightgreen'>
                     test<br>
                 </div>
             </div>
