@@ -40,4 +40,11 @@ angular.module('AdbiApp', [])
             $scope.HolderForename = "Snow";
             $scope.HolderPhone = "123456789";
             $scope.HolderBirth = "1997-01-01";
+})
+        .controller('AdbiHeadController', function($scope) {
+            $scope.TitleIndex = "ADBI";
+            $scope.TitlePageRegister = "Rejstracja";
+            $scope.TitlePageLogin = "Logowanie";
+            $scope.TitlePageMyAccount = "Moje Konto";
+            $scope.TitlePageAddNewAd = "Dodaj nowe ogłoszenie";
 });

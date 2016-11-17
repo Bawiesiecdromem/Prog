@@ -18,17 +18,17 @@ if($submit){
     if($fu_email&&$fu_nick&&$fu_password&&$rpassword&&$fu_name&&$fu_forename&&$fu_phone&&$fu_birth&&$fu_date){
 	if($fu_password==$rpassword){
             $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
-            mysql_select_db('adbi_db',$con) or die ('Nie znaleziono bazy');
-            $email_check = mysql_query("SELECT `u_email` FROM `t_users` WHERE `u_email`='".$fu_email."'");
+            mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
+            $email_check = mysql_query("SELECT `u_email` FROM `T_USERS` WHERE `u_email`='".$fu_email."'");
             if(mysql_num_rows($email_check)){
                 echo "Podany email jest zajęty";
                 header('location: page_register.html');
                 exit;
             }
             else{
-            $query =  mysql_query("INSERT INTO t_users (u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth, u_date) VALUES ('$fu_email','$fu_nick','$fu_password','$fu_name','$fu_forename','$fu_phone','$fu_birth','$fu_date')");
+            $query =  mysql_query("INSERT INTO T_USERS (u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth, u_date) VALUES ('$fu_email','$fu_nick','$fu_password','$fu_name','$fu_forename','$fu_phone','$fu_birth','$fu_date')");
             echo 'Pomyślnie zarejestrowano';
-            $session_query = mysql_query("SELECT * FROM t_users WHERE u_email='$fu_email'");
+            $session_query = mysql_query("SELECT * FROM T_USERS WHERE u_email='$fu_email'");
             $numrows = mysql_num_rows($session_query);
             if ($numrows!=0){
                 while ($row = mysql_fetch_assoc($session_query)){

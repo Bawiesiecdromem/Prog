@@ -8,8 +8,8 @@ else{
     $fu_password = $_POST['fu_password'];
     if($fu_email&&$fu_password){
         $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
-        mysql_select_db('adbi_db',$con) or die ('Nie znaleziono bazy');
-        $session_query = mysql_query("SELECT * FROM t_users WHERE u_email='$fu_email'");
+        mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
+        $session_query = mysql_query("SELECT * FROM T_USERS WHERE u_email='$fu_email'");
         $numrows = mysql_num_rows($session_query);
         if ($numrows!=0){
             while ($row = mysql_fetch_assoc($session_query)){

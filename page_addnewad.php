@@ -1,7 +1,14 @@
+<?php
+    session_start();
+    error_reporting(0);
+    if (!$_SESSION['userverificationkey']){
+        header('location: oszust.html');
+    }
+?>
 <html>
     <head ng-controller="AdbiHeadController">
         <meta charset="UTF-8">
-        <title>{{TitleIndex}}</title>
+        <title>{{TitlePageAddNewAd}}</title>
         <!--\/ADBIBASICLINKS\/-->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -11,13 +18,10 @@
         <link rel="stylesheet" href="styles/bootstrap-theme.css">
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
+        <link rel="stylesheet" href="styles/st_page_addnewad.css">
         <script src="scripts/adbi_master.js"></script>
     </head>
     <body ng-app="AdbiApp">
-        <?php
-            session_start();
-            error_reporting(0);
-        ?>
         <div class="container adbi_class_wholepage">
             <!--\/NAV\/-->
             <div class="row" ng-controller="AdbiNavbarController">
@@ -35,7 +39,7 @@
                             </div>
                             <div id="navbar" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="index.php">{{navp2}}</a></li>
+                                    <li><a href="index.php">{{navp2}}</a></li>
                                     <li><a href="" target="_blank">{{navp3}}</a></li>
                                     <li><a href="" target="_blank">{{navp4}}</a></li>
                                     <?php
@@ -63,41 +67,15 @@
                 </div>
             </div>
             <!--/\NAV/\-->
-            <div class="row" ng-controller="AdbiController">
-                <div class="col-md-1" style='background-color: red'>
+            <div class="row">
+                <div class="col-md-3" style='background-color: yellow'>
                     test<br>
-                    test<br>
-                    test<br>
-                    test<br>
+                </div>
+                <div class="col-md-6" style='background-color: lightgreen'>
                     test<br>
                 </div>
                 <div class="col-md-3" style='background-color: yellow'>
-                    Witamy, witamy! Proszę rozgość się, nasi develperzy właśnie tworzą fotele.
-                </div>
-                <div class="col-md-4" style='background-color: lightgreen'>
-                    <div>
-                        <div>
-                            <h1>{{greeting}}</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" style='background-color: yellow'>
                     test<br>
-                    test<br>
-                    test<br>
-                    test<br>
-                    test<br>
-                </div>
-                <div class="col-md-1" style='background-color: red'>
-                    <?php
-                        if ($_SESSION['u_email']){
-                            echo '<button onclick="location.href=`f_logout.php`" class="btn btn-danger">Logout</button>';
-                        }
-                        else{
-                            echo '<button onclick="location.href=`page_register.html`">Register</button>';
-                            echo '<button onclick="location.href=`page_login.html`">Login</button>';
-                        }
-                    ?>
                 </div>
             </div>
             <div class="row">
@@ -107,11 +85,6 @@
                 </div>
             </div>
         </div>
-        <?php
-            if ($_SESSION['u_email']){
-                echo "Witaj, ".$_SESSION['u_nick']."!";
-            }
-        ?>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
