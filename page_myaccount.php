@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="styles/st_bodyschema.css">
         <link rel="stylesheet" href="styles/st_page_myaccount.css">
         <script src="scripts/adbi_master.js"></script>
+        <script src="scripts/my_account_data_editor.js"></script>
     </head>
     <body ng-app="AdbiApp">
         <div class="container adbi_class_wholepage">
@@ -72,50 +73,52 @@
                     Informacje osobowe i prywatność:<br>
                 </div>
                 <div class="col-md-6" style='background-color: lightgreen'>
-                    <?php
-                    echo "
                     <table>
                         <tr>
                             <td>{{Email}}</td>
-                            <td>".$_SESSION['u_email']."</td>
-                            <td>Edytuj</td>
+                            <td><?php echo($_SESSION['u_email']);?></td>
+                            <td><a id="A1">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Nick}}</td>
-                            <td>".$_SESSION['u_nick']."</td>
-                            <td>Edytuj</td>
+                            <td><?php echo($_SESSION['u_nick']);?></td>
+                            <td><a id="A2">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Password}}</td>
-                            <td>".$_SESSION['u_password']."</td>
-                            <td>Edytuj</td>
+                            <td><?php echo($_SESSION['u_password']);?></td>
+                            <td><a id="A3">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Name}}</td>
-                            <td>".$_SESSION['u_name']."</td>
-                            <td>Edytuj</td>
+                            <td><?php echo($_SESSION['u_name']);?></td>
+                            <td><a id="A4">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Forename}}</td>
-                            <td>".$_SESSION['u_forename']."</td>
-                            <td>Edytuj</td>
+                            <td><?php echo($_SESSION['u_forename']);?></td>
+                            <td><a id="A5">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Phone}}</td>
-                            <td>".$_SESSION['u_phone']."</td>
-                            <td>Edytuj</td>
+                            <td><?php echo($_SESSION['u_phone']);?></td>
+                            <td><a id="A6">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Birth}}</td>
-                            <td>".$_SESSION['u_birth']."</td>
-                            <td>Edytuj</td>
+                            <td><?php echo($_SESSION['u_birth']);?></td>
+                            <td><a id="A7">{{Edit}}</a></td>
                         </tr>
                     </table>
-                    ";
-                    ?>
                 </div>
                 <div class="col-md-3" style='background-color: yellow'>
-                    test<br>
+                    <div>
+                        <td>{{Avatar}}</td>
+                        <img src='<?php echo ($_SESSION['u_avatar']);?>' class="adbiavatarthumb" alt="{{Avatar}}">
+                    </div>
+                    <div>
+                        {{Change}}
+                    </div>
                 </div>
             </div>
             <div class="row">

@@ -1,0 +1,13 @@
+#T1_div {
+    display: none;
+}
+#T2_div {
+    display: none;
+}
+#T3_div {
+    display: none;
+}
+a, a:active, a:hover, a:visited {
+  color:inherit;
+  text-decoration: none;
+ }

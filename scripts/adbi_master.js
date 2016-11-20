@@ -31,6 +31,9 @@ angular.module('AdbiApp', [])
             $scope.Forename = "Nazwisko:";
             $scope.Phone = "Telefon:";
             $scope.Birth = "Data urodzenia:";
+            $scope.Avatar = "Avatar:";
+            $scope.Edit = "Edytuj";
+            $scope.Change = "Zmień...";
             //Holders:
             $scope.HolderEmail = "JohnSnow@example.com";
             $scope.HolderNick = "JohnSnowTheFirst";

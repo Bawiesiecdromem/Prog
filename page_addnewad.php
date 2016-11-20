@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="styles/st_bodyschema.css">
         <link rel="stylesheet" href="styles/st_page_addnewad.css">
         <script src="scripts/adbi_master.js"></script>
+        <script src="scripts/add_new_ad_type_changer.js"></script>
     </head>
     <body ng-app="AdbiApp">
         <div class="container adbi_class_wholepage">
@@ -69,13 +70,25 @@
             <!--/\NAV/\-->
             <div class="row">
                 <div class="col-md-4" ng-controller="AdbiNewAdController" style='background-color: yellow'>
-                    {{TypeOfTypes}}<br>
-                    {{Type1}}<br>
-                    {{Type2}}<br>
-                    {{Type3}}<br>
+                    <h4>{{TypeOfTypes}}</h4><br>
+                    <a id="T1">{{Type1}}</a><br>
+                    <a id="T2">{{Type2}}</a><br>
+                    <a id="T3">{{Type3}}</a><br>
                 </div>
                 <div class="col-md-8" style='background-color: lightgreen'>
-                    test<br>
+                    <div id='T1_div'>
+                        T1
+                        dsa
+                    </div>
+                    <div id='T2_div'>
+                        T2
+                    </div>
+                    <div id='T3_div'>
+                        T3
+                        gfhgf
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        gfh
+                    </div>
                 </div>
             </div>
             <div class="row">
