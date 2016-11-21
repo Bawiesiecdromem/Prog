@@ -77,16 +77,14 @@
                 <div class="col-md-6" style='background-color: lightgreen'>
                     <table>
                         <tr>
-                            <td>{{Email}}</td>
-							<div>
-								<td><?php echo($_SESSION['u_email']);?>
-							</div>
+                            <td>{{Email}}</td>						
+								<td><div id="A1-div-p"><?php echo($_SESSION['u_email']);?></div>							
 							<div id="A1-div">
 								<input type="text" id="fu_email" name="fu_email" value="<?php echo($_SESSION['u_email']);?>" required>
 								<span class="komentarz"></span><br><br><br><br>
 							</div>
 							</td>
-                            <td><a id="A1">{{Edit}}</a></td>
+                            <td><a id="A1" ng-click="toggle = !toggle">{{toggleText}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Nick}}</td>

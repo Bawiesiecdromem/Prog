@@ -43,6 +43,11 @@ angular.module('AdbiApp', [])
             $scope.HolderForename = "Snow";
             $scope.HolderPhone = "123456789";
             $scope.HolderBirth = "1997-01-01";
+			//cokolwiek http://stackoverflow.com/questions/24320237/change-the-text-of-the-button-on-click-using-angular-js
+			$scope.toggle = true;
+			$scope.$watch('toggle', function(){
+				$scope.toggleText = $scope.toggle ? 'Toggle!' : 'some text';
+			})
 })
         .controller('AdbiHeadController', function($scope) {
             $scope.TitleIndex = "ADBI";
