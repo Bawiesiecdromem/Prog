@@ -77,85 +77,81 @@
                 <div class="col-md-6" style='background-color: lightgreen'>
                     <table>
                         <tr>
-                            <td>{{Email}}</td>						
-								<td><div id="A1-div-p"><?php echo($_SESSION['u_email']);?></div>							
-							<div id="A1-div">
-								<input type="text" id="fu_email" name="fu_email" value="<?php echo($_SESSION['u_email']);?>" required>
-								<span class="komentarz"></span><br><br><br><br>
-							</div>
-							</td>
-                            <td><a id="A1" ng-click="toggle = !toggle">{{toggleText}}</a></td>
+                            <td>{{Email}}</td>					
+                            <td>
+                                <div><?php echo($_SESSION['u_email']);?></div>
+				<div id="A1_div">
+                                    <input type="text" id="fu_email" name="fu_email" value="<?php echo($_SESSION['u_email']);?>" required>
+                                    <span class="komentarz"></span><br><br>
+				</div>
+                            </td>
+                            <td><a id="A1" ng-click="EditSaveToggle1 = !EditSaveToggle1">{{ESToggle1}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Nick}}</td>
-							<div>
-								<td><?php echo($_SESSION['u_nick']);?>
-							</div>
-							<div id="A2-div">
-								<input type="text" id="fu_nick" name="fu_nick" value="<?php echo($_SESSION['u_nick']);?>" required>
-								<span class="komentarz"></span><br><br>
-							</div>
-							</td>
-                            <td><a id="A2">{{Edit}}</a></td>
+                            <td>
+                                <div><?php echo($_SESSION['u_nick']);?></div>
+				<div id="A2_div">
+                                    <input type="text" id="fu_nick" name="fu_nick" value="<?php echo($_SESSION['u_nick']);?>" required>
+                                    <span class="komentarz"></span><br><br>
+				</div>
+                            </td>
+                        <td><a id="A2" ng-click="EditSaveToggle2 = !EditSaveToggle2">{{ESToggle2}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Password}}</td>
-							<div>
-								<td><?php echo($_SESSION['u_password']);?>
-							</div>
-							<div id="A3-div">
-								<input type="text" name="fu_password" value="<?php echo($_SESSION['u_password']);?>" required>
-								<span class="komentarz"></span><br><br>
-							</div>
-							</td>
-                            <td><a id="A3">{{Edit}}</a></td>
+                            <td>
+                                <div><?php echo($_SESSION['u_password']);?></div>
+                                <div id="A3_div">
+                                    <input type="text" name="fu_password" value="<?php echo($_SESSION['u_password']);?>" required>
+                                    <span class="komentarz"></span><br><br>
+				</div>
+                            </td>
+                            <td><a id="A3" ng-click="EditSaveToggle3 = !EditSaveToggle3">{{ESToggle3}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Name}}</td>
-							<div>
-								<td><?php echo($_SESSION['u_name']);?>
-							</div>
-							<div id="A4-div">
-								<input type="text" name="rpassword" value="<?php echo($_SESSION['u_name']);?>" required>
-								<span class="komentarz"></span><br><br>
-							</div>
-							</td>
-                            <td><a id="A4">{{Edit}}</a></td>
+                            <td>
+                                <div><?php echo($_SESSION['u_name']);?></div>
+                                <div id="A4_div">
+                                    <input type="text" name="rpassword" value="<?php echo($_SESSION['u_name']);?>" required>
+                                    <span class="komentarz"></span><br><br>
+				</div>
+                            </td>
+                            <td><a id="A4" ng-click="EditSaveToggle4 = !EditSaveToggle4">{{ESToggle4}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Forename}}</td>
-							<div>
-								<td><?php echo($_SESSION['u_forename']);?>
-							</div>
-							<div id="A5-div">
-								<input type="text" id="fu_name" name="fu_name" value="<?php echo($_SESSION['u_forename']);?>" required>
-								<span class="komentarz"></span><br><br>
-							</div>
-							</td>
-                            <td><a id="A5">{{Edit}}</a></td>
+                            <td>
+                                <div><?php echo($_SESSION['u_forename']);?></div>
+				<div id="A5_div">
+                                    <input type="text" id="fu_name" name="fu_name" value="<?php echo($_SESSION['u_forename']);?>" required>
+                                    <span class="komentarz"></span><br><br>
+				</div>
+                            </td>
+                            <td><a id="A5" ng-click="EditSaveToggle5 = !EditSaveToggle5">{{ESToggle5}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Phone}}</td>
-							<div>
-								<td><?php echo($_SESSION['u_phone']);?>
-							</div>
-							<div id="A6-div">
-								<input type="text" id="fu_forename" name="fu_forename" value="<?php echo($_SESSION['u_phone']);?>" required>
-								<span class="komentarz"></span><br><br>
-							</div>
-							</td>
-                            <td><a id="A6">{{Edit}}</a></td>
+                            <td>
+                                <div><?php echo($_SESSION['u_phone']);?></div>
+				<div id="A6_div">
+                                    <input type="text" id="fu_forename" name="fu_forename" value="<?php echo($_SESSION['u_phone']);?>" required>
+                                    <span class="komentarz"></span><br><br>
+				</div>
+                            </td>
+                            <td><a id="A6" ng-click="EditSaveToggle6 = !EditSaveToggle6">{{ESToggle6}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Birth}}</td>
-							<div>
-								<td><?php echo($_SESSION['u_birth']);?></div>
-							<div id="A7-div">
-								<input type="text" id="fu_birth" name="fu_birth" value="<?php echo($_SESSION['u_birth']);?>" required>
-								<span class="komentarz"></span><br><br>
-							</div>
-							</td>
-                            <td><a id="A7">{{Edit}}</a></td>
+                            <td>
+                                <div><?php echo($_SESSION['u_birth']);?></div>
+				<div id="A7_div">
+                                    <input type="text" id="fu_birth" name="fu_birth" value="<?php echo($_SESSION['u_birth']);?>" required>
+                                    <span class="komentarz"></span><br><br>
+				</div>
+                            </td>
+                            <td><a id="A7" ng-click="EditSaveToggle7 = !EditSaveToggle7">{{ESToggle7}}</a></td>
                         </tr>
                     </table>
                 </div>

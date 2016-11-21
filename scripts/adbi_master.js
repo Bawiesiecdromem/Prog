@@ -43,11 +43,35 @@ angular.module('AdbiApp', [])
             $scope.HolderForename = "Snow";
             $scope.HolderPhone = "123456789";
             $scope.HolderBirth = "1997-01-01";
-			//cokolwiek http://stackoverflow.com/questions/24320237/change-the-text-of-the-button-on-click-using-angular-js
-			$scope.toggle = true;
-			$scope.$watch('toggle', function(){
-				$scope.toggleText = $scope.toggle ? 'Toggle!' : 'some text';
-			})
+            //Togglers http://stackoverflow.com/questions/24320237/change-the-text-of-the-button-on-click-using-angular-js
+            $scope.EditSaveToggle1 = true;
+            $scope.$watch('EditSaveToggle1', function(){
+                $scope.ESToggle1 = $scope.EditSaveToggle1 ? 'Edytuj' : 'Zapisz';
+            });
+            $scope.EditSaveToggle2 = true;
+            $scope.$watch('EditSaveToggle2', function(){
+                $scope.ESToggle2 = $scope.EditSaveToggle2 ? 'Edytuj' : 'Zapisz';
+            });
+            $scope.EditSaveToggle3 = true;
+            $scope.$watch('EditSaveToggle3', function(){
+                $scope.ESToggle3 = $scope.EditSaveToggle3 ? 'Edytuj' : 'Zapisz';
+            });
+            $scope.EditSaveToggle4 = true;
+            $scope.$watch('EditSaveToggle4', function(){
+                $scope.ESToggle4 = $scope.EditSaveToggle4 ? 'Edytuj' : 'Zapisz';
+            });
+            $scope.EditSaveToggle5 = true;
+            $scope.$watch('EditSaveToggle5', function(){
+                $scope.ESToggle5 = $scope.EditSaveToggle5 ? 'Edytuj' : 'Zapisz';
+            });
+            $scope.EditSaveToggle6 = true;
+            $scope.$watch('EditSaveToggle6', function(){
+                $scope.ESToggle6 = $scope.EditSaveToggle6 ? 'Edytuj' : 'Zapisz';
+            });
+            $scope.EditSaveToggle7 = true;
+            $scope.$watch('EditSaveToggle7', function(){
+                $scope.ESToggle7 = $scope.EditSaveToggle7 ? 'Edytuj' : 'Zapisz';
+            });
 })
         .controller('AdbiHeadController', function($scope) {
             $scope.TitleIndex = "ADBI";

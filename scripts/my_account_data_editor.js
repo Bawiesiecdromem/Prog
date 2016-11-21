@@ -1,9 +1,7 @@
 $(document).ready(function(){
     $('a').click(function(){
-		$div="#"+$(this).attr("id")+"-div";
+		$div="#"+$(this).attr("id")+"_div";
 		$disp=$($div).css("display");
 		$($div).slideToggle(500).siblings("div").hide();
-		$pdiv = "#"+$(this).attr("id")+"-div-p";
-		$($pdiv).hide();
 	});	
 });

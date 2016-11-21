@@ -24,6 +24,6 @@ a, a:active, a:hover, a:visited {
   color:inherit;
   text-decoration: none;
  }
- #A1-div, #A2-div, #A3-div, #A4-div, #A5-div, #A6-div, #A7-div {
+ #A1_div, #A2_div, #A3_div, #A4_div, #A5_div, #A6_div, #A7_div {
     display: none;
 }
