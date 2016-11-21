@@ -18,6 +18,8 @@
         <link rel="stylesheet" href="styles/bootstrap-theme.css">
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
+		<script type="text/javascript" src="scripts/register_validation.js"></script>
+        <link rel="stylesheet" href="styles/registerinvalidfields.css">
         <link rel="stylesheet" href="styles/st_page_myaccount.css">
         <script src="scripts/adbi_master.js"></script>
         <script src="scripts/my_account_data_editor.js"></script>
@@ -76,37 +78,85 @@
                     <table>
                         <tr>
                             <td>{{Email}}</td>
-                            <td><?php echo($_SESSION['u_email']);?></td>
+							<div>
+								<td><?php echo($_SESSION['u_email']);?>
+							</div>
+							<div id="A1-div">
+								<input type="text" id="fu_email" name="fu_email" value="<?php echo($_SESSION['u_email']);?>" required>
+								<span class="komentarz"></span><br><br><br><br>
+							</div>
+							</td>
                             <td><a id="A1">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Nick}}</td>
-                            <td><?php echo($_SESSION['u_nick']);?></td>
+							<div>
+								<td><?php echo($_SESSION['u_nick']);?>
+							</div>
+							<div id="A2-div">
+								<input type="text" id="fu_nick" name="fu_nick" value="<?php echo($_SESSION['u_nick']);?>" required>
+								<span class="komentarz"></span><br><br>
+							</div>
+							</td>
                             <td><a id="A2">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Password}}</td>
-                            <td><?php echo($_SESSION['u_password']);?></td>
+							<div>
+								<td><?php echo($_SESSION['u_password']);?>
+							</div>
+							<div id="A3-div">
+								<input type="text" name="fu_password" value="<?php echo($_SESSION['u_password']);?>" required>
+								<span class="komentarz"></span><br><br>
+							</div>
+							</td>
                             <td><a id="A3">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Name}}</td>
-                            <td><?php echo($_SESSION['u_name']);?></td>
+							<div>
+								<td><?php echo($_SESSION['u_name']);?>
+							</div>
+							<div id="A4-div">
+								<input type="text" name="rpassword" value="<?php echo($_SESSION['u_name']);?>" required>
+								<span class="komentarz"></span><br><br>
+							</div>
+							</td>
                             <td><a id="A4">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Forename}}</td>
-                            <td><?php echo($_SESSION['u_forename']);?></td>
+							<div>
+								<td><?php echo($_SESSION['u_forename']);?>
+							</div>
+							<div id="A5-div">
+								<input type="text" id="fu_name" name="fu_name" value="<?php echo($_SESSION['u_forename']);?>" required>
+								<span class="komentarz"></span><br><br>
+							</div>
+							</td>
                             <td><a id="A5">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Phone}}</td>
-                            <td><?php echo($_SESSION['u_phone']);?></td>
+							<div>
+								<td><?php echo($_SESSION['u_phone']);?>
+							</div>
+							<div id="A6-div">
+								<input type="text" id="fu_forename" name="fu_forename" value="<?php echo($_SESSION['u_phone']);?>" required>
+								<span class="komentarz"></span><br><br>
+							</div>
+							</td>
                             <td><a id="A6">{{Edit}}</a></td>
                         </tr>
                         <tr>
                             <td>{{Birth}}</td>
-                            <td><?php echo($_SESSION['u_birth']);?></td>
+							<div>
+								<td><?php echo($_SESSION['u_birth']);?></div>
+							<div id="A7-div">
+								<input type="text" id="fu_birth" name="fu_birth" value="<?php echo($_SESSION['u_birth']);?>" required>
+								<span class="komentarz"></span><br><br>
+							</div>
+							</td>
                             <td><a id="A7">{{Edit}}</a></td>
                         </tr>
                     </table>
