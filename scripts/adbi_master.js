@@ -3,7 +3,7 @@ angular.module('AdbiApp', [])
             $scope.navp1 = "ADBI";
             $scope.navp2 = "Strona główna";
             $scope.navp3 = "T.T";
-            $scope.navp4 = "T.T";
+            $scope.navp4 = "Obublikuj";
             $scope.Register = "Załóż konto";
             $scope.Login = "Zaloguj się";
             $scope.MyAds = "Moje ogłoszenia";
@@ -18,6 +18,7 @@ angular.module('AdbiApp', [])
             $scope.r1c5 = "test";
             $scope.WIP = "Witamy, witamy! Proszę rozgość się, nasi develperzy właśnie tworzą fotele.";
             $scope.greeting = "ADBI Send The Regards";
+            $scope.testo = '<h1>links!</h1>';
 })
         .controller('AdbiPageMyAccountController', function($scope) {
             $scope.tt = "";
@@ -48,8 +49,8 @@ angular.module('AdbiApp', [])
             //Togglers http://stackoverflow.com/questions/24320237/change-the-text-of-the-button-on-click-using-angular-js
             $E="glyphicon glyphicon-pencil"; //edytuj
             $Z="glyphicon glyphicon-ok"; //zapisz
-            $CSa="index.php"; //edytuj
-            $CSb=""; //wyślij
+            $CSa=""; //edytuj
+            $CSb='href="index.php"'; //wyślij
             $scope.EditSaveToggle1 = true;
             $scope.$watch('EditSaveToggle1', function(){
                 $scope.ESToggle1 = $scope.EditSaveToggle1 ? $E : $Z;
