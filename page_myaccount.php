@@ -42,7 +42,7 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="index.php">{{navp2}}</a></li>
                                     <li><a href="" target="_blank">{{navp3}}</a></li>
-                                    <li><a href="" target="_blank">{{navp4}}</a></li>
+                                    <li><a href="page_addnewad.php">{{navp4}}</a></li>
                                     <?php
                                         if ($_SESSION['userverificationkey']){
                                             echo '<li class="dropdown">
@@ -83,7 +83,7 @@
                                     <span class="komentarz"></span><br><br>
 				</div>
                             </td>
-                            <td><a id="A1" ng-click="EditSaveToggle1 = !EditSaveToggle1" href="{{CleverSender}}"><span class="{{ESToggle1}}"></span></a></td>
+                            <td><a id="A1" ng-click="EditSaveToggle1 = !EditSaveToggle1" {{CleverSender}}><span class="{{ESToggle1}}"></span></a></td>
                         </tr>
                         <tr>
                             <td>{{Nick}}</td>

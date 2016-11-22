@@ -40,7 +40,7 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="index.php">{{navp2}}</a></li>
                                     <li><a href="" target="_blank">{{navp3}}</a></li>
-                                    <li><a href="" target="_blank">{{navp4}}</a></li>
+                                    <li class="active"><a href="page_addnewad.php">{{navp4}}</a></li>
                                     <?php
                                         if ($_SESSION['userverificationkey']){
                                             echo '<li class="dropdown">
