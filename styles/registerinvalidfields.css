@@ -1,5 +1,5 @@
 input.invalid{
-    background-color: lightcoral;
+    background-color: red;
 }
 input.valid{
     border-color: limegreen;

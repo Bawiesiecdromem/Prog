@@ -67,13 +67,15 @@
             </div>
             <!--/\NAV/\-->
             <div class="row">
-                <div class="col-md-4" ng-controller="AdbiNewAdController" style='background-color: yellow'>
-                    <h4>{{TypeOfTypes}}</h4><br>
-                    <a id="T1">{{Type1}}</a><br>
-                    <a id="T2">{{Type2}}</a><br>
-                    <a id="T3">{{Type3}}</a><br>
+                <div class="col-md-2" ng-controller="AdbiNewAdController">
+                    <div id="ToTs">
+                        <h4 id="ToT">{{TypeOfTypes}}</h4><br>
+                        <span><a id="T1">{{Type1}} <span id="T1s" class="glyphicon glyphicon-chevron-right"></span></a></span><br>
+                        <span><a id="T2">{{Type2}} <span id="T2s" class="glyphicon glyphicon-chevron-right"></span></a></span><br>
+                        <span><a id="T3">{{Type3}} <span id="T3s" class="glyphicon glyphicon-chevron-right"></span></a></span><br>
+                    </div>
                 </div>
-                <div class="col-md-8" style='background-color: lightgreen'>
+                <div class="col-md-10">
                     <div id='T1_div'>
                         T1
                         dsa
@@ -82,15 +84,20 @@
                         T2
                     </div>
                     <div id='T3_div'>
-                        T3
-                        gfhgf
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        gfh
+                        <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
+                        Podaj tytuł:  
+                        <input type='text' name='fad_title' ></br>
+                        <textarea rows='13' cols='80' type='text' name='fad_desc' value='fad_desc' maxlength='1000'></textarea>
+                        Dodaj zdjęcie: 
+                        <input type='file' accept='image/*' name='fad_photo' id='fad_photo'>
+                        <--input rozsowany z kategorią czekbox z +18-->
+                        <button type='submit' name='formsend' value='formsend'><span>Prześlij</span></button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" style='background-color: lightsalmon'>
+                <div class="col-md-12">
                     test<br>
                     test<br>
                 </div>
