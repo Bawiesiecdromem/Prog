@@ -10,3 +10,11 @@ body{
     width: 20px;
     height: 20px;
 }
+::selection {
+	background: #ec7ebd;
+	color: #fff;
+}
+::-moz-selection {
+	background: #ec7ebd;
+	color: #fff;
+}
