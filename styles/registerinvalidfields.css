@@ -1,9 +1,11 @@
 input.invalid{
     background-color: lightcoral;
 }
+input.valid{
+    border-color: limegreen;
+}
 .komentarz{
     margin-top: 2px;
-    color: red;
-    float: left;
     font-size: 12px;
+    float:left;
 }

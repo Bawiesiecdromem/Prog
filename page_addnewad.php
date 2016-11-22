@@ -5,29 +5,27 @@
         header('location: oszust.html');
     }
 ?>
-<html>
+<html ng-app="AdbiApp">
     <head ng-controller="AdbiHeadController">
         <meta charset="UTF-8">
         <title>{{TitlePageAddNewAd}}</title>
         <!--\/ADBIBASICLINKS\/-->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="styles/bootstrap.css">
-        <link rel="stylesheet" href="styles/bootstrap-theme.css">
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
         <link rel="stylesheet" href="styles/st_page_addnewad.css">
         <script src="scripts/adbi_master.js"></script>
         <script src="scripts/add_new_ad_type_changer.js"></script>
     </head>
-    <body ng-app="AdbiApp">
+    <body>
         <div class="container adbi_class_wholepage">
             <!--\/NAV\/-->
             <div class="row" ng-controller="AdbiNavbarController">
                 <div class="col-md-12">
-                    <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <nav class="navbar navbar-default navbar-fixed-top">
                         <div class="container">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">

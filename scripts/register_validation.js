@@ -6,11 +6,11 @@ $(document).ready(function() {
  var is_email = pattern.test(input.val());
  if(is_email){
  input.removeClass("invalid").addClass("valid");
- input.next('.komentarz').text("Jest dobrze").removeClass("alert alert-warning").addClass("alert alert-success");
+ input.next('.komentarz').removeClass("alert alert-danger").addClass("alert alert-success").hide();
  }
  else{
  input.removeClass("valid").addClass("invalid");
- input.next('.komentarz').text("Wprowadź poprawny email!").removeClass("alert alert-success").addClass("alert alert-warning");
+ input.next('.komentarz').text("Wprowadź poprawny email!").removeClass("alert alert-success").addClass("alert alert-danger").show();
  }
  });    
    
@@ -19,11 +19,11 @@ $('#fu_nick').on('blur', function() {
  var name_length = input.val().length;
  if(name_length >= 5 && name_length <= 32){
  input.removeClass("invalid").addClass("valid");
- input.next('.komentarz').text("Jest dobrze").removeClass("alert alert-warning").addClass("alert alert-success");
+ input.next('.komentarz').removeClass("alert alert-danger").addClass("alert alert-success").hide();
  }
  else{
  input.removeClass("valid").addClass("invalid");
- input.next('.komentarz').text("Od 5 do 20 znaków!").removeClass("alert alert-success").addClass("alert alert-warning"); 
+ input.next('.komentarz').text("Od 5 do 20 znaków!").removeClass("alert alert-success").addClass("alert alert-danger").show(); 
  }
  });
  
@@ -32,11 +32,11 @@ $('#fu_nick').on('blur', function() {
  var name_length = input.val().length;
  if(name_length >= 1 && name_length <= 32){
  input.removeClass("invalid").addClass("valid");
- input.next('.komentarz').text("Jest dobrze").removeClass("alert alert-warning").addClass("alert alert-success");
+ input.next('.komentarz').removeClass("alert alert-danger").addClass("alert alert-success").hide();
  }
  else{
  input.removeClass("valid").addClass("invalid");
- input.next('.komentarz').text("Od 1 do 32 znaków!").removeClass("alert alert-success").addClass("alert alert-warning"); 
+ input.next('.komentarz').text("Od 1 do 32 znaków!").removeClass("alert alert-success").addClass("alert alert-danger").show();
  }
  });
  
@@ -45,11 +45,11 @@ $('#fu_nick').on('blur', function() {
  var name_length = input.val().length;
  if(name_length >= 1 && name_length <= 32){
  input.removeClass("invalid").addClass("valid");
- input.next('.komentarz').text("Jest dobrze").removeClass("alert alert-warning").addClass("alert alert-success");
+ input.next('.komentarz').removeClass("alert alert-danger").addClass("alert alert-success").hide();
  }
  else{
  input.removeClass("valid").addClass("invalid");
- input.next('.komentarz').text("Od 1 do 32 znaków!").removeClass("alert alert-success").addClass("alert alert-warning"); 
+ input.next('.komentarz').text("Od 1 do 32 znaków!").removeClass("alert alert-success").addClass("alert alert-danger").show();
  }
  }); 
 
@@ -59,11 +59,11 @@ $('#fu_nick').on('blur', function() {
  var is_email = pattern.test(input.val());
  if(is_email){
  input.removeClass("invalid").addClass("valid");
- input.next('.komentarz').text("Jest dobrze").removeClass("alert alert-warning").addClass("alert alert-success");
+ input.next('.komentarz').removeClass("alert alert-danger").addClass("alert alert-success").hide();
  }
  else{
  input.removeClass("valid").addClass("invalid");
- input.next('.komentarz').text("Niepoprawny Numer!").removeClass("alert alert-success").addClass("alert alert-warning");
+ input.next('.komentarz').text("Niepoprawny Numer!").removeClass("alert alert-success").addClass("alert alert-danger").show();
  }
  }); 
  
@@ -73,11 +73,11 @@ $('#fu_nick').on('blur', function() {
  var is_email = pattern.test(input.val());
  if(is_email){
  input.removeClass("invalid").addClass("valid");
- input.next('.komentarz').text("Jest dobrze").removeClass("alert alert-warning").addClass("alert alert-success");
+ input.next('.komentarz').removeClass("alert alert-danger").addClass("alert alert-success").hide();
  }
  else{
  input.removeClass("valid").addClass("invalid");
- input.next('.komentarz').text("Wprowadź poprawną date(rok-miesiąc-dzień)").removeClass("alert alert-success").addClass("alert alert-warning");
+ input.next('.komentarz').text("Wprowadź poprawną date(rok-miesiąc-dzień)").removeClass("alert alert-success").addClass("alert alert-danger").show();
  }
  }); 
  

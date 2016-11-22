@@ -16,6 +16,7 @@ angular.module('AdbiApp', [])
             $scope.r1c3 = "test";
             $scope.r1c4 = "test";
             $scope.r1c5 = "test";
+            $scope.WIP = "Witamy, witamy! Proszę rozgość się, nasi develperzy właśnie tworzą fotele.";
             $scope.greeting = "ADBI Send The Regards";
 })
         .controller('AdbiPageMyAccountController', function($scope) {
@@ -32,6 +33,7 @@ angular.module('AdbiApp', [])
             $scope.Phone = "Telefon:";
             $scope.Birth = "Data urodzenia:";
             $scope.Avatar = "Avatar:";
+            //Others:
             $scope.Edit = "Edytuj";
             $scope.Change = "Zmień...";
             //Holders:
@@ -44,33 +46,38 @@ angular.module('AdbiApp', [])
             $scope.HolderPhone = "123456789";
             $scope.HolderBirth = "1997-01-01";
             //Togglers http://stackoverflow.com/questions/24320237/change-the-text-of-the-button-on-click-using-angular-js
+            $E="glyphicon glyphicon-pencil"; //edytuj
+            $Z="glyphicon glyphicon-ok"; //zapisz
+            $CSa="index.php"; //edytuj
+            $CSb=""; //wyślij
             $scope.EditSaveToggle1 = true;
             $scope.$watch('EditSaveToggle1', function(){
-                $scope.ESToggle1 = $scope.EditSaveToggle1 ? 'Edytuj' : 'Zapisz';
+                $scope.ESToggle1 = $scope.EditSaveToggle1 ? $E : $Z;
+                $scope.CleverSender = $scope.EditSaveToggle1 ? $CSa : $CSb;
             });
             $scope.EditSaveToggle2 = true;
             $scope.$watch('EditSaveToggle2', function(){
-                $scope.ESToggle2 = $scope.EditSaveToggle2 ? 'Edytuj' : 'Zapisz';
+                $scope.ESToggle2 = $scope.EditSaveToggle2 ? $E : $Z;
             });
             $scope.EditSaveToggle3 = true;
             $scope.$watch('EditSaveToggle3', function(){
-                $scope.ESToggle3 = $scope.EditSaveToggle3 ? 'Edytuj' : 'Zapisz';
+                $scope.ESToggle3 = $scope.EditSaveToggle3 ? $E : $Z;
             });
             $scope.EditSaveToggle4 = true;
             $scope.$watch('EditSaveToggle4', function(){
-                $scope.ESToggle4 = $scope.EditSaveToggle4 ? 'Edytuj' : 'Zapisz';
+                $scope.ESToggle4 = $scope.EditSaveToggle4 ? $E : $Z;
             });
             $scope.EditSaveToggle5 = true;
             $scope.$watch('EditSaveToggle5', function(){
-                $scope.ESToggle5 = $scope.EditSaveToggle5 ? 'Edytuj' : 'Zapisz';
+                $scope.ESToggle5 = $scope.EditSaveToggle5 ? $E : $Z;
             });
             $scope.EditSaveToggle6 = true;
             $scope.$watch('EditSaveToggle6', function(){
-                $scope.ESToggle6 = $scope.EditSaveToggle6 ? 'Edytuj' : 'Zapisz';
+                $scope.ESToggle6 = $scope.EditSaveToggle6 ? $E : $Z;
             });
             $scope.EditSaveToggle7 = true;
             $scope.$watch('EditSaveToggle7', function(){
-                $scope.ESToggle7 = $scope.EditSaveToggle7 ? 'Edytuj' : 'Zapisz';
+                $scope.ESToggle7 = $scope.EditSaveToggle7 ? $E : $Z;
             });
 })
         .controller('AdbiHeadController', function($scope) {

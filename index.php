@@ -1,19 +1,17 @@
-<html>
+<html ng-app="AdbiApp">
     <head ng-controller="AdbiHeadController">
         <meta charset="UTF-8">
         <title>{{TitleIndex}}</title>
         <!--\/ADBIBASICLINKS\/-->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="styles/bootstrap.css">
-        <link rel="stylesheet" href="styles/bootstrap-theme.css">
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
         <script src="scripts/adbi_master.js"></script>
     </head>
-    <body ng-app="AdbiApp">
+    <body>
         <?php
             session_start();
             error_reporting(0);
@@ -22,7 +20,7 @@
             <!--\/NAV\/-->
             <div class="row" ng-controller="AdbiNavbarController">
                 <div class="col-md-12">
-                    <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <nav class="navbar navbar-default navbar-fixed-top">
                         <div class="container">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -64,46 +62,25 @@
             </div>
             <!--/\NAV/\-->
             <div class="row" ng-controller="AdbiController">
-                <div class="col-md-1" style='background-color: red'>
-                    test<br>
-                    test<br>
-                    test<br>
-                    test<br>
-                    test<br>
+                <div class="col-md-1">
+
                 </div>
-                <div class="col-md-3" style='background-color: yellow'>
-                    Witamy, witamy! Proszę rozgość się, nasi develperzy właśnie tworzą fotele.
+                <div class="col-md-3">
+                    {{WIP}}
                 </div>
-                <div class="col-md-4" style='background-color: lightgreen'>
-                    <div>
-                        <div>
+                <div class="col-md-4">
                             <h1>{{greeting}}</h1>
-                        </div>
-                    </div>
                 </div>
-                <div class="col-md-3" style='background-color: yellow'>
-                    test<br>
-                    test<br>
-                    test<br>
-                    test<br>
-                    test<br>
+                <div class="col-md-3">
+                    
                 </div>
-                <div class="col-md-1" style='background-color: red'>
-                    <?php
-                        if ($_SESSION['u_email']){
-                            echo '<button onclick="location.href=`f_logout.php`" class="btn btn-danger">Logout</button>';
-                        }
-                        else{
-                            echo '<button onclick="location.href=`page_register.html`">Register</button>';
-                            echo '<button onclick="location.href=`page_login.html`">Login</button>';
-                        }
-                    ?>
+                <div class="col-md-1">
+
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" style='background-color: lightsalmon'>
-                    test<br>
-                    test<br>
+                <div class="col-md-12">
+
                 </div>
             </div>
         </div>
