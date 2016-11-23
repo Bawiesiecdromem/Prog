@@ -110,10 +110,21 @@
             <div class="row">
                 <p class="adbiseparator"></p>
             </div>
-            <div class="row">
+            <div class="row" ng-controller="AdbiNewAdController">
                 <div class="col-md-12">
-                    test<br>
-                    test<br>
+                    <h4>{{MyAds}}</h4>
+                    <p class="adbiseparator"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    
+                </div>
+                <div class="col-md-8" style="background-color: palevioletred;">
+                    tutajsąogłoszenia
+                </div>
+                <div class="col-md-2">
+                    
                 </div>
             </div>
         </div>
