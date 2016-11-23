@@ -12,7 +12,7 @@ $u_name = strip_tags($_POST['fu_name']);
 $u_forename = strip_tags($_POST['fu_forename']);
 $u_phone = strip_tags($_POST['fu_phone']);
 $u_birth = strip_tags($_POST['fu_birth']);
-$u_date = date("Y-m-d");
+$u_date = date("Y-m-d H:i:s");
 
 if($submit){
     if($u_email&&$u_nick&&$u_password&&$rpassword&&$u_name&&$u_forename&&$u_phone&&$u_birth&&$u_date){

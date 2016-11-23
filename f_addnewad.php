@@ -6,7 +6,7 @@ if (!$_SESSION['userverificationkey']){
 $submit = $_POST['formsend'];
 $ad_title = strip_tags($_POST['fad_title']);
 $ad_desc = strip_tags($_POST['fad_desc']);
-$ad_date = date('Y-m-d');
+$ad_date = date('Y-m-d H:i:s');
 $u_id = $_SESSION['u_id'];
 $cat_id = $_POST['fcat_id'];
 $mature_content = $_POST['fmature_content'];
