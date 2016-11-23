@@ -77,8 +77,10 @@
                 </div>
                 <div id="forms" class="col-md-10">
                     <div id='T1_div'>
-                        T1
-                        dsa
+                        <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
+                            <br><textarea class='form-control' rows='7' type='text' name='fad_desc' value='fad_desc' maxlength='254' placeholder='Treść'></textarea>
+                            <br><input type="submit" name="formsend1" value="Opublikuj" class='btn btn-danger'>
+                        </form>
                     </div>
                     <div id='T2_div'>
                         T2
@@ -102,7 +104,7 @@
                                 <option value="12c">Dom i ogród</option>
                                 <option value="13c">Zwierzęta</option>
                             </select><br>
-                            <button class="btn btn-secondary" name='formsend' value='formsend'><span>Prześlij</span></button>
+                            <input type="submit" name="formsend3" value="Opublikuj" class='btn btn-danger'>
                         </form>
                     </div>
                 </div>
@@ -120,27 +122,23 @@
                 <div class="col-md-2">
                     
                 </div>
-                <div class="col-md-8" style="background-color: palevioletred;">
-<?php
-$con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
-       mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
-
-$q = mysql_query("SELECT * FROM T_AD ORDER BY ad_id desc") or die ('nie');
-
-while($pole = mysql_fetch_array($q)){
-
-echo "<div>".$pole['ad_title']."</div></br>";
-echo "<div> Autor: ".$_SESSION['u_nick']." Zwany: ".$_SESSION['u_name']."</div>";
-echo "<div> Data dodania: ".$pole['ad_date']."</div></br>";
-echo "<div>".$pole['ad_desc']."</br></br></div>";
-//if($pole['ad_photo']){
-//echo "<img src='/pics/".$pole['ad_photo']."'></br></img></br> </div></br>";
-//}
-//else
-//echo "</div></br>";
-}
-
-?>
+                <div class="col-md-8" style="background-color: #ec7ebd;">
+                    <?php
+                        $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
+                               mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
+                        $q = mysql_query("SELECT * FROM T_AD ORDER BY ad_id desc") or die ('nie');
+                        while($pole = mysql_fetch_array($q)){
+                        echo "<div>".$pole['ad_title']."</div></br>";
+                        echo "<div> Autor: ".$_SESSION['u_nick']." Zwany: ".$_SESSION['u_name']."</div>";
+                        echo "<div> Data dodania: ".$pole['ad_date']."</div></br>";
+                        echo "<div>".$pole['ad_desc']."</br></br></div>";
+                        //if($pole['ad_photo']){
+                        //echo "<img src='/pics/".$pole['ad_photo']."'></br></img></br> </div></br>";
+                        //}
+                        //else
+                        //echo "</div></br>";
+                        }
+                    ?>
                 </div>
                 <div class="col-md-2">
                     
