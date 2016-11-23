@@ -28,4 +28,8 @@
 a, a:active, a:hover, a:visited {
   color:inherit;
   text-decoration: none;
- }
+}
+#MyAdsHeader {
+    text-align: center;
+    padding-bottom: 15px;
+}
