@@ -12,16 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/f_addnewad.php</file>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/scripts/adbi_master.js</file>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/page_register.html</file>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/page_myaccount.php</file>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/scripts/my_account_data_editor.js</file>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/index.php</file>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/styles/st_bodyschema.css</file>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/page_addnewad.php</file>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/styles/st_page_addnewad.css</file>
-            <file>file:/E:/Gry/Xampp/htdocs/ADBI/f_register.php</file>
+            <file>file:/C:/xampp/htdocs/Prog-master/f_register.php</file>
+            <file>file:/C:/xampp/htdocs/Prog-master/page_addnewad.php</file>
+            <file>file:/C:/xampp/htdocs/Prog-master/f_addnewad.php</file>
+            <file>file:/C:/xampp/htdocs/Prog-master/page_register.html</file>
         </group>
     </open-files>
 </project-private>

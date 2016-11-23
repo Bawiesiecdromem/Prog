@@ -90,7 +90,7 @@
                         <textarea rows='13' cols='80' type='text' name='fad_desc' value='fad_desc' maxlength='1000'></textarea>
                         Dodaj zdjęcie: 
                         <input type='file' accept='image/*' name='fad_photo' id='fad_photo'>
-                        <--input rozsowany z kategorią czekbox z +18-->
+                        <input type="checkbox" name="fmature_content"> +18<br>
                         <button type='submit' name='formsend' value='formsend'><span>Prześlij</span></button>
                         </form>
                     </div>
