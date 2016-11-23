@@ -111,7 +111,7 @@
                 <p class="adbiseparator"></p>
             </div>
             <div class="row" ng-controller="AdbiNewAdController">
-                <div class="col-md-12">
+                <div id="MyAdsHeader" class="col-md-12">
                     <h4>{{MyAds}}</h4>
                     <p class="adbiseparator"></p>
                 </div>
@@ -121,7 +121,26 @@
                     
                 </div>
                 <div class="col-md-8" style="background-color: palevioletred;">
-                    tutajsąogłoszenia
+<?php
+$con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
+       mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
+
+$q = mysql_query("SELECT * FROM T_AD ORDER BY ad_id desc") or die ('nie');
+
+while($pole = mysql_fetch_array($q)){
+
+echo "<div>".$pole['ad_title']."</div></br>";
+echo "<div> Autor: ".$_SESSION['u_nick']." Zwany: ".$_SESSION['u_name']."</div>";
+echo "<div> Data dodania: ".$pole['ad_date']."</div></br>";
+echo "<div>".$pole['ad_desc']."</br></br></div>";
+//if($pole['ad_photo']){
+//echo "<img src='/pics/".$pole['ad_photo']."'></br></img></br> </div></br>";
+//}
+//else
+//echo "</div></br>";
+}
+
+?>
                 </div>
                 <div class="col-md-2">
                     
