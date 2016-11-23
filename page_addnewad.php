@@ -85,13 +85,24 @@
                     </div>
                     <div id='T3_div'>
                         <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
-                        Podaj tytuł:  
-                        <input type='text' name='fad_title' ></br>
-                        <textarea rows='13' cols='80' type='text' name='fad_desc' value='fad_desc' maxlength='1000'></textarea>
-                        Dodaj zdjęcie: 
-                        <input type='file' accept='image/*' name='fad_photo' id='fad_photo'>
-                        <input type="checkbox" name="fmature_content"> +18<br>
-                        <button type='submit' name='formsend' value='formsend'><span>Prześlij</span></button>
+                            <input class='form-control' type='text' name='fad_title' placeholder='Tytuł'></br>
+                            <textarea class='form-control' rows='7' type='text' name='fad_desc' value='fad_desc' maxlength='254' placeholder='Treść'></textarea>
+                            Dodaj zdjęcie: <input type='file' accept='image/*' name='fad_photo' id='fad_photo'>
+                            <input type="checkbox" name="fmature_content"> +18<br>
+                            <select class="form-control" name='fcat_id' id="fcat_id">
+                                <option value="3c">Motoryzacja</option>
+                                <option value="4c">Elektronikia</option>
+                                <option value="5c">Nieruchomości</option>
+                                <option value="6c">Moda</option>
+                                <option value="7c">Sport i hobby</option>
+                                <option value="8c">Praca</option>
+                                <option value="9c">Rolnictwo</option>
+                                <option value="10c">Edukacja</option>
+                                <option value="11c">Muzyka</option>
+                                <option value="12c">Dom i ogród</option>
+                                <option value="13c">Zwierzęta</option>
+                            </select><br>
+                            <button class="btn btn-secondary" name='formsend' value='formsend'><span>Prześlij</span></button>
                         </form>
                     </div>
                 </div>

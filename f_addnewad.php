@@ -20,7 +20,7 @@ if($submit){
     if($ad_title&&$ad_desc){
         $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
         mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
-        $query = mysql_query("INSERT INTO T_AD (ad_title, ad_desc, ad_date, u_id, cat_id, mature_content) VALUES ('$ad_title','$ad_desc','$ad_date','$u_id','3','$mature_content')");
+        $query = mysql_query("INSERT INTO T_AD (ad_title, ad_desc, ad_date, u_id, cat_id, mature_content) VALUES ('$ad_title','$ad_desc','$ad_date','$u_id','$cat_id','$mature_content')");
         header('Location: page_addnewad.php');
     }
 }
