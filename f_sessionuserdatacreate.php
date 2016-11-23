@@ -29,6 +29,8 @@ if ($_SESSION['u_email']){
             $_SESSION['u_date'] = $session_u_date;
             $session_u_avatar = $row['u_avatar'];
             $_SESSION['u_avatar'] = $session_u_avatar;
+            $session_u_god = $row['u_god'];
+            $_SESSION['u_god'] = $session_u_god;
             $_SESSION['userverificationkey'] = $session_u_email.$session_u_name.$session_u_password;
             }
         }

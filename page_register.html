@@ -46,16 +46,16 @@
             <!--/\NAV/\-->
             <form id="form_register" accept-charset="UTF-8" action="f_register.php" method="POST">
                 <div class="row">
-                    <div class="col-md-1">
+                    <div class="col-md-2">
 
                     </div>
-                    <div class="col-md-5" ng-controller="AdbiUserFormController">
+                    <div id="formdiv1" class="col-md-4" ng-controller="AdbiUserFormController">
                         <table id='idk_table-1'>
                             <tr>
                                 <th>
                                     <div class="form-group">
                                         <p>{{Email}}<br></p>
-                                        <input type="text" id="fu_email" name="fu_email" placeholder="{{HolderEmail}}" required>
+                                        <input type="text" id="fu_email" class="input-sm form-control" name="fu_email" placeholder="{{HolderEmail}}" required>
                                         <span class="komentarz"></span><br><br>
                                         <br>
                                         <br>
@@ -66,7 +66,7 @@
                                 <th>
                                     <div class="form-group">
                                         <p>{{Nick}}<br></p>
-                                        <input type="text" id="fu_nick" name="fu_nick" placeholder="{{HolderNick}}" required>
+                                        <input type="text" id="fu_nick" class="input-sm form-control" name="fu_nick" placeholder="{{HolderNick}}" required>
                                         <span class="komentarz"></span><br><br>
                                         <br>
                                         <br>
@@ -77,7 +77,7 @@
                                 <th>
                                     <div class="form-group">
                                         <p>{{Password}}<br></p>
-                                        <input type="text" name="fu_password" placeholder="{{HolderPassword}}" required>
+                                        <input type="text" class="input-sm form-control" name="fu_password" placeholder="{{HolderPassword}}" required>
                                         <span class="komentarz"></span><br><br>
                                         <br>
                                         <br>
@@ -88,7 +88,7 @@
                                 <th>
                                     <div class="form-group">
                                         <p>{{RPassword}}<br></p>
-                                        <input type="text" name="rpassword" placeholder="{{HolderRPassword}}" required>
+                                        <input type="text" class="input-sm form-control" name="rpassword" placeholder="{{HolderRPassword}}" required>
                                         <span class="komentarz"></span><br><br><br>
                                         <br>
                                         <br>
@@ -97,13 +97,13 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="col-md-5" ng-controller="AdbiUserFormController">
+                    <div id="formdiv2" class="col-md-4" ng-controller="AdbiUserFormController">
                         <table id='idk_table-2'>
                             <tr>
                                 <th>
                                     <div class="form-group">
                                         <p>{{Name}}<br></p>
-                                        <input type="text" id="fu_name" name="fu_name" placeholder="{{HolderName}}" required>
+                                        <input type="text" id="fu_name" class="input-sm form-control" name="fu_name" placeholder="{{HolderName}}" required>
                                         <span class="komentarz"></span><br><br>
                                         <br>
                                         <br>
@@ -114,7 +114,7 @@
                                 <th>
                                     <div class="form-group">
                                         <p>{{Forename}}<br></p>
-                                        <input type="text" id="fu_forename" name="fu_forename" placeholder="{{HolderForename}}" required>
+                                        <input type="text" id="fu_forename" class="input-sm form-control" name="fu_forename" placeholder="{{HolderForename}}" required>
                                         <span class="komentarz"></span><br><br>
                                         <br>
                                         <br>
@@ -125,7 +125,7 @@
                                 <th>
                                     <div class="form-group">
                                         <p>{{Phone}}<br></p>
-                                        <input type="text" id="fu_phone" name="fu_phone" placeholder="{{HolderPhone}}" required>
+                                        <input type="text" id="fu_phone" class="input-sm form-control" name="fu_phone" placeholder="{{HolderPhone}}" required>
                                         <span class="komentarz"></span><br><br>
                                         <br>
                                         <br>
@@ -136,7 +136,7 @@
                                 <th>
                                     <div class="form-group">
                                         <p>{{Birth}}<br></p>
-                                        <input type="text" id="fu_birth" name="fu_birth" placeholder="{{HolderBirth}}" required>
+                                        <input type="text" id="fu_birth" class="input-sm form-control" name="fu_birth" placeholder="{{HolderBirth}}" required>
                                         <span class="komentarz"></span><br><br><br>
                                         <br>
                                         <br>
@@ -145,11 +145,11 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                     </div>
                 </div>
                 <div class="row">
-                    <center><input type="submit" name="formsend" value="Wyślij!" class='btn-danger'></center>
+                    <center><input type="submit" name="formsend" value="Wyślij!" class='btn btn-danger'></center>
                 </div>
             </form>
         </div>

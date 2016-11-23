@@ -1,11 +1,16 @@
 input.invalid{
-    background-color: red;
+    background-color: #f04124;
+    border-color: #ea2f10;
+    color: #ffffff;
 }
 input.valid{
-    border-color: limegreen;
+    background-color: #43ac6a;
+    border-color: #3c9a5f;
+    color: #ffffff;
 }
 .komentarz{
     margin-top: 2px;
     font-size: 12px;
     float:left;
+    color: #ffffff;
 }

@@ -1,13 +1,19 @@
-table{
-    width: 100px;
-}
-#idk_table-1{
-    float: right;
-    margin-top: 0;
-    margin-right: 7.5%;
-}
-#idk_table-2{
-    float: left;
-    margin-top: 0;
-    margin-left: 7.5%;
+#formdiv1{
+    margin-top: 5%;
+    margin-bottom: 2.5%;
+    border-left-style: solid;
+    border-left-color: #665D5D;
+    border-left-width: 1px;
+    border-right-style: solid;
+    border-right-color: #665D5D;
+    border-right-width: 1px;
+    border-top-style: solid;
+    border-top-color: #665D5D;
+    border-top-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #665D5D;
+    border-bottom-width: 1px;
+    text-align: center;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
 }

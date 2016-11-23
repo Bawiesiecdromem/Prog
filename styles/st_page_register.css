@@ -1,13 +1,23 @@
 table{
-    width: 100px;
+    width: 180px;
 }
 #idk_table-1{
     float: right;
     margin-top: 0;
-    margin-right: 7.5%;
+    margin-right: 15%;
 }
 #idk_table-2{
     float: left;
     margin-top: 0;
-    margin-left: 7.5%;
+    margin-left: 15%;
+}
+#formdiv1{
+    border-left-style: solid;
+    border-left-color: #665D5D;
+    border-left-width: 1px;
+}
+#formdiv2{
+    border-right-style: solid;
+    border-right-color: #665D5D;
+    border-right-width: 1px;
 }

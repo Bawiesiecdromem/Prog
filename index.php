@@ -69,14 +69,21 @@
                     {{WIP}}
                 </div>
                 <div class="col-md-4">
-                            <h1>{{greeting}}</h1>
+                    <h1>{{greeting}}</h1>
                 </div>
                 <div class="col-md-3">
-                    
+                    <?php 
+                        if ($_SESSION['u_god']){
+                            echo '<a href="page_godpanel.php">{{WelcomeInHeaven}}</a>';
+                        }
+                    ?>
                 </div>
                 <div class="col-md-1">
 
                 </div>
+            </div>
+            <div class="row">
+                <p class="adbiseparator"></p>
             </div>
             <div class="row">
                 <div class="col-md-12">

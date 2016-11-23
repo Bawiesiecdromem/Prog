@@ -75,7 +75,7 @@
                         <span><a id="T3">{{Type3}} <span id="T3s" class="glyphicon glyphicon-chevron-right"></span></a></span><br>
                     </div>
                 </div>
-                <div class="col-md-10">
+                <div id="forms" class="col-md-10">
                     <div id='T1_div'>
                         T1
                         dsa
@@ -95,6 +95,9 @@
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <p class="adbiseparator"></p>
             </div>
             <div class="row">
                 <div class="col-md-12">

@@ -1,10 +1,9 @@
-#T1_div {
-    display: none;
+#forms {
+    border-left-style: solid;
+    border-left-color: #665D5D;
+    border-left-width: 1px;
 }
-#T2_div {
-    display: none;
-}
-#T3_div {
+#T1_div, #T2_div, #T3_div {
     display: none;
 }
 #ToTs{

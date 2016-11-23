@@ -18,6 +18,7 @@ angular.module('AdbiApp', [])
             $scope.r1c5 = "test";
             $scope.WIP = "Witamy, witamy! Proszę rozgość się, nasi develperzy właśnie tworzą fotele.";
             $scope.greeting = "ADBI Send The Regards";
+            $scope.WelcomeInHeaven = "There is a Heaven, let's keep it a secret.";
             $scope.testo = '<h1>links!</h1>';
 })
         .controller('AdbiPageMyAccountController', function($scope) {
