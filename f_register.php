@@ -37,7 +37,7 @@ if($submit){
                 $session_u_nick = $row['u_nick'];
                 $_SESSION['u_nick'] = $session_u_nick;
                 }
-                if (fu_email==$session_u_email&&$u_password==$session_u_password){
+                if ($u_email==$session_u_email&&$u_password==$session_u_password){
                     echo "Trwa przekierowanie, jeżeli nie nastąpi w przeciągu 5 sec naciśnij  <a href='uzytkownik.php'>TUTAJ </a>";
                     $_SESSION['u_email']=$u_email;
                     header('Location: f_sessionuserdatacreate.php');

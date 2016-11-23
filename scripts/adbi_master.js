@@ -94,6 +94,7 @@ angular.module('AdbiApp', [])
             $scope.Type1 = "Post";
             $scope.Type2 = "Zdjęcie";
             $scope.Type3 = "Ogłoszenie";
+            $scope.MyAds = "Moje ogłoszenia:";
 })
         .controller('AdbiPageAccountEdit', function($scope,$http) {
 	    $scope.edit = function(u_id, u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth)

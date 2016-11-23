@@ -126,7 +126,7 @@
                     <?php
                         $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
                                mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
-                        $q = mysql_query("SELECT * FROM T_AD ORDER BY ad_id desc") or die ('nie');
+                        $q = mysql_query("SELECT * FROM T_AD WHERE u_id = ".$_SESSION['u_id']." ORDER BY ad_id desc") or die ('nie');
                         while($pole = mysql_fetch_array($q)){
                         echo "<div>".$pole['ad_title']."</div></br>";
                         echo "<div> Autor: ".$_SESSION['u_nick']." Zwany: ".$_SESSION['u_name']."</div>";
