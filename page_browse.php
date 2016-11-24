@@ -117,11 +117,25 @@
                             '
                                 </div>
                                 <div class="Ad-Bottom">
-                                    '.'
+                            ';
+                        $ten=15;
+                        $comms_query = mysql_query("SELECT T_C.*, T_U.* FROM T_COMMENTS AS T_C JOIN T_USERS AS T_U ON T_C.u_id = T_U.u_id WHERE T_C.ad_id =".$row['ad_id']." ORDER BY comm_date desc") or die ('nie');
+                        while($comm_row = mysql_fetch_array($comms_query)){
+                            echo
+                            '
+                                <div><b>'.$comm_row['u_nick'].':</b> '.$comm_row['comm_desc'].'</div>
+                            ';
+                        }
+                            echo
+                            '
+                                    <form action="f_addnewcomm.php?ad_id='.$row['ad_id'].'" method="POST" enctype="multipart/form-data">
+                                        <textarea class="form-control" type="text" name="comm_desc" value="comm_desc" maxlength="255" placeholder="Napisz komentarz..."></textarea><input type="submit" name="formsend" value="Opublikuj" class="btn btn-danger">
+                                    </form>
                                 </div>
                                 <p class="adbiseparator"></p>
                             </div>
                             ';
+                        
                         }
                     ?>
                 </div>

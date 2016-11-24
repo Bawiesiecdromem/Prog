@@ -78,9 +78,9 @@
                 </div>
                 <div id="forms" class="col-md-10">
                     <div id='T1_div'>
-                        <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
-                            <br><textarea class='form-control' type='text' name='fad_desc' value='fad_desc' maxlength='254' placeholder='Treść'></textarea>
-                            <br><input type="submit" name="formsend1" value="Opublikuj" class='btn btn-danger'>
+                        <form action="f_addnewad.php" method="POST" enctype="multipart/form-data">
+                            <br><textarea class="form-control" type="text" name="fad_desc" value="fad_desc" maxlength="254" placeholder="Treść"></textarea>
+                            <br><input type="submit" name="formsend1" value="Opublikuj" class="btn btn-danger">
                         </form>
                     </div>
                     <div id='T2_div'>
@@ -89,7 +89,7 @@
                     <div id='T3_div'>
                         <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
                             <input class='form-control' type='text' name='fad_title' placeholder='Tytuł'></br>
-                            <textarea class='form-control' rows='7' type='text' name='fad_desc' value='fad_desc' maxlength='254' placeholder='Treść'></textarea>
+                            <textarea class='form-control' rows='7' type='text' name='fad_desc' value='fad_desc' maxlength='255' placeholder='Treść'></textarea>
                             Dodaj zdjęcie: <input type='file' accept='image/*' name='fad_photo' id='fad_photo'>
                             <input type="checkbox" name="fmature_content"> +18<br>
                             <select class="form-control" name='fcat_id' id="fcat_id">
