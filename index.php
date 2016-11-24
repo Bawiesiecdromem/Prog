@@ -34,7 +34,7 @@
                             <div id="navbar" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
                                     <li class="active"><a href="index.php">{{navp2}}</a></li>
-                                    <li><a href="" target="_blank">{{navp3}}</a></li>
+                                    <li><a href="page_browse.php">{{navp3}}</a></li>
                                     <li><a href="page_addnewad.php">{{navp4}}</a></li>
                                     <?php
                                         if ($_SESSION['userverificationkey']){

@@ -2,7 +2,7 @@ angular.module('AdbiApp', [])
         .controller('AdbiNavbarController', function($scope) {
             $scope.navp1 = "ADBI";
             $scope.navp2 = "Strona główna";
-            $scope.navp3 = "T.T";
+            $scope.navp3 = "Przeglądaj";
             $scope.navp4 = "Obublikuj";
             $scope.Register = "Załóż konto";
             $scope.Login = "Zaloguj się";
