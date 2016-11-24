@@ -17,6 +17,7 @@
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
         <link rel="stylesheet" href="styles/st_page_addnewad.css">
+        <link rel="stylesheet" href="styles/st_ads.css">
         <script src="scripts/adbi_master.js"></script>
         <script src="scripts/add_new_ad_type_changer.js"></script>
     </head>
@@ -46,7 +47,7 @@
                                             echo '<li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$_SESSION['u_nick'].'<img src='.$_SESSION['u_avatar'].' class="adbiavatar" alt="{{Nick}}"><span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="">{{MyAds}}</a></li>
+                                            <li><a href="page_users.php?u_id='.$_SESSION['u_id'].'">{{MyProfil}}</a></li>
                                             <li role="separator" class="divider"></li>
                                             <li><a href="page_myaccount.php">{{MyAccount}}</a></li>
                                             <li role="separator" class="divider"></li>
@@ -78,7 +79,7 @@
                 <div id="forms" class="col-md-10">
                     <div id='T1_div'>
                         <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
-                            <br><textarea class='form-control' rows='7' type='text' name='fad_desc' value='fad_desc' maxlength='254' placeholder='Treść'></textarea>
+                            <br><textarea class='form-control' type='text' name='fad_desc' value='fad_desc' maxlength='254' placeholder='Treść'></textarea>
                             <br><input type="submit" name="formsend1" value="Opublikuj" class='btn btn-danger'>
                         </form>
                     </div>
@@ -126,7 +127,7 @@
                     <?php
                         $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
                                mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
-                        $q = mysql_query("SELECT * FROM T_AD WHERE u_id = ".$_SESSION['u_id']." ORDER BY ad_id desc") or die ('nie');
+                        $q = mysql_query("SELECT * FROM T_AD WHERE u_id = ".$_SESSION['u_id']." ORDER BY ad_date desc") or die ('nie');
                         while($pole = mysql_fetch_array($q)){
                         echo "<div>".$pole['ad_title']."</div></br>";
                         echo "<div> Autor: ".$_SESSION['u_nick']." Zwany: ".$_SESSION['u_name']."</div>";

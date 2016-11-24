@@ -41,7 +41,7 @@
                                             echo '<li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$_SESSION['u_nick'].'<img src='.$_SESSION['u_avatar'].' class="adbiavatar" alt="{{Nick}}"><span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="">{{MyAds}}</a></li>
+                                            <li><a href="page_users.php?u_id='.$_SESSION['u_id'].'">{{MyProfil}}</a></li>
                                             <li role="separator" class="divider"></li>
                                             <li><a href="page_myaccount.php">{{MyAccount}}</a></li>
                                             <li role="separator" class="divider"></li>
@@ -69,7 +69,7 @@
                     {{WIP}}
                 </div>
                 <div class="col-md-4">
-                    <h1>{{greeting}}</h1>
+                    <a href="page_users.php?id=1"><h1>{{greeting}}</h1></a>
                 </div>
                 <div class="col-md-3">
                     <?php 

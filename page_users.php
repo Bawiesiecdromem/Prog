@@ -1,11 +1,7 @@
-<?php
-    session_start();
-    error_reporting(0);    
-?>
 <html ng-app="AdbiApp">
     <head ng-controller="AdbiHeadController">
         <meta charset="UTF-8">
-        <title>{{TitlePageBrowse}}</title>
+        <title>{{TitleIndex}}</title>
         <!--\/ADBIBASICLINKS\/-->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -13,12 +9,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
-        <link rel="stylesheet" href="styles/st_page_browse.css">
-        <link rel="stylesheet" href="styles/st_ads.css">
+        <link rel="stylesheet" href="styles/st_page_users.css">
         <script src="scripts/adbi_master.js"></script>
-        <script src="scripts/add_new_ad_type_changer.js"></script>
     </head>
     <body>
+        <?php
+            session_start();
+            error_reporting(0);
+        ?>
         <div class="container adbi_class_wholepage">
             <!--\/NAV\/-->
             <div class="row" ng-controller="AdbiNavbarController">
@@ -37,7 +35,7 @@
                             <div id="navbar" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
                                     <li><a href="index.php">{{navp2}}</a></li>
-                                    <li class="active"><a href="" target="_blank">{{navp3}}</a></li>
+                                    <li><a href="page_browse.php">{{navp3}}</a></li>
                                     <li><a href="page_addnewad.php">{{navp4}}</a></li>
                                     <?php
                                         if ($_SESSION['userverificationkey']){
@@ -63,69 +61,26 @@
                     </nav>
                 </div>
             </div>
-            <!--/\NAV/\-->        
+            <!--/\NAV/\-->
+            <?php
+                    $u_id = $_GET['u_id'];
+                    $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
+                    mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
+                    $ads_query = mysql_query("SELECT u_id,u_nick,u_name,u_forename,u_phone,u_birth,u_date,u_avatar FROM T_USERS WHERE u_id=$u_id") or die ('nie');
+                    $row = mysql_fetch_array($ads_query)
+            ?>
             <div class="row">
-                <p class="adbiseparator"></p>
-            </div>
-            <div class="row" ng-controller="AdbiPageBrowse">
-                <div id="BrowseHeader" class="col-md-12">
-                    <h4>{{BrowseAds}}</h4>
-                    <p class="adbiseparator"></p>
-                    <p class="adbiseparator-md"></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    
-                </div>
-                <div class="col-md-8">
+                <div class="col-md-3">
                     <?php
-                        $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
-                               mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
-                        $ads_query = mysql_query("SELECT * FROM T_AD JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
-                        while($row = mysql_fetch_array($ads_query)){
-                        echo 
-                            '
-                            <div class="Ad-Container">
-                                <div class="Ad-Head">
-                                    <a href="page_users.php?u_id='.$row['u_id'].'"><h5><img src='.$row['u_avatar'].' class="AdAuthorAvatar">'.$row['u_nick'].'</h5></a>
-                                </div>
-                                <div class="Ad-Content">
-                            ';
-                        if($row['cat_id']==1){
-                            echo
-                                '
-                                    <div class="Ad-C-Post">
-                                        '.$row['ad_desc'].'<br>
-                                    </div>
-                                ';
-                        }
-                        if($row['cat_id']==2){
-                            if($row['ad_photo']){
-                                echo 
-                                '
-                                        <div>
-                                            <img src='.$row['ad_photo'].' class="Ad-C-Photo">
-                                        </div>
-                                ';
-                            }
-                        }
-                        if($row['cat_id']>2){
-                            echo 'OGŁOSZENIE';
-                        }
-                        echo
-                            '
-                                </div>
-                                <div class="Ad-Bottom">
-                                    '.'
-                                </div>
-                                <p class="adbiseparator"></p>
-                            </div>
-                            ';
-                        }
+                        echo '<img src='.$row['u_avatar'].' class="ADBI_U-Avatar">';
                     ?>
                 </div>
-                <div class="col-md-2">
+                <div class="ADBI_U-Header col-md-6">
+                    <?php
+                        echo '<h1>'.$row['u_nick'].'</h1>';
+                    ?>
+                </div>
+                <div class="col-md-3">
                     
                 </div>
             </div>

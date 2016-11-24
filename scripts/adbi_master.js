@@ -6,8 +6,8 @@ angular.module('AdbiApp', [])
             $scope.navp4 = "Obublikuj";
             $scope.Register = "Załóż konto";
             $scope.Login = "Zaloguj się";
-            $scope.MyAds = "Moje ogłoszenia";
-            $scope.MyAccount = "Moje konto";
+            $scope.MyProfil = "Mój profil";
+            $scope.MyAccount = "Moje dane";
             $scope.Logout = ";-; Wyloguj ;-;";
 })
         .controller('AdbiController', function($scope) {
@@ -88,6 +88,7 @@ angular.module('AdbiApp', [])
             $scope.TitlePageLogin = "Logowanie";
             $scope.TitlePageMyAccount = "Moje Konto";
             $scope.TitlePageAddNewAd = "Dodaj nowe ogłoszenie";
+            $scope.TitlePageBrowse = "Przeglądaj";
 })
         .controller('AdbiNewAdController', function($scope) {
             $scope.TypeOfTypes = "Wybierz typ:";
@@ -110,4 +111,11 @@ angular.module('AdbiApp', [])
 		$scope.btnName="Edytuj";
 		$scope.displayStud();
 	};
+})
+        .controller('AdbiPageBrowse', function($scope) {
+            $scope.BrowseAds = "Ogłoszenia:";
+})
+        .controller('customersCtrl', function($scope, $http) {
+            $http.get("http://localhost:88/phpmyadmin/db_structure.php?server=1&db=adbi_db&table=t_users")
+    .then(function (response) {$scope.names = response.data.records;});
 });
