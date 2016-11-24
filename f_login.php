@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['u_email']){
-    header('location: oszust.html');
+    header('location: page_login.php?pleaselogintoview');
 }
 else{
     $u_email = $_POST['fu_email'];

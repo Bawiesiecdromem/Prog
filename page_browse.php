@@ -32,29 +32,29 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand" href="">{{navp1}}</a>
+                                <a class="navbar-brand" href="">{{Navp1}}</a>
                             </div>
                             <div id="navbar" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="index.php">{{navp2}}</a></li>
-                                    <li class="active"><a href="" target="_blank">{{navp3}}</a></li>
-                                    <li><a href="page_addnewad.php">{{navp4}}</a></li>
+                                    <li><a href="{{HrefNavp2}}">{{Navp2}}</a></li>
+                                    <li class="active"><a href="{{HrefNavp3}}">{{Navp3}}</a></li>
+                                    <li><a href="{{HrefNavp4}}">{{Navp4}}</a></li>
                                     <?php
                                         if ($_SESSION['userverificationkey']){
                                             echo '<li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$_SESSION['u_nick'].'<img src='.$_SESSION['u_avatar'].' class="adbiavatar" alt="{{Nick}}"><span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="page_users.php?u_id='.$_SESSION['u_id'].'">{{MyProfil}}</a></li>
+                                            <li><a href="{{HrefMyProfil}}'.$_SESSION['u_id'].'">{{MyProfil}}</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="page_myaccount.php">{{MyAccount}}</a></li>
+                                            <li><a href="{{HrefMyAccount}}">{{MyAccount}}</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="f_logout.php">{{Logout}}</a></li>
+                                            <li><a href="{{HrefLogout}}">{{Logout}}</a></li>
                                         </ul>
                                     </li>';
                                         }
                                         else{
-                                            echo '<li><a href="page_register.html">Załóż konto</a></li>';
-                                            echo '<li><a href="page_login.html">Zaloguj się</a></li>';
+                                            echo '<li><a href="{{HrefRegister}}">{{Register}}</a></li>';
+                                            echo '<li><a href="{{HrefLogin}}">{{Login}}</a></li>';
                                         }
                                     ?>
                                 </ul>
@@ -82,7 +82,7 @@
                     <?php
                         $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
                                mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
-                        $ads_query = mysql_query("SELECT * FROM T_AD JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
+                        $ads_query = mysql_query("SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
                         while($row = mysql_fetch_array($ads_query)){
                         echo 
                             '

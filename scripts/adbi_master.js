@@ -1,14 +1,22 @@
 angular.module('AdbiApp', [])
         .controller('AdbiNavbarController', function($scope) {
-            $scope.navp1 = "ADBI";
-            $scope.navp2 = "Strona główna";
-            $scope.navp3 = "Przeglądaj";
-            $scope.navp4 = "Obublikuj";
+            $scope.Navp1 = "ADBI";
+            $scope.Navp2 = "Strona główna";
+            $scope.HrefNavp2 = "index.php";
+            $scope.Navp3 = "Przeglądaj";
+            $scope.HrefNavp3 = "page_browse.php";
+            $scope.Navp4 = "Obublikuj";
+            $scope.HrefNavp4 = "page_addnewad.php";
             $scope.Register = "Załóż konto";
+            $scope.HrefRegister = "page_register.html";
             $scope.Login = "Zaloguj się";
+            $scope.HrefLogin = "page_login.php";
             $scope.MyProfil = "Mój profil";
+            $scope.HrefMyProfil = "page_users.php?u_id=";
             $scope.MyAccount = "Moje dane";
+            $scope.HrefMyAccount = "page_myaccount.php";
             $scope.Logout = ";-; Wyloguj ;-;";
+            $scope.HrefLogout = "f_logout.php";
 })
         .controller('AdbiController', function($scope) {
             $scope.r1c1 = "test";

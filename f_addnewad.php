@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!$_SESSION['userverificationkey']){
-        header('location: oszust.html');
+        header('location: page_login.php?pleaselogintoview');
     }
 $submit1 = $_POST['formsend1'];
 $submit2 = $_POST['formsend2'];
