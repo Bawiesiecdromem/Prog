@@ -29,6 +29,7 @@
     padding-right: 35px;
     width: 100%;
     word-break: break-all;
+    font-size: 20px;
 }
 .Ad-C-Photo{
     padding-top: 15px;
@@ -39,7 +40,23 @@
     padding-bottom: 15px;
 }
 .Ad-Bottom{
-    
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+.Ad-Comms{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 550px;
+    color: #665D5D;
+    font-weight: 400;
+    font-size: 14px;
+}
+.Ad-Comm-Nick{
+    color: black;
+    font-weight: 500;
 }
 .Ad-PostBox{
     min-width: 60%;

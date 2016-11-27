@@ -53,7 +53,7 @@
                     <div id="formdiv1" class="col-md-4" ng-controller="AdbiUserFormController">
                         <div class="form-group">
                             <p>{{Email}}<br></p>
-                            <input type="text" id="fu_email" class="form-control" name="fu_email" placeholder="{{HolderEmail}}" required>
+                            <input type="email" id="fu_email" class="form-control" name="fu_email" placeholder="{{HolderEmail}}" required>
                             <span class="komentarz"></span><br><br>
                             <br>
                         </div>

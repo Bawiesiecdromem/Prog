@@ -69,7 +69,7 @@
             </div>
             <div class="row" ng-controller="AdbiPageBrowse">
                 <div id="BrowseHeader" class="col-md-12">
-                    <h4>{{BrowseAds}}</h4>
+                    <h3>{{BrowseAds}}</h3>
                     <p class="adbiseparator"></p>
                     <p class="adbiseparator-md"></p>
                 </div>
@@ -86,8 +86,9 @@
                         echo 
                             '
                             <div class="Ad-Container">
+                                <p class="adbiseparator"></p>
                                 <div class="Ad-Head">
-                                    <a href="page_users.php?u_id='.$row['u_id'].'"><h5><img src='.$row['u_avatar'].' class="AdAuthorAvatar">'.$row['u_nick'].'</h5></a>
+                                    <a href="page_users.php?u_id='.$row['u_id'].'"><h4><img src='.$row['u_avatar'].' class="AdAuthorAvatar">'.$row['u_nick'].'</h4></a>
                                 </div>
                                 <div class="Ad-Content">
                             ';
@@ -121,13 +122,13 @@
                         while($comm_row = mysqli_fetch_array($comms_query)){
                             echo
                             '
-                                <div><b>'.$comm_row['u_nick'].':</b> '.$comm_row['comm_desc'].'</div>
+                                <div class="Ad-Comms"><span class="Ad-Comm-Nick">'.$comm_row['u_nick'].':</span> '.$comm_row['comm_desc'].'</div>
                             ';
                         }
                             echo
                             '
                                     <form action="f_addnewcomm.php?ad_id='.$row['ad_id'].'" method="POST" enctype="multipart/form-data">
-                                        <textarea class="form-control" type="text" name="comm_desc" value="comm_desc" maxlength="255" placeholder="Napisz komentarz..."></textarea><input type="submit" name="formsend" value="Opublikuj" class="btn btn-danger">
+                                        <input class="form-control" type="text" name="comm_desc" maxlength="255" placeholder="Napisz komentarz..."><input type="submit" name="formsend" value="Opublikuj" class="btn btn-danger">
                                     </form>
                                 </div>
                                 <p class="adbiseparator"></p>
