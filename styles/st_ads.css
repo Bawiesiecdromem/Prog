@@ -41,3 +41,9 @@
 .Ad-Bottom{
     
 }
+.Ad-PostBox{
+    min-width: 60%;
+    max-width: 60%;
+    min-height: 140px;
+    max-height: 140px;
+}

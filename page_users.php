@@ -64,10 +64,9 @@
             <!--/\NAV/\-->
             <?php
                     $u_id = $_GET['u_id'];
-                    $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
-                    mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
-                    $ads_query = mysql_query("SELECT u_id,u_nick,u_name,u_forename,u_phone,u_birth,u_date,u_avatar FROM T_USERS WHERE u_id=$u_id") or die ('nie');
-                    $row = mysql_fetch_array($ads_query)
+                    $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+                    $ads_query = mysqli_query($con,"SELECT u_id,u_nick,u_name,u_forename,u_phone,u_birth,u_date,u_avatar FROM T_USERS WHERE u_id=$u_id") or die ('nie');
+                    $row = mysqli_fetch_array($ads_query)
             ?>
             <div class="row">
                 <div class="col-md-3">

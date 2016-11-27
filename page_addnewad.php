@@ -79,7 +79,7 @@
                 <div id="forms" class="col-md-10">
                     <div id='T1_div'>
                         <form action="f_addnewad.php" method="POST" enctype="multipart/form-data">
-                            <br><textarea class="form-control" type="text" name="fad_desc" value="fad_desc" maxlength="254" placeholder="Treść"></textarea>
+                            <br><textarea class="Ad-PostBox form-control" contenteditable="true" type="text" name="fad_desc" value="fad_desc" maxlength="255" placeholder="Treść"></textarea>
                             <br><input type="submit" name="formsend1" value="Opublikuj" class="btn btn-danger">
                         </form>
                     </div>
@@ -125,13 +125,12 @@
                 </div>
                 <div class="col-md-8" style="background-color: #ec7ebd;">
                     <?php
-                        $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
-                               mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
-                        $q = mysql_query("SELECT * FROM T_AD WHERE u_id = ".$_SESSION['u_id']." ORDER BY ad_date desc") or die ('nie');
-                        while($pole = mysql_fetch_array($q)){
+                        $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+                        $q = mysqli_query($con,"SELECT * FROM T_AD WHERE u_id = ".$_SESSION['u_id']." ORDER BY ad_date desc") or die ('nie');
+                        while($pole = mysqli_fetch_array($q)){
                         echo "<div>".$pole['ad_title']."</div></br>";
-                        echo "<div> Autor: ".$_SESSION['u_nick']." Zwany: ".$_SESSION['u_name']."</div>";
                         echo "<div> Data dodania: ".$pole['ad_date']."</div></br>";
+                        echo "<div> Autor: ".$_SESSION['u_nick']." Zwany: ".$_SESSION['u_name']."</div>";
                         echo "<div>".$pole['ad_desc']."</br></br></div>";
                         //if($pole['ad_photo']){
                         //echo "<img src='/pics/".$pole['ad_photo']."'></br></img></br> </div></br>";

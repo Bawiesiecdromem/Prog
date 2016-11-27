@@ -80,10 +80,9 @@
                 </div>
                 <div class="col-md-8">
                     <?php
-                        $con = mysql_connect('localhost','root','') or die ('Nie można nawiązać połączenia');
-                               mysql_select_db('ADBI_DB',$con) or die ('Nie znaleziono bazy');
-                        $ads_query = mysql_query("SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
-                        while($row = mysql_fetch_array($ads_query)){
+                        $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+                        $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
+                        while($row = mysqli_fetch_array($ads_query)){
                         echo 
                             '
                             <div class="Ad-Container">
@@ -118,9 +117,8 @@
                                 </div>
                                 <div class="Ad-Bottom">
                             ';
-                        $ten=15;
-                        $comms_query = mysql_query("SELECT T_C.*, T_U.* FROM T_COMMENTS AS T_C JOIN T_USERS AS T_U ON T_C.u_id = T_U.u_id WHERE T_C.ad_id =".$row['ad_id']." ORDER BY comm_date desc") or die ('nie');
-                        while($comm_row = mysql_fetch_array($comms_query)){
+                        $comms_query = mysqli_query($con,"SELECT T_C.*, T_U.* FROM T_COMMENTS AS T_C JOIN T_USERS AS T_U ON T_C.u_id = T_U.u_id WHERE T_C.ad_id =".$row['ad_id']." ORDER BY comm_date desc") or die ('nie');
+                        while($comm_row = mysqli_fetch_array($comms_query)){
                             echo
                             '
                                 <div><b>'.$comm_row['u_nick'].':</b> '.$comm_row['comm_desc'].'</div>
