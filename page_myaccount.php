@@ -159,7 +159,10 @@
                         <img src='<?php echo ($_SESSION['u_avatar']);?>' class="adbiavatarthumb" alt="{{Avatar}}">
                     </div>
                     <div>
-                        {{Change}}
+                        <form action='f_changephoto.php' method='POST' enctype="multipart/form-data">
+			<input type='file' accept='image/*' name='favatar' id='favatar'></input>
+			<input type='submit' name='fchange' value='{{Change}}'></input>
+			</form>
                     </div>
                 </div>
             </div>
