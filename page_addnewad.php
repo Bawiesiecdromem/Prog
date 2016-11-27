@@ -84,7 +84,10 @@
                         </form>
                     </div>
                     <div id='T2_div'>
-                        T2
+                        <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
+                            Dodaj zdjęcie: <input type="file" accept="image/*" id="fad_photo" name="fad_photo"></input>
+                            <br><input type="submit" name="formsend2" value="Opublikuj" class="btn btn-danger">
+                        </form>
                     </div>
                     <div id='T3_div'>
                         <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>

@@ -13,7 +13,7 @@ $u_forename = strip_tags($_POST['fu_forename']);
 $u_phone = strip_tags($_POST['fu_phone']);
 $u_birth = strip_tags($_POST['fu_birth']);
 $u_date = date("Y-m-d H:i:s");
-
+$u_avatar = "pics/u_avatar/Undefined.jpg";
 if($submit){
     if($u_email&&$u_nick&&$u_password&&$rpassword&&$u_name&&$u_forename&&$u_phone&&$u_birth&&$u_date){
 	if($u_password==$rpassword){
@@ -25,7 +25,7 @@ if($submit){
                 exit;
             }
             else{
-            $query = mysqli_query($con,"INSERT INTO T_USERS (u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth, u_date, u_avatar) VALUES ('$u_email','$u_nick','$u_password','$u_name','$u_forename','$u_phone','$u_birth','$u_date','pics/u_avatar/Undefined.jpg')");
+            $query = mysqli_query($con,"INSERT INTO T_USERS (u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth, u_date, u_avatar) VALUES ('$u_email','$u_nick','$u_password','$u_name','$u_forename','$u_phone','$u_birth','$u_date','$u_avatar')");
             echo 'Pomyślnie zarejestrowano';
             $session_query = mysqli_query($con,"SELECT * FROM T_USERS WHERE u_email='$u_email'");
             $numrows = mysqli_num_rows($session_query);

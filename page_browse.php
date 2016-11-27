@@ -88,7 +88,7 @@
                             <div class="Ad-Container">
                                 <p class="adbiseparator"></p>
                                 <div class="Ad-Head">
-                                    <a href="page_users.php?u_id='.$row['u_id'].'"><h4><img src='.$row['u_avatar'].' class="AdAuthorAvatar">'.$row['u_nick'].'</h4></a>
+                                    <table><td><a href="page_users.php?u_id='.$row['u_id'].'"><h4><img src='.$row['u_avatar'].' class="AdAuthorAvatar">'.$row['u_nick'].'</h4></a></td>'; if($_SESSION['u_id']==$row['u_id']||$_SESSION['u_god']>0){echo '<td class="Ad-DeleteTd"><h4><span class="glyphicon glyphicon-remove"></span></h4></td>';} echo'</table>
                                 </div>
                                 <div class="Ad-Content">
                             ';

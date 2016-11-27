@@ -160,7 +160,7 @@
                     </div>
                     <div>
                         <form action='f_changephoto.php' method='POST' enctype="multipart/form-data">
-			<input type='file' accept='image/*' name='favatar' id='favatar'></input>
+			<input type='file' accept='image/*' id='fu_avatar' name='fu_avatar'></input>
 			<input type='submit' name='fchange' value='{{Change}}'></input>
 			</form>
                     </div>

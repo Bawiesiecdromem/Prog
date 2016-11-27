@@ -12,6 +12,9 @@
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
 }
+.Ad-DeleteTd{
+    float: right;
+}
 .Ad-Head{
     padding-left: 25px;
     padding-right: 25px;
