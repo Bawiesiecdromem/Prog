@@ -65,18 +65,25 @@
             <?php
                     $u_id = $_GET['u_id'];
                     $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
-                    $ads_query = mysqli_query($con,"SELECT u_id,u_nick,u_name,u_forename,u_phone,u_birth,u_date,u_avatar FROM T_USERS WHERE u_id=$u_id") or die ('nie');
-                    $row = mysqli_fetch_array($ads_query)
+                    $u_query = mysqli_query($con,"SELECT u_id,u_nick,u_name,u_forename,u_phone,u_birth,u_date,u_avatar FROM T_USERS WHERE u_id=$u_id") or die ('nie');
+                    $u_row = mysqli_fetch_array($u_query)
             ?>
             <div class="row">
                 <div class="col-md-3">
                     <?php
-                        echo '<img src='.$row['u_avatar'].' class="ADBI_U-Avatar">';
+                        echo '<img src='.$u_row['u_avatar'].' class="ADBI_U-Avatar">';
                     ?>
                 </div>
                 <div class="ADBI_U-Header col-md-6">
                     <?php
-                        echo '<h1>'.$row['u_nick'].'</h1>';
+                        echo 
+                        '
+                            <h1>'.$u_row['u_nick'].'</h1>
+                        ';
+                        echo 
+                        '
+                            <a href="f_follow.php?action_whoisfollowed='.$u_row['u_id'].'"><span class="glyphicon glyphicon-remove"></span></a>
+                        ';
                     ?>
                 </div>
                 <div class="col-md-3">

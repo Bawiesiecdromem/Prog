@@ -1,7 +1,10 @@
 .Ad-Container{
+    width: 87%;
+    margin-left: 6.5%;
+    margin-right: 6.5%;
     margin-bottom: 75px;
-    padding-left: 50px;
-    padding-right: 50px;
+
+    background-color: #F2F2F2;
 }
 .AdAuthorAvatar{
     margin-left: 5px;
@@ -34,8 +37,8 @@
 .Ad-C-Post{
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-left: 25px;
+    padding-right: 25px;
     width: 100%;
     word-break: break-all;
     font-size: 20px;
@@ -72,4 +75,11 @@
     max-width: 60%;
     min-height: 140px;
     max-height: 140px;
+}
+.Ad-DeleteCommGlyph{
+    float: right;
+    margin-right: 1%;
+}
+.Ad-DeleteAdGlyph:hover,.Ad-DeleteCommGlyph:hover{
+    color: #B80000;
 }
