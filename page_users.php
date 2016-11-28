@@ -66,7 +66,7 @@
                     $u_id = $_GET['u_id'];
                     $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
                     $u_query = mysqli_query($con,"SELECT u_id,u_nick,u_name,u_forename,u_phone,u_birth,u_date,u_avatar FROM T_USERS WHERE u_id=$u_id") or die ('nie');
-                    $u_row = mysqli_fetch_array($u_query)
+                    $u_row = mysqli_fetch_array($u_query);
             ?>
             <div class="row">
                 <div class="col-md-3">
@@ -82,7 +82,7 @@
                         ';
                         echo 
                         '
-                            <a href="f_follow.php?action_whoisfollowed='.$u_row['u_id'].'"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a href="f_follow.php?action_whoisfollowed='.$u_row['u_id'].'">'; include 'f_followcondition.php'; echo '</a>
                         ';
                     ?>
                 </div>
