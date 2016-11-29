@@ -1,6 +1,7 @@
 <?php
     session_start();
     error_reporting(0);    
+    include 'f_frozead.php';
 ?>
 <html ng-app="AdbiApp">
     <head ng-controller="AdbiHeadController">
