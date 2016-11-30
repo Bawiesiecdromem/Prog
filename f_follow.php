@@ -6,7 +6,7 @@ if (!$_SESSION['userverificationkey']){
 $action_date = date('Y-m-d H:i:s');
 $action_who = $_SESSION['u_id'];
 $action_whoisfollowed = $_GET['action_whoisfollowed'];
-$con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+include 'config/serverconfig.php';
 $action_query = mysqli_query($con,"SELECT * FROM T_ACTIONS WHERE `action_who`=$action_who and `action_whoisfollowed`=$action_whoisfollowed") or die ('nie');
 $action_row = mysqli_fetch_array($action_query);
 $action_row_count = count($action_row);

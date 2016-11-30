@@ -7,5 +7,3 @@ INSERT INTO T_USERS (u_id, u_email, u_nick, u_password, u_name, u_forename, u_ph
 VALUES (3,'RamsayBolton@rb.rb','RamsayBoltonNotSnow','Ramsay','Ramsay','Bolton',123123123,'1997-12-12','2016-09-02','pics/u_avatar/3_RamsayBolton.jpg',2);
 INSERT INTO T_USERS (u_id, u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth, u_date, u_avatar)
 VALUES (4,'JS@js.js','JohnSnowTheFirstOfHisName','John','John','Snow',123454321,'1997-01-01','2016-10-10','pics/u_avatar/4.jpg');
-INSERT INTO T_USERS (u_id, u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth, u_date, u_avatar, u_god)
-VALUES (5,'cos@cos.pl','Jimmy','123','Bartus','Piekny',997997997,'1997-01-01','2005-07-15','pics/u_avatar/5.jpg', 2);

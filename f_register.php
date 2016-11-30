@@ -17,7 +17,7 @@ $u_avatar = "pics/u_avatar/Undefined.jpg";
 if($submit){
     if($u_email&&$u_nick&&$u_password&&$rpassword&&$u_name&&$u_forename&&$u_phone&&$u_birth&&$u_date){
 	if($u_password==$rpassword){
-            $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+            include 'config/serverconfig.php';
             $email_check = mysqli_query($con,"SELECT `u_email` FROM `T_USERS` WHERE `u_email`='".$u_email."'");
             if(mysqli_num_rows($email_check)){
                 echo "Podany email jest zajęty";

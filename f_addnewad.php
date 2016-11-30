@@ -22,21 +22,21 @@ else{
 }
 if($submit1){
     if($ad_desc){
-        $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+        include 'config/serverconfig.php';
         $query = mysqli_query($con,"INSERT INTO T_AD (ad_title, ad_desc, ad_date, u_id, cat_id, mature_content) VALUES ('$ad_title','$ad_desc','$ad_date','$u_id','1','$mature_content')");
         header('Location: index.php');
     }
 }
 if($submit2){
     if(move_uploaded_file($_FILES['fad_photo']['tmp_name'], $ad_photo)){
-        $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+        include 'config/serverconfig.php';
         $query = mysqli_query($con, "INSERT INTO T_AD (ad_photo, ad_date, u_id, cat_id, mature_content) VALUES ('$ad_photo','$ad_date','$u_id','2','$mature_content')");
         header('Location: f_sessionuserdatacreate.php');
     }
 }
 if($submit3){
     if($ad_title&&$ad_desc){
-        $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+        include 'config/serverconfig.php';
         $query = mysqli_query($con,"INSERT INTO T_AD (ad_title, ad_desc, ad_date, u_id, cat_id, mature_content) VALUES ('$ad_title','$ad_desc','$ad_date','$u_id','$cat_id','$mature_content')");
         header('Location: page_addnewad.php');
     }

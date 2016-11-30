@@ -10,7 +10,7 @@ $u_id = $_SESSION['u_id'];
 $ad_id = $_GET['ad_id'];
 if($submit){
     if($comm_desc){
-        $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+        include 'config/serverconfig.php';
         $query = mysqli_query($con,"INSERT INTO T_COMMENTS (comm_desc, comm_date, u_id, ad_id) VALUES ('$comm_desc','$comm_date','$u_id','$ad_id')");
         header('Location: page_browse.php');
     }

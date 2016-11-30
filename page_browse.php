@@ -1,6 +1,6 @@
 <?php
     session_start();
-    error_reporting(0);
+    error_reporting(0);    
     include 'f_frozead.php';
 ?>
 <html ng-app="AdbiApp">
@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-md-8">
                     <?php
-                        $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+                        include 'config/serverconfig.php';
                         $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
                         while($row = mysqli_fetch_array($ads_query)){
                         echo 

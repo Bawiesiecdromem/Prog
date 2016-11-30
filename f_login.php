@@ -9,7 +9,7 @@ else{
         $u_email = $_POST['fu_email'];
         $u_password = $_POST['fu_password'];
         if($u_email&&$u_password){
-            $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+            include 'config/serverconfig.php';
             $session_query = mysqli_query($con,"SELECT * FROM T_USERS WHERE u_email='$u_email'");
             $numrows = mysqli_num_rows($session_query);
             if ($numrows!=0){

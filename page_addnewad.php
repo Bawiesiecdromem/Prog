@@ -128,7 +128,7 @@
                 </div>
                 <div class="col-md-8" style="background-color: #ec7ebd;">
                     <?php
-                        $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+                        include 'config/serverconfig.php';
                         $q = mysqli_query($con,"SELECT * FROM T_AD WHERE u_id = ".$_SESSION['u_id']." ORDER BY ad_date desc") or die ('nie');
                         while($pole = mysqli_fetch_array($q)){
                         echo "<div>".$pole['ad_title']."</div></br>";

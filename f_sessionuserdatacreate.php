@@ -2,7 +2,7 @@
 session_start();
 if ($_SESSION['u_email']){
     //potrzebne tylko podczas ewentualnego przekierowania, np z f_register.php
-    $con = mysqli_connect('localhost','root','','ADBI_DB') or die ('Nie można nawiązać połączenia');
+    include 'config/serverconfig.php';
         $session_u_email=$_SESSION['u_email'];
         $session_query = mysqli_query($con,"SELECT * FROM T_USERS WHERE u_email='$session_u_email'");
         $numrows = mysqli_num_rows($session_query);
