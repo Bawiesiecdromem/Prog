@@ -14,38 +14,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"><!-- plik stylów dla jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"><!-- plik stylów dla jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
         <link rel="stylesheet" href="styles/st_page_addnewad.css">
         <link rel="stylesheet" href="styles/st_ads.css">
         <script src="scripts/adbi_master.js"></script>
         <script src="scripts/add_new_ad_type_changer.js"></script>
-<link rel="stylesheet" href="../dist/rangeSlider.css">
-<style>
-        *,
-        *:before,
-        *:after {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-      
-        output {
-            display: block;
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-            margin: 30px 0;
-            width: 100%;
-        }
-    </style>
+        <link rel="stylesheet" href="../dist/rangeSlider.css">
     </head>
     <body>
         <div class="container adbi_class_wholepage">
@@ -106,43 +84,32 @@
                     <div id='T1_div'>
                         <form action="f_addnewad.php" method="POST" enctype="multipart/form-data">
                             <br><textarea class="Ad-PostBox form-control" contenteditable="true" type="text" name="fad_desc" value="fad_desc" maxlength="255" placeholder="Treść"></textarea>
-                            <br>
-
-
-
-
-<br><input type="submit" name="formsend1" value="Opublikuj" class="btn btn-danger">
+                            <br><br><input type="submit" name="formsend1" value="Opublikuj" class="btn btn-danger">
                         </form>
                     </div>
                     <div id='T2_div'>
                         <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
                             Dodaj zdjęcie: <input type="file" accept="image/*" id="fad_photo" name="fad_photo"></input>
-                          <br>  
-
-//suwak here 
-<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-<div id="slider-range-min"></div>
-<script>
- $( function() {
-    $( "#slider-range-min" ).slider({
-      range: "min",
-      value: 1,
-      min: 1,
-      max: 30,
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "Ustaw na: " + ui.value + " dni");
-	$('#hiddenSlider').val(ui.value);
-      }
-    });
-    $( "#amount" ).val( "Domyślnie: " + $( "#slider-range-min" ).slider( "value" ) + " dzień");
-  } );
-</script>
-<input type="hidden" id="hiddenSlider" name="slider">
-$slider = $_POST['slider']; //to do php :)
-echo $slider;
-delete from t_ad where $date = ad_time
-
-<br><input type="submit" name="formsend2" value="Opublikuj" class="btn btn-danger">
+                            <br>  
+                            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            <div id="slider-range-min"></div>
+                            <script>
+                            $( function() {
+                                $( "#slider-range-min" ).slider({
+                                    range: "min",
+                                    value: 1,
+                                    min: 1,
+                                    max: 30,
+                                    slide: function( event, ui ) {
+                                        $( "#amount" ).val( "Ustaw na: " + ui.value + " dni");
+                                        $('#hiddenSlider').val(ui.value);
+                                    }
+                                });
+                                $( "#amount" ).val( "Domyślnie: " + $( "#slider-range-min" ).slider( "value" ) + " dzień");
+                            });
+                            </script>
+                            <input type="hidden" id="hiddenSlider" name="slider">
+                            <br><input type="submit" name="formsend2" value="Opublikuj" class="btn btn-danger">
                         </form>
                     </div>
                     <div id='T3_div'>
