@@ -83,6 +83,7 @@
                     <?php
                         include 'config/serverconfig.php';
                         $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
+$cat_query = mysqli_query($con, "SELECT cat_id FROM T_AD INNER JOIN T_CATEGORIES ON T_AD.cat_id=T_CATEGORIES.cat_id");
                         while($row = mysqli_fetch_array($ads_query)){
                         echo 
                             '
@@ -112,7 +113,23 @@
                             }
                         }
                         if($row['cat_id']>2){
-                            echo 'OGŁOSZENIE';
+		                echo "<div class='Ad-C-Post'>";
+				if($row['mature_content'] == 1){
+			echo	"<table><tr><td width='100%'><h3><b>".$row['ad_title']."</b></h3></td>
+				<td ><a class='btn btn-danger' style='float: right'>+18</a></td></tr></table>
+				<blockquote><br>
+				<p>".$row['ad_desc']."</p><br>
+				<small>".$row['cat_name']."</small>
+					</blockquote>
+                                    </div>";
+				}
+				if($row['mature_content'] != 1) {
+				echo	"<h3><b>".$row['ad_title']."</b></h3>
+					<blockquote><br>
+					<p>".$row['ad_desc']."</p><br>
+					</blockquote>
+                                    </div>";
+				}
                         }
                         echo
                             '
