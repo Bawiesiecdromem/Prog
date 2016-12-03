@@ -117,7 +117,7 @@
                             <input class='form-control' type='text' name='fad_title' placeholder='Tytuł'></br>
                             <textarea class='form-control' rows='7' type='text' name='fad_desc' value='fad_desc' maxlength='255' placeholder='Treść'></textarea>
                             Dodaj zdjęcie: <input type='file' accept='image/*' name='fad_photo' id='fad_photo'>
-                            <input type="checkbox" name="fmature_content"> +18<br>
+                            <input type="checkbox" name="fmature_content"> +18 <?php if($_SESSION['is_adult']==0){echo 'Jeśli musisz już umieścić taki post to przynajmniej nie psuj zabawy innym (zobaczysz ten post na swoim profilu) PS. jako osoba niepełnoletnia łamiesz prawo i robisz to na własną odpowiedzialność.';} ?><br>
                             <select class="form-control" name='fcat_id' id="fcat_id">
                                 <option value="3c">Motoryzacja</option>
                                 <option value="4c">Elektronikia</option>

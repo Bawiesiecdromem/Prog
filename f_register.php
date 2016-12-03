@@ -25,7 +25,7 @@ if($submit){
                 exit;
             }
             else{
-            $query = mysqli_query($con,"INSERT INTO T_USERS (u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth, u_date, u_avatar) VALUES ('$u_email','$u_nick','$u_password','$u_name','$u_forename','$u_phone','$u_birth','$u_date','$u_avatar')");
+            $query = mysqli_query($con,"INSERT INTO T_USERS (u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth, u_date, u_avatar, is_adult) VALUES ('$u_email','$u_nick','$u_password','$u_name','$u_forename','$u_phone','$u_birth','$u_date','$u_avatar','0')");
             echo 'Pomyślnie zarejestrowano';
             $session_query = mysqli_query($con,"SELECT * FROM T_USERS WHERE u_email='$u_email'");
             $numrows = mysqli_num_rows($session_query);

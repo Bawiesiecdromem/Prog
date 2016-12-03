@@ -164,6 +164,16 @@
 			<input type='submit' name='fchange' value='{{Change}}'></input>
 			</form>
                     </div>
+                    <div>
+                        <?php
+                            if($_SESSION['is_adult']==0){
+                                echo '<button id="IsNotAdultYet" class="btn btn-danger" href="f_maturecontentchanger.php"><span>Nie widzisz treśći 18+ ;-;</span></button>';
+                            }
+                            if($_SESSION['is_adult']==1){
+                                echo '<button id="IsAdult" class="btn btn-danger" href="f_maturecontentchanger.php"><span>Widzisz treści 18+ *,*</span></button>';
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
             <div class="row">

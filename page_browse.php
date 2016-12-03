@@ -77,89 +77,44 @@
             </div>
             <div class="row">
                 <div class="col-md-2">
-                    
+                    <div>
+                        <nav>
+                            <ul class="nav nav-stacked">
+                                <h3>Kategorie</h3>
+                                <li><a href="?cat_id=0">Wszystkie</a></li>
+                                <li><a href="?cat_id=1">Posty</a></li>
+                                <li><a href="?cat_id=2">Zdjęcia</a></li>
+                                <li><a class="dropdown-toggle" data-toggle="dropdown">Ogłoszenia<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="?cat_id=3">Motoryzacja</a></li>
+                                        <li><a href="?cat_id=4">Elektronika</a></li>
+                                        <li><a href="?cat_id=5">Nieruchomości</a></li>
+                                        <li><a href="?cat_id=6">Moda</a></li>
+                                        <li><a href="?cat_id=7">Sport i hobby</a></li>
+                                        <li><a href="?cat_id=8">Praca</a></li>
+                                        <li><a href="?cat_id=9">Rolnictwo</a></li>
+                                        <li><a href="?cat_id=10">Edukacja</a></li>
+                                        <li><a href="?cat_id=11">Muzyka</a></li>
+                                        <li><a href="?cat_id=12">Dom i ogród</a></li>
+                                        <li><a href="?cat_id=13">Zwierzęta</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="?cat_id=14">+ 18</a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <?php
                         include 'config/serverconfig.php';
                         $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
                         while($row = mysqli_fetch_array($ads_query)){
-                        echo 
-                            '
-                            <div class="Ad-Container">
-                                <p class="adbiseparator"></p>
-                                <div class="Ad-Head">
-                                    <table><td class="Ad-InfoTd"><a href="page_users.php?u_id='.$row['u_id'].'"><h4><img src='.$row['u_avatar'].' class="AdAuthorAvatar">'.$row['u_nick'].'</h4></a></td>'; if($_SESSION['u_id']==$row['u_id']||($_SESSION['u_god']>0&&$_SESSION['u_god']>=$row['u_god'])){echo '<td class="Ad-DeleteTd"><h4><a href="f_deletead.php?ad_id='.$row['ad_id'].'"><span class="Ad-DeleteAdGlyph glyphicon glyphicon-remove"></span></a></h4></td>';} echo'</table>
-                                </div>
-                                <div class="Ad-Content">
-                            ';
-                        if($row['cat_id']==1){
-                            echo
-                                '
-                                    <div class="Ad-C-Post">
-                                        '.$row['ad_desc'].'<br>
-                                    </div>
-                                ';
-                        }
-                        if($row['cat_id']==2){
-                            if($row['ad_photo']){
-                                echo 
-                                '
-                                        <div>
-                                            <img src='.$row['ad_photo'].' class="Ad-C-Photo">
-                                        </div>
-                                ';
+                            if($_GET['cat_id'] == 0){
+                                include 'f_displayads.php';
                             }
-                        }
-                        if($row['cat_id']>2){
-		            echo '<div class="Ad-C-Post">';
-                            if($row['mature_content'] == 1){
-                                echo '<table><tr><td width="100%"><h3><b>'.$row['ad_title'].'</b></h3></td>
-				<td ><a class="btn btn-danger" style="float: right">+18</a></td></tr></table>
-				<blockquote><br>
-				<p>'.$row['ad_desc'].'</p><br>';
-                                $cat_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_CATEGORIES ON T_AD.cat_id=T_CATEGORIES.cat_id") or die ('nie');
-                                while($cat_row = mysqli_fetch_array($cat_query)){
-                                    if($cat_row['ad_id']==$row['ad_id']) {
-                                        echo '<small>'.$cat_row['cat_name'].'</small>';
-                                    }
-                                }
-				echo '</blockquote>
-                                </div>';
+                            if($_GET['cat_id'] == $row['cat_id']){
+                                include 'f_displayads.php';
                             }
-                            if($row['mature_content'] != 1) {
-				echo '<h3><b>'.$row['ad_title'].'</b></h3>
-                                <blockquote><br>
-                                <p>'.$row['ad_desc'].'</p><br>
-                                </blockquote>
-                                </div>';
-                            }
-                        }
-                        echo
-                            '
-                                </div>
-                                <div class="Ad-Bottom">
-                            ';
-                        $comms_query = mysqli_query($con,"SELECT T_C.*, T_U.* FROM T_COMMENTS AS T_C JOIN T_USERS AS T_U ON T_C.u_id = T_U.u_id WHERE T_C.ad_id =".$row['ad_id']." ORDER BY comm_date desc") or die ('nie');
-                        while($comm_row = mysqli_fetch_array($comms_query)){
-                            echo
-                            '
-                                <div class="Ad-Comms"><span class="Ad-Comm-Nick">'.$comm_row['u_nick'].':</span> '.$comm_row['comm_desc'].'';if($_SESSION['u_id']==$row['u_id']||$_SESSION['u_id']==$comm_row['u_id']||($_SESSION['u_god']>0&&$_SESSION['u_god']>=$comm_row['u_god'])){echo '<a href="f_deletecomm.php?comm_id='.$comm_row['comm_id'].'"><span class="Ad-DeleteCommGlyph glyphicon glyphicon-remove"></span></a>';} echo'</div>
-                            ';
-                        }
-                        if ($_SESSION['userverificationkey']){
-                            echo
-                            '
-                                    <form action="f_addnewcomm.php?ad_id='.$row['ad_id'].'" method="POST" enctype="multipart/form-data">
-                                        <input class="form-control" type="text" name="comm_desc" maxlength="255" placeholder="Napisz komentarz..."><input type="submit" name="formsend" value="Opublikuj" class="btn btn-danger">
-                                    </form>
-                            ';
-                        }
-                        echo '
-                            </div>
-                                <p class="adbiseparator"></p>
-                            </div>
-                        ';
                         }
                     ?>
                 </div>

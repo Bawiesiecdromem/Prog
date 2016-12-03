@@ -30,6 +30,8 @@ if ($_SESSION['u_email']){
             $_SESSION['u_avatar'] = $session_u_avatar;
             $session_u_god = $row['u_god'];
             $_SESSION['u_god'] = $session_u_god;
+            $session_is_adult = $row['is_adult'];
+            $_SESSION['is_adult'] = $session_is_adult;
             $_SESSION['userverificationkey'] = $session_u_email.$session_u_name.$session_u_password;
             }
         }

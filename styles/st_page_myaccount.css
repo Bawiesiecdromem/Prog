@@ -39,3 +39,15 @@ a, a:active, a:hover, a:visited {
     border-right-color: #665D5D;
     border-right-width: 1px;
 }
+#IsNotAdultYet:hover span {
+    display: none;
+}
+#IsNotAdultYet:hover:before {
+    content:"Chcę widzieć treści 18+ *.*"
+}
+#IsAdult:hover span {
+    display: none;
+}
+#IsAdult:hover:before {
+    content:"Zabierz to, moje oczy... T.T"
+}
