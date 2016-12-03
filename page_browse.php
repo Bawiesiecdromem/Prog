@@ -83,7 +83,6 @@
                     <?php
                         include 'config/serverconfig.php';
                         $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
-                        $cat_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_CATEGORIES ON T_AD.cat_id=T_CATEGORIES.cat_id") or die ('nie');
                         while($row = mysqli_fetch_array($ads_query)){
                         echo 
                             '
@@ -119,8 +118,11 @@
 				<td ><a class="btn btn-danger" style="float: right">+18</a></td></tr></table>
 				<blockquote><br>
 				<p>'.$row['ad_desc'].'</p><br>';
+                                $cat_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_CATEGORIES ON T_AD.cat_id=T_CATEGORIES.cat_id") or die ('nie');
                                 while($cat_row = mysqli_fetch_array($cat_query)){
-                                    echo '<small>'.$cat_row['cat_name'].'</small>';
+                                    if($cat_row['ad_id']==$row['ad_id']) {
+                                        echo '<small>'.$cat_row['cat_name'].'</small>';
+                                    }
                                 }
 				echo '</blockquote>
                                 </div>';
