@@ -30,10 +30,8 @@ if($submit1){
 if($submit2){
     if(move_uploaded_file($_FILES['fad_photo']['tmp_name'], $ad_photo)){
         include 'config/serverconfig.php';
-	$slider = $_POST['slider'];	
-	$ad_transferdate= date('Y-m-d H:i:s', strtotime(' + '.$slider.' days'));
-        $query = mysqli_query($con, "INSERT INTO T_AD (ad_photo, ad_date, ad_transferdate, u_id, cat_id, mature_content) VALUES ('$ad_photo','$ad_date', '$ad_transferdate','$u_id','2','$mature_content')");
-	header('Location: f_sessionuserdatacreate.php');
+        $query = mysqli_query($con, "INSERT INTO T_AD (ad_photo, ad_date, u_id, cat_id, mature_content) VALUES ('$ad_photo','$ad_date','$u_id','2','$mature_content')");
+        header('Location: f_sessionuserdatacreate.php');
     }
 }
 if($submit3){
