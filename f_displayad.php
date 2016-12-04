@@ -12,7 +12,7 @@
                                 echo
                                     '
                                         <div class="Ad-C-Post">
-                                            '.$row['ad_desc'].'<br>
+                                            <a href="page_ad.php?ad_id='.$row['ad_id'].'">'.$row['ad_desc'].'</a><br>
                                         </div>
                                     ';
                             }
@@ -21,36 +21,40 @@
                                     echo 
                                     '
                                             <div>
-                                                <img src='.$row['ad_photo'].' class="Ad-C-Photo">
+                                                <a href="page_ad.php?ad_id='.$row['ad_id'].'"><img src='.$row['ad_photo'].' class="Ad-C-Photo"></a>
                                             </div>
                                     ';
                                 }
                             }
                             if($row['cat_id']>2){
                                 echo '<div class="Ad-C-Post">';
-                                echo '<table><tr><td width="100%"><h3><b>'.$row['ad_title'].'</b></h3></td>';
+                                echo '<table><tr><td width="100%"><a href="page_ad.php?ad_id='.$row['ad_id'].'"><h4><b>'.$row['ad_title'].'</b></h4></a></td>';
                                 if($row['mature_content'] == 1){echo '<td ><a class="btn btn-danger" style="float: right">+18</a></td>';} echo '</tr></table>
-                                <blockquote><br>
-                                <p>'.$row['ad_desc'].'</p><br>';
+                                <br>
+                                <p class="Ad-Desc-Ad">'.$row['ad_desc'].'</p><br>';
                                 $cat_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_CATEGORIES ON T_AD.cat_id=T_CATEGORIES.cat_id") or die ('nie');
                                 while($cat_row = mysqli_fetch_array($cat_query)){
                                     if($cat_row['ad_id']==$row['ad_id']) {
-                                        echo '<small>'.$cat_row['cat_name'].'</small>';
+                                        echo '<small>Kategoria: '.$cat_row['cat_name'].'</small>';
                                     }
                                 }
-                                echo '</blockquote>
+                                echo '
                                 </div>';
                             }
                             echo
                                 '
                                     </div>
                                     <div class="Ad-Bottom">
+                                    <b>Najnowsze komentarze:</b><br>
                                 ';
-                            $comms_query = mysqli_query($con,"SELECT T_C.*, T_U.* FROM T_COMMENTS AS T_C JOIN T_USERS AS T_U ON T_C.u_id = T_U.u_id WHERE T_C.ad_id =".$row['ad_id']." ORDER BY comm_date desc") or die ('nie');
+                                include 'f_selectcommentsquery.php';
+                            if(mysqli_num_rows($comms_query)<1){
+                                echo 'brak komentarzy';
+                            }
                             while($comm_row = mysqli_fetch_array($comms_query)){
                                 echo
                                 '
-                                    <div class="Ad-Comms"><span class="Ad-Comm-Nick">'.$comm_row['u_nick'].':</span> '.$comm_row['comm_desc'].'';if($_SESSION['u_id']==$row['u_id']||$_SESSION['u_id']==$comm_row['u_id']||($_SESSION['u_god']>0&&$_SESSION['u_god']>=$comm_row['u_god'])){echo '<a href="f_deletecomm.php?comm_id='.$comm_row['comm_id'].'"><span class="Ad-DeleteCommGlyph glyphicon glyphicon-remove"></span></a>';} echo'</div>
+                                    <div class="Ad-Comms"><a href="page_users.php?u_id='.$comm_row['u_id'].'"><span class="Ad-Comm-Nick">'.$comm_row['u_nick'].':</span></a> '.$comm_row['comm_desc'].'';if($_SESSION['u_id']==$row['u_id']||$_SESSION['u_id']==$comm_row['u_id']||($_SESSION['u_god']>0&&$_SESSION['u_god']>=$comm_row['u_god'])){echo '<a href="f_deletecomm.php?comm_id='.$comm_row['comm_id'].'"><span class="Ad-DeleteCommGlyph glyphicon glyphicon-remove"></span></a>';} echo'</div>
                                 ';
                             }
                             if ($_SESSION['userverificationkey']){

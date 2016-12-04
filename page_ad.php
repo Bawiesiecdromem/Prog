@@ -2,12 +2,14 @@
     session_start();
     error_reporting(0);    
     include 'f_frozead.php';
-    $limitofcomments=1;
+    $limitofcomments=0;
+    include 'config/serverconfig.php';
+    $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
 ?>
 <html ng-app="AdbiApp">
     <head ng-controller="AdbiHeadController">
         <meta charset="UTF-8">
-        <title>{{TitleIndex}}</title>
+        <title>{{TitlePageAd}}<?php echo $_GET['ad_id']; ?></title>
         <!--\/ADBIBASICLINKS\/-->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -15,9 +17,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
-        <link rel="stylesheet" href="styles/st_page_users.css">
+        <link rel="stylesheet" href="styles/st_page_browse.css">
         <link rel="stylesheet" href="styles/st_ads.css">
         <script src="scripts/adbi_master.js"></script>
+        <script src="scripts/add_new_ad_type_changer.js"></script>
     </head>
     <body>
         <div class="container adbi_class_wholepage">
@@ -38,7 +41,7 @@
                             <div id="navbar" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
                                     <li><a href="{{HrefNavp2}}">{{Navp2}}</a></li>
-                                    <li><a href="{{HrefNavp3}}">{{Navp3}}</a></li>
+                                    <li class="active"><a href="{{HrefNavp3}}">{{Navp3}}</a></li>
                                     <li><a href="{{HrefNavp4}}">{{Navp4}}</a></li>
                                     <?php
                                         if ($_SESSION['userverificationkey']){
@@ -64,79 +67,29 @@
                     </nav>
                 </div>
             </div>
-            <!--/\NAV/\-->
-            <?php
-                    $u_id = $_GET['u_id'];
-                    include 'config/serverconfig.php';
-                    $u_query = mysqli_query($con,"SELECT u_id,u_nick,u_name,u_forename,u_phone,u_birth,u_date,u_avatar FROM T_USERS WHERE u_id=$u_id") or die ('nie');
-                    $u_row = mysqli_fetch_array($u_query);
-            ?>
+            <!--/\NAV/\-->        
             <div class="row">
-                <div class="col-md-3">
-                    <?php
-                        echo '<img src='.$u_row['u_avatar'].' class="ADBI_U-Avatar">';
-                    ?>
-                </div>
-                <div class="ADBI_U-Header col-md-6">
-                    <?php
-                        echo 
-                        '
-                            <h1>'.$u_row['u_nick'].'</h1>
-                        ';
-                        if ($_SESSION['userverificationkey']){
-                            echo 
-                            '
-                                <a href="f_follow.php?action_whoisfollowed='.$u_row['u_id'].'">'; include 'f_followcondition.php'; echo '</a>
-                            ';
-                        }
-                    ?>
-                </div>
-                <div class="col-md-3">
-                    
+                <p class="adbiseparator"></p>
+            </div>
+            <div class="row" ng-controller="AdbiPageBrowse">
+                <div id="BrowseHeader" class="col-md-12">
+                    <h3>{{BrowseAd}}</h3>
+                    <p class="adbiseparator"></p>
+                    <p class="adbiseparator-md"></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2">
-                    <div>
-                        <nav>
-                            <ul class="nav nav-stacked">
-                                <h3>Kategorie</h3>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=0">Wszystkie</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=1">Posty</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=2">Zdjęcia</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=3">Motoryzacja</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=4">Elektronika</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=5">Nieruchomości</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=6">Moda</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=7">Sport i hobby</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=8">Praca</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=9">Rolnictwo</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=10">Edukacja</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=11">Muzyka</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=12">Dom i ogród</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=13">Zwierzęta</a></li>
-                                <li><a href="?u_id=<?php echo $_GET['u_id']; ?>&cat_id=14">+ 18</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+                    
                 </div>
                 <div class="col-md-8">
                     <?php
-                        include 'config/serverconfig.php';
-                        $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
+                        //$ads_query tworzone na początku strony!
                         while($row = mysqli_fetch_array($ads_query)){
-                            if($_GET['cat_id'] == 0){
-                                if($_GET['u_id'] == $row['u_id']){
-                                    include 'f_displayads.php';
-                                }
-                            }
-                            if($_GET['cat_id'] == $row['cat_id']){
-                                if($_GET['u_id'] == $row['u_id']){
-                                    include 'f_displayads.php';
-                                }
+                            if($_GET['ad_id'] == $row['ad_id']){
+                                include 'f_displayads.php';
                             }
                         }
-                        
                     ?>
                 </div>
                 <div class="col-md-2">

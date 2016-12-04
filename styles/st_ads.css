@@ -29,6 +29,7 @@
     padding-right: 25px;
     margin-bottom: 5px;
     width: 100%;
+    word-break: break-all;
 }
 .Ad-Content{
     margin-bottom: 5px;
@@ -50,6 +51,17 @@
     margin-right: auto;
     width: 600px;
     padding-bottom: 15px;
+}
+.Ad-Desc-Ad{
+    width: 100%;
+    word-break: normal;
+    overflow-wrap: break-word;
+    font-size: 20px;
+    color: #665D5D;
+    white-space: nowrap;
+    max-width: 75ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .Ad-Bottom{
     padding-left: 25px;

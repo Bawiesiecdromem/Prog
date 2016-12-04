@@ -2,6 +2,7 @@
     session_start();
     error_reporting(0);    
     include 'f_frozead.php';
+    $limitofcomments=1;
 ?>
 <html ng-app="AdbiApp">
     <head ng-controller="AdbiHeadController">
@@ -84,21 +85,17 @@
                                 <li><a href="?cat_id=0">Wszystkie</a></li>
                                 <li><a href="?cat_id=1">Posty</a></li>
                                 <li><a href="?cat_id=2">Zdjęcia</a></li>
-                                <li><a class="dropdown-toggle" data-toggle="dropdown">Ogłoszenia<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="?cat_id=3">Motoryzacja</a></li>
-                                        <li><a href="?cat_id=4">Elektronika</a></li>
-                                        <li><a href="?cat_id=5">Nieruchomości</a></li>
-                                        <li><a href="?cat_id=6">Moda</a></li>
-                                        <li><a href="?cat_id=7">Sport i hobby</a></li>
-                                        <li><a href="?cat_id=8">Praca</a></li>
-                                        <li><a href="?cat_id=9">Rolnictwo</a></li>
-                                        <li><a href="?cat_id=10">Edukacja</a></li>
-                                        <li><a href="?cat_id=11">Muzyka</a></li>
-                                        <li><a href="?cat_id=12">Dom i ogród</a></li>
-                                        <li><a href="?cat_id=13">Zwierzęta</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="?cat_id=3">Motoryzacja</a></li>
+                                <li><a href="?cat_id=4">Elektronika</a></li>
+                                <li><a href="?cat_id=5">Nieruchomości</a></li>
+                                <li><a href="?cat_id=6">Moda</a></li>
+                                <li><a href="?cat_id=7">Sport i hobby</a></li>
+                                <li><a href="?cat_id=8">Praca</a></li>
+                                <li><a href="?cat_id=9">Rolnictwo</a></li>
+                                <li><a href="?cat_id=10">Edukacja</a></li>
+                                <li><a href="?cat_id=11">Muzyka</a></li>
+                                <li><a href="?cat_id=12">Dom i ogród</a></li>
+                                <li><a href="?cat_id=13">Zwierzęta</a></li>
                                 <li><a href="?cat_id=14">+ 18</a></li>
                             </ul>
                         </nav>
@@ -123,10 +120,5 @@
                 </div>
             </div>
         </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </body>
 </html>

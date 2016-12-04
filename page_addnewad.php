@@ -114,22 +114,22 @@
                     </div>
                     <div id='T3_div'>
                         <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
-                            <input class='form-control' type='text' name='fad_title' placeholder='Tytuł'></br>
-                            <textarea class='form-control' rows='7' type='text' name='fad_desc' value='fad_desc' maxlength='255' placeholder='Treść'></textarea>
+                            <input class='form-control' type='text' name='fad_title' maxlength='48' placeholder='Tytuł'></br>
+                            <textarea class='form-control' rows='7' type='text' name='fad_desc' value='fad_desc' maxlength='55555' placeholder='Treść'></textarea>
                             Dodaj zdjęcie: <input type='file' accept='image/*' name='fad_photo' id='fad_photo'>
                             <input type="checkbox" name="fmature_content"> +18 <?php if($_SESSION['is_adult']==0){echo 'Jeśli musisz już umieścić taki post to przynajmniej nie psuj zabawy innym (zobaczysz ten post na swoim profilu) PS. jako osoba niepełnoletnia łamiesz prawo i robisz to na własną odpowiedzialność.';} ?><br>
                             <select class="form-control" name='fcat_id' id="fcat_id">
-                                <option value="3c">Motoryzacja</option>
-                                <option value="4c">Elektronikia</option>
-                                <option value="5c">Nieruchomości</option>
-                                <option value="6c">Moda</option>
-                                <option value="7c">Sport i hobby</option>
-                                <option value="8c">Praca</option>
-                                <option value="9c">Rolnictwo</option>
-                                <option value="10c">Edukacja</option>
-                                <option value="11c">Muzyka</option>
-                                <option value="12c">Dom i ogród</option>
-                                <option value="13c">Zwierzęta</option>
+                                <option value="3">Motoryzacja</option>
+                                <option value="4">Elektronikia</option>
+                                <option value="5">Nieruchomości</option>
+                                <option value="6">Moda</option>
+                                <option value="7">Sport i hobby</option>
+                                <option value="8">Praca</option>
+                                <option value="9">Rolnictwo</option>
+                                <option value="10">Edukacja</option>
+                                <option value="11">Muzyka</option>
+                                <option value="12">Dom i ogród</option>
+                                <option value="13">Zwierzęta</option>
                             </select>
 			<br><input type="submit" name="formsend3" value="Opublikuj" class='btn btn-danger'>
                         </form>
@@ -171,10 +171,5 @@
                 </div>
             </div>
         </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </body>
 </html>

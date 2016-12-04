@@ -12,3 +12,15 @@
 .ADBI_U-Header{
     margin-top: 50px;
 }
+#IFollowYou:hover span {
+    display: none;
+}
+#IFollowYou:hover:before {
+    content:"Przestań obserwować";
+}
+#IWalkALonelyRoad:hover span {
+    display: none;
+}
+#IWalkALonelyRoad:hover:before {
+    content:"Rozpocznij obserwację";
+}

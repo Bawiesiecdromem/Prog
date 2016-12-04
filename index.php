@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    error_reporting(0);
+    include 'f_frozead.php';
+    $limitofcomments=1;
+?>
 <html ng-app="AdbiApp">
     <head ng-controller="AdbiHeadController">
         <meta charset="UTF-8">
@@ -9,13 +15,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
+        <link rel="stylesheet" href="styles/st_ads.css">
         <script src="scripts/adbi_master.js"></script>
     </head>
     <body>
-        <?php
-            session_start();
-            error_reporting(0);
-        ?>
         <div class="container adbi_class_wholepage">
             <!--\/NAV\/-->
             <div class="row" ng-controller="AdbiNavbarController">
@@ -87,19 +90,73 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-
+                    <?php
+                        if ($_SESSION['u_email']){
+                            echo "Witaj, ".$_SESSION['u_nick']."!";
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div>
+                        <nav>
+                            <ul class="nav nav-stacked">
+                                <h3>Kategorie</h3>
+                                <li><a href="?cat_id=0">Wszystkie</a></li>
+                                <li><a href="?cat_id=1">Posty</a></li>
+                                <li><a href="?cat_id=2">Zdjęcia</a></li>
+                                <li><a href="?cat_id=3">Motoryzacja</a></li>
+                                <li><a href="?cat_id=4">Elektronika</a></li>
+                                <li><a href="?cat_id=5">Nieruchomości</a></li>
+                                <li><a href="?cat_id=6">Moda</a></li>
+                                <li><a href="?cat_id=7">Sport i hobby</a></li>
+                                <li><a href="?cat_id=8">Praca</a></li>
+                                <li><a href="?cat_id=9">Rolnictwo</a></li>
+                                <li><a href="?cat_id=10">Edukacja</a></li>
+                                <li><a href="?cat_id=11">Muzyka</a></li>
+                                <li><a href="?cat_id=12">Dom i ogród</a></li>
+                                <li><a href="?cat_id=13">Zwierzęta</a></li>
+                                <li><a href="?cat_id=14">+ 18</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <?php
+                        include 'config/serverconfig.php';
+                        if($_SESSION['userverificationkey']){
+                            $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS LEFT JOIN T_ACTIONS ON T_AD.u_id=T_USERS.u_id=T_ACTIONS.action_who ORDER BY ad_date desc") or die ('nie');
+                            while($row = mysqli_fetch_array($ads_query)){
+                                if($_GET['cat_id'] == 0){
+                                    if($row['action_whoisfollowed'] == $row['u_id']){
+                                        include 'f_displayads.php';
+                                    }
+                                }
+                                if($_GET['cat_id'] == $row['cat_id']){
+                                    if($row['action_whoisfollowed'] == $row['u_id']){
+                                        include 'f_displayads.php';
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
+                            while($row = mysqli_fetch_array($ads_query)){
+                                if($_GET['cat_id'] == 0){
+                                    include 'f_displayads.php';
+                                }
+                                if($_GET['cat_id'] == $row['cat_id']){
+                                    include 'f_displayads.php';
+                                }
+                            }
+                        }
+                    ?>
+                </div>
+                <div class="col-md-2">
+                    
                 </div>
             </div>
         </div>
-        <?php
-            if ($_SESSION['u_email']){
-                echo "Witaj, ".$_SESSION['u_nick']."!";
-            }
-        ?>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </body>
 </html>

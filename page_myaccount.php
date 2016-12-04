@@ -160,17 +160,17 @@
                     </div>
                     <div>
                         <form action='f_changephoto.php' method='POST' enctype="multipart/form-data">
-			<input type='file' accept='image/*' id='fu_avatar' name='fu_avatar'></input>
-			<input type='submit' name='fchange' value='{{Change}}'></input>
+                            <input type='file' accept='image/*' id='fu_avatar' class="btn btn-info" name='fu_avatar'>
+                            <input class="btn btn-success" type='submit' name='fchange' value='{{Change}}'>
 			</form>
                     </div>
                     <div>
                         <?php
                             if($_SESSION['is_adult']==0){
-                                echo '<button id="IsNotAdultYet" class="btn btn-danger" href="f_maturecontentchanger.php"><span>Nie widzisz treśći 18+ ;-;</span></button>';
+                                echo '<a href="f_isadultchanger.php"><button id="IsNotAdultYet" class="btn btn-danger"><span>Nie widzisz treśći 18+ ;-;</span></button></a>';
                             }
                             if($_SESSION['is_adult']==1){
-                                echo '<button id="IsAdult" class="btn btn-danger" href="f_maturecontentchanger.php"><span>Widzisz treści 18+ *,*</span></button>';
+                                echo '<a href="f_isadultchanger.php"><button id="IsAdult" class="btn btn-danger"><span>Widzisz treści 18+ *,*</span></button></a>';
                             }
                         ?>
                     </div>
@@ -179,25 +179,20 @@
             <div class="row">
                 <div class="col-md-12">
                     Click me: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/>
-<div>
-  Show:
-  <div class="check-element animate-show" ng-show="checked">
-    <span class="glyphicon glyphicon-thumbs-up"></span> I show up when your checkbox is checked.
-  </div>
-</div>
-<div>
-  Hide:
-  <div class="check-element animate-show" ng-hide="checked">
-    <span class="glyphicon glyphicon-thumbs-down"></span> I hide when your checkbox is checked.
-  </div>
-</div>
+                    <div>
+                      Show:
+                      <div class="check-element animate-show" ng-show="checked">
+                        <span class="glyphicon glyphicon-thumbs-up"></span> I show up when your checkbox is checked.
+                      </div>
+                    </div>
+                    <div>
+                      Hide:
+                      <div class="check-element animate-show" ng-hide="checked">
+                        <span class="glyphicon glyphicon-thumbs-down"></span> I hide when your checkbox is checked.
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </body>
 </html>

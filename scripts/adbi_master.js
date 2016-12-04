@@ -97,6 +97,7 @@ angular.module('AdbiApp', [])
             $scope.TitlePageMyAccount = "Moje Konto";
             $scope.TitlePageAddNewAd = "Dodaj nowe ogłoszenie";
             $scope.TitlePageBrowse = "Przeglądaj";
+            $scope.TitlePageAd = "Post - ";
 })
         .controller('AdbiNewAdController', function($scope) {
             $scope.TypeOfTypes = "Wybierz typ:";
@@ -122,6 +123,7 @@ angular.module('AdbiApp', [])
 })
         .controller('AdbiPageBrowse', function($scope) {
             $scope.BrowseAds = "Ogłoszenia:";
+            $scope.BrowseAd = "Ogłoszenie:";
 })
         .controller('customersCtrl', function($scope, $http) {
             $http.get("http://localhost:88/phpmyadmin/db_structure.php?server=1&db=adbi_db&table=t_users")

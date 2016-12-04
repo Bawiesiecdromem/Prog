@@ -12,7 +12,7 @@ if($submit){
     if($comm_desc){
         include 'config/serverconfig.php';
         $query = mysqli_query($con,"INSERT INTO T_COMMENTS (comm_desc, comm_date, u_id, ad_id) VALUES ('$comm_desc','$comm_date','$u_id','$ad_id')");
-        header('Location: page_browse.php');
+        header('Location: page_ad.php?ad_id='.$_GET['ad_id'].'');
     }
 }
 ?>

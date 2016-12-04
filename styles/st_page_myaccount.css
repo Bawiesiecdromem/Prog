@@ -43,11 +43,11 @@ a, a:active, a:hover, a:visited {
     display: none;
 }
 #IsNotAdultYet:hover:before {
-    content:"Chcę widzieć treści 18+ *.*"
+    content:"Chcę widzieć treści 18+ *.*";
 }
 #IsAdult:hover span {
     display: none;
 }
 #IsAdult:hover:before {
-    content:"Zabierz to, moje oczy... T.T"
+    content:"Zabierz to, moje oczy... T.T";
 }
