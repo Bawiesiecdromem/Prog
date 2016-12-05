@@ -16,6 +16,7 @@
         <!--/\ADBIBASICLINKS/\-->
         <link rel="stylesheet" href="styles/st_bodyschema.css">
         <link rel="stylesheet" href="styles/st_ads.css">
+        <link rel="stylesheet" href="styles/st_adcharlimiter.css">
         <script src="scripts/adbi_master.js"></script>
     </head>
     <body>
@@ -104,20 +105,9 @@
                             <ul class="nav nav-stacked">
                                 <h3>Kategorie</h3>
                                 <li><a href="?cat_id=0">Wszystkie</a></li>
-                                <li><a href="?cat_id=1">Posty</a></li>
-                                <li><a href="?cat_id=2">Zdjęcia</a></li>
-                                <li><a href="?cat_id=3">Motoryzacja</a></li>
-                                <li><a href="?cat_id=4">Elektronika</a></li>
-                                <li><a href="?cat_id=5">Nieruchomości</a></li>
-                                <li><a href="?cat_id=6">Moda</a></li>
-                                <li><a href="?cat_id=7">Sport i hobby</a></li>
-                                <li><a href="?cat_id=8">Praca</a></li>
-                                <li><a href="?cat_id=9">Rolnictwo</a></li>
-                                <li><a href="?cat_id=10">Edukacja</a></li>
-                                <li><a href="?cat_id=11">Muzyka</a></li>
-                                <li><a href="?cat_id=12">Dom i ogród</a></li>
-                                <li><a href="?cat_id=13">Zwierzęta</a></li>
-                                <li><a href="?cat_id=14">+ 18</a></li>
+                                <?php 
+                                    include 'f_displaycategories.php';
+                                ?>
                             </ul>
                         </nav>
                     </div>

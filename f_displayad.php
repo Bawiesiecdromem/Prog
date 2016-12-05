@@ -31,7 +31,7 @@
                                 echo '<table><tr><td width="100%"><a href="page_ad.php?ad_id='.$row['ad_id'].'"><h4><b>'.$row['ad_title'].'</b></h4></a></td>';
                                 if($row['mature_content'] == 1){echo '<td ><a class="btn btn-danger" style="float: right">+18</a></td>';} echo '</tr></table>
                                 <br>
-                                <p class="Ad-Desc-Ad">'.$row['ad_desc'].'</p><br>';
+                                <p class="Ad-Desc-Ad"><a href="page_ad.php?ad_id='.$row['ad_id'].'">'.$row['ad_desc'].'</a></p><br>';
                                 $cat_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_CATEGORIES ON T_AD.cat_id=T_CATEGORIES.cat_id") or die ('nie');
                                 while($cat_row = mysqli_fetch_array($cat_query)){
                                     if($cat_row['ad_id']==$row['ad_id']) {

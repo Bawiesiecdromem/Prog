@@ -1,0 +1,11 @@
+.Ad-Desc-Ad{
+    width: 100%;
+    word-break: normal;
+    overflow-wrap: break-word;
+    font-size: 20px;
+    color: #665D5D;
+    white-space: nowrap;
+    max-width: 75ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
