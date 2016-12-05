@@ -61,64 +61,50 @@
                 </div>
             </div>
             <!--/\NAV/\-->
-        <div ng-app='godApp' ng-controller='godControl'>
+<?php
+include 'config/serverconfig.php';
+$query = mysqli_query($con,'SELECT * FROM T_USERS ORDER BY u_id');
+?>
             <table class="table">
         <thead>
 	<tr>
 	<th>ID</th>
 	<th>Email</th>
 	<th>Nick</th>
-	<th>Hasło</th>
 	<th>Imię</th>
 	<th>Nazwisko</th>
 	<th>Telefon</th>
 	<th>Data urodzenia</th>
+	<th>Data dołączenia</th>
+	<th>Avatar</th>
+	<th>Stopień</th>
+	<th>Awansuj / Degraduj</th>
+	<th>Treści +18</th>
+	<th>Usuń użytkownika</th>
 	</tr>
 </thead>
-<tbody>
-	<tr ng-repeat="T_USERS in data">
-	<td><span> {{T_USERS.u_id}} </span></td>
-	<td> {{T_USERS.u_email}} </td>
-	<td> {{T_USERS.u_nick}} </td>	
-	<td> {{T_USERS.u_password}} </td>	
-	<td> {{T_USERS.u_name}} </td>
-	<td> {{T_USERS.u_forename}} </td>	
-	<td> {{T_USERS.u_phone}} </td>	
-	<td> {{T_USERS.u_birth}} </td>
-	<td><button ng-click="deleteUser(T_USERS.u_id)" title="Delete">Usuń użytkownika</button></td>
-	</tr>
+<tbody><?php 
+	while ($row = mysqli_fetch_array($query, MYSQL_BOTH)){
+	echo '<tr>
+	<td><span>'.$row['u_id'].'</span></td>
+	<td>'.$row['u_email'].'</td>
+	<td>'.$row['u_nick'].'</td>	
+	<td>'.$row['u_name'].'</td>	
+	<td>'.$row['u_forename'].'</td>
+	<td>'.$row['u_phone'].'</td>	
+	<td>'.$row['u_birth'].'</td>
+	<td>'.$row['u_date'].'</td>
+	<td>'.$row['u_avatar'].'</td>	
+	<td>'.$row['u_god'].'</td>
+	<td><a href="f_awans.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-plus"></span></a> / 
+	<a href="f_deawans.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-minus"></span></a></td>
+	<td>'.$row['is_adult'].'</td>
+	<td><a href="f_userdelete.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-remove"></span></a></td>
+	</tr>';
+	}
+	?>
 </tbody>
 </table>
-</div>
-<script>
-var app=angular.module('godApp',[]);
-app.controller('godControl', function($scope,$http){
-
-	$http.get("f_usershow.php")
-		.success(function(data){
-			$scope.data=data
-		})
-	}
-
-	$scope.displayStud=function(){
-		$http.get("f_usershow.php")
-		.success(function(data){
-			$scope.data=data
-			$scope.displayStud();
-		})
-	}
-	$scope.deleteUser=function(u_id){
-		$http.post("f_userdelete.php",{'u_id':u_id})
-		.success(function(){
-				$scope.msg="Pomyślnie usunięto";
-				$scope.displayUser();
-
-
-		})
-
-	}
-});
-</script>
 
 
     </body>
