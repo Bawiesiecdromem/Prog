@@ -55,7 +55,7 @@
                             while($comm_row = mysqli_fetch_array($comms_query)){
                                 echo
                                 '
-                                    <div class="Ad-Comms"><a href="page_users.php?u_id='.$comm_row['u_id'].'"><span class="Ad-Comm-Nick">'.$comm_row['u_nick'].':</span></a> '.$comm_row['comm_desc'].'';if($_SESSION['u_id']==$row['u_id']||$_SESSION['u_id']==$comm_row['u_id']||($_SESSION['u_god']>0&&$_SESSION['u_god']>=$comm_row['u_god'])){echo '<a href="f_deletecomm.php?comm_id='.$comm_row['comm_id'].'"><span class="Ad-DeleteCommGlyph glyphicon glyphicon-remove"></span></a>';} echo'</div>
+                                    <div class="Ad-Comms"><a href="page_users.php?u_id='.$comm_row['u_id'].'"><span class="Ad-Comm-Nick">'.$comm_row['u_nick'].':</span></a> <span class="Ad-Comm-Desc">'.$comm_row['comm_desc'].'</span>'; include'f_commentdestroyer.php'; include'f_ratecomment.php'; echo'</div>
                                 ';
                             }
                             if ($_SESSION['userverificationkey']){

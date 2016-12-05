@@ -80,6 +80,9 @@
     color: black;
     font-weight: 500;
 }
+.Ad-Comm-Desc{
+    padding-right: 15%;
+}
 .Ad-PostBox{
     min-width: 60%;
     max-width: 60%;
@@ -92,4 +95,8 @@
 }
 .Ad-DeleteAdGlyph:hover,.Ad-DeleteCommGlyph:hover{
     color: #B80000;
+}
+.Ad-CommRateGlyph{
+    float: right;
+    margin-right: 1%;
 }

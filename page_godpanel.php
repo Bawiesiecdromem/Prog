@@ -96,8 +96,8 @@ $query = mysqli_query($con,'SELECT * FROM T_USERS ORDER BY u_id');
 	<td>'.$row['u_date'].'</td>
 	<td>'.$row['u_avatar'].'</td>	
 	<td>'.$row['u_god'].'</td>
-	<td><a href="f_awans.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-plus"></span></a> / 
-	<a href="f_deawans.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-minus"></span></a></td>
+	<td><a href="f_grantbadge.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-plus"></span></a> / 
+	<a href="f_retakebadge.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-minus"></span></a></td>
 	<td>'.$row['is_adult'].'</td>
 	<td><a href="f_userdelete.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-remove"></span></a></td>
 	</tr>';
