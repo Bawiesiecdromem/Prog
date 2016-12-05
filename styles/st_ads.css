@@ -73,6 +73,8 @@
     color: #665D5D;
     font-weight: 400;
     font-size: 14px;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 .Ad-Comm-Nick{
     color: black;

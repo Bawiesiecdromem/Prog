@@ -24,6 +24,7 @@
                                                 <a href="page_ad.php?ad_id='.$row['ad_id'].'"><img src='.$row['ad_photo'].' class="Ad-C-Photo"></a>
                                             </div>
                                     ';
+                                    if($row['mature_content'] == 1){echo '<a class="btn btn-danger" style="margin-left:25px;">+18</a>';}
                                 }
                             }
                             if($row['cat_id']>2){
