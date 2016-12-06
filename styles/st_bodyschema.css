@@ -64,3 +64,34 @@ a, a:active, a:hover, a:visited {
   color:inherit;
   text-decoration: none;
  }
+.adbi_fileupload-btn{
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+}
+.adbi_fileupload-btn:hover{
+    background-color: #1D1D1D;
+    border-color: #1D1D1D;
+    color: #DDE3E5;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    display: inline-block;
+}
+.inputfile + label {
+    cursor: pointer;
+}
+.inputfile + label * {
+    pointer-events: none;
+}

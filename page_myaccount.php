@@ -160,8 +160,8 @@
                     </div>
                     <div>
                         <form action='f_changephoto.php' method='POST' enctype="multipart/form-data">
-                            <input type="file" name="fu_avatar" id="fu_avatar" accept='image/*' class="inputfile inputfile-1" class="btn btn-info">
-                            <label for="fu_avatar" class="btn btn-info">
+                            <input type="file" name="fu_avatar" id="fu_avatar" accept='image/*' class="inputfile inputfile-1" class="btn btn btn-info">
+                            <label for="fu_avatar" class="adbi_fileupload-btn btn btn-info">
                                 <span>Wybierz plik</span>
                             </label>
                             <script src="scripts/uploadbutton.js"></script>

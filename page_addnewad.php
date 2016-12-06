@@ -89,7 +89,11 @@
                     </div>
                     <div id='T2_div'>
                         <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
-                            Dodaj zdjęcie: <input type="file" accept="image/*" id="fad_photo" name="fad_photo"></input>
+                            <input type="file" name="fad_photo" id="fad_photo" accept='image/*' class="inputfile inputfile-1" class="btn btn btn-info">
+                            <label for="fu_avatar" class="adbi_fileupload-btn btn btn-info">
+                                <span>Wybierz zdjęcie</span>
+                            </label>
+                            <script src="scripts/uploadbutton.js"></script><br>
                             <input type="checkbox" name="fmature_content"> +18 <?php if($_SESSION['is_adult']==0){echo 'Jeśli musisz już umieścić taki post to przynajmniej nie psuj zabawy innym (zobaczysz ten post na swoim profilu) PS. jako osoba niepełnoletnia łamiesz prawo i robisz to na własną odpowiedzialność.';} ?><br>
                             <br>  
                             <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">

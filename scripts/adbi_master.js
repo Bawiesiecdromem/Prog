@@ -124,8 +124,4 @@ angular.module('AdbiApp', [])
         .controller('AdbiPageBrowse', function($scope) {
             $scope.BrowseAds = "Ogłoszenia:";
             $scope.BrowseAd = "Ogłoszenie:";
-})
-        .controller('customersCtrl', function($scope, $http) {
-            $http.get("http://localhost:88/phpmyadmin/db_structure.php?server=1&db=adbi_db&table=t_users")
-    .then(function (response) {$scope.names = response.data.records;});
 });
