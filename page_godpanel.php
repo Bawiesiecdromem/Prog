@@ -61,51 +61,48 @@
                 </div>
             </div>
             <!--/\NAV/\-->
-<?php
-include 'config/serverconfig.php';
-$query = mysqli_query($con,'SELECT * FROM T_USERS ORDER BY u_id');
-?>
-            <table class="table">
-        <thead>
-	<tr>
-	<th>ID</th>
-	<th>Email</th>
-	<th>Nick</th>
-	<th>Imię</th>
-	<th>Nazwisko</th>
-	<th>Telefon</th>
-	<th>Data urodzenia</th>
-	<th>Data dołączenia</th>
-	<th>Avatar</th>
-	<th>Stopień</th>
-	<th>Awansuj / Degraduj</th>
-	<th>Treści +18</th>
-	<th>Usuń użytkownika</th>
-	</tr>
+<nav><ul class="nav nav-stacked"><a href='?users'>
+<li><h3>Użytkownicy</h3>
+<table class="table">
+<?php include 'f_usershow.php'; ?>
+</table></li></a>
+<?php 
+$sesja = $_SESSION['u_god'];
+if($sesja>1){
+echo '
+<span href="?categories">
+<li><h3>Kategorie</h3>
+<table class="table">
+<thead>
+<tr>
+<th> </th>
+<th>Nazwa</th>
+<th>Opis</th>
+<th>Treści +18</th>
+<th>Zatwierdź</th>
+</tr>
 </thead>
-<tbody><?php 
-	while ($row = mysqli_fetch_array($query, MYSQL_BOTH)){
-	echo '<tr>
-	<td><span>'.$row['u_id'].'</span></td>
-	<td>'.$row['u_email'].'</td>
-	<td>'.$row['u_nick'].'</td>	
-	<td>'.$row['u_name'].'</td>	
-	<td>'.$row['u_forename'].'</td>
-	<td>'.$row['u_phone'].'</td>	
-	<td>'.$row['u_birth'].'</td>
-	<td>'.$row['u_date'].'</td>
-	<td>'.$row['u_avatar'].'</td>	
-	<td>'.$row['u_god'].'</td>
-	<td><a href="f_grantbadge.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-plus"></span></a> / 
-	<a href="f_retakebadge.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-minus"></span></a></td>
-	<td>'.$row['is_adult'].'</td>
-	<td><a href="f_userdelete.php?u_id='.$row['u_id'].'&u_god='.$row['u_god'].'"><span class="glyphicon glyphicon-remove"></span></a></td>
-	</tr>';
-	}
-	?>
-</tbody>
+<tbody><tr><form action="f_catadd.php" method="POST" accept-charset="UTF-8">
+<td>Dodaj nową:</td>
+<td><input type="text" name="cat_name" class="form-control" required></td>
+<td><input type="text" name="cat_desc" class="form-control" required></td>
+<td><label><input type="checkbox" name="cat_mature">  Dla dorosłych</label></td>
+<td><input type="submit" name="cat_send" value="Dodaj" class="btn btn-default"></td>
+</form></tr></tbody>
 </table>
-
-
+<table class="table">';
+include 'f_catshow.php';
+echo '</table></li></span>';
+}
+?>
+</ul>
+</nav>
     </body>
 </html>
+
+
+
+
+
+
+
