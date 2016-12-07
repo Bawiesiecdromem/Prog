@@ -46,7 +46,7 @@
                                 '
                                     </div>
                                     <div class="Ad-Bottom">
-                                    <b>Najnowsze komentarze:</b><br>
+                                    <b>Najnowsze komentarze:</b>'; include'f_ratead.php'; echo'<br>
                                 ';
                                 include 'f_selectcommentsquery.php';
                             if(mysqli_num_rows($comms_query)<1){

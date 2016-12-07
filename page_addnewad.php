@@ -90,10 +90,10 @@
                     <div id='T2_div'>
                         <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
                             <input type="file" name="fad_photo" id="fad_photo" accept='image/*' class="inputfile inputfile-1" class="btn btn btn-info">
-                            <label for="fu_avatar" class="adbi_fileupload-btn btn btn-info">
+                            <label for="fad_photo" class="adbi_fileupload-btn btn btn-info">
                                 <span>Wybierz zdjęcie</span>
                             </label>
-                            <script src="scripts/uploadbutton.js"></script><br>
+                            <script src="scripts/uploadfilebutton.js"></script><br>
                             <input type="checkbox" name="fmature_content"> +18 <?php if($_SESSION['is_adult']==0){echo 'Jeśli musisz już umieścić taki post to przynajmniej nie psuj zabawy innym (zobaczysz ten post na swoim profilu) PS. jako osoba niepełnoletnia łamiesz prawo i robisz to na własną odpowiedzialność.';} ?><br>
                             <br>  
                             <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
@@ -121,20 +121,17 @@
                         <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
                             <input class='form-control' type='text' name='fad_title' maxlength='48' placeholder='Tytuł'></br>
                             <textarea class='form-control' rows='7' type='text' name='fad_desc' value='fad_desc' maxlength='55555' placeholder='Treść'></textarea>
-                            Dodaj zdjęcie: <input type='file' accept='image/*' name='fad_photo' id='fad_photo'>
+                            Dodaj zdjęcie:<br>
+                            <input type="file" name="fad_photo" id="fad_photos" accept='image/*' class="inputfile inputfile-1" class="btn btn btn-info">
+                            <label for="fad_photos" class="adbi_fileupload-btn btn btn-info">
+                                <span>Wybierz zdjęcie</span>
+                            </label>
+                            <script src="scripts/uploadfilesbutton.js"></script><br>
                             <input type="checkbox" name="fmature_content"> +18 <?php if($_SESSION['is_adult']==0){echo 'Jeśli musisz już umieścić taki post to przynajmniej nie psuj zabawy innym (zobaczysz ten post na swoim profilu) PS. jako osoba niepełnoletnia łamiesz prawo i robisz to na własną odpowiedzialność.';} ?><br>
                             <select class="form-control" name='fcat_id' id="fcat_id">
-                                <option value="3">Motoryzacja</option>
-                                <option value="4">Elektronikia</option>
-                                <option value="5">Nieruchomości</option>
-                                <option value="6">Moda</option>
-                                <option value="7">Sport i hobby</option>
-                                <option value="8">Praca</option>
-                                <option value="9">Rolnictwo</option>
-                                <option value="10">Edukacja</option>
-                                <option value="11">Muzyka</option>
-                                <option value="12">Dom i ogród</option>
-                                <option value="13">Zwierzęta</option>
+                                <?php 
+                                    include 'f_pickcategory.php';
+                                ?>
                             </select>
 			<br><input type="submit" name="formsend3" value="Opublikuj" class='btn btn-danger'>
                         </form>
@@ -157,6 +154,17 @@
                 <div class="col-md-8" style="background-color: #ec7ebd;">
                     <?php
                         include 'config/serverconfig.php';
+                        $loguserid = $_SESSION['u_id'];
+                        $hs_action_query = 0;
+                        $history_query = mysqli_query($con,"SELECT * FROM T_ACTIONS RIGHT JOIN T_USERS ON T_ACTIONS.action_who=T_USERS.u_id RIGHT JOIN T_AD ON T_ACTIONS.action_whichad=T_AD.ad_id RIGHT JOIN T_COMMENTS ON T_ACTIONS.action_whichcomm=T_COMMENTS.comm_id WHERE T_ACTIONS.action_who =".$loguserid." ORDER BY T_ACTIONS.action_date desc") or die ('nie');
+                        while($history_row = mysqli_fetch_array($history_query)){
+                            echo 'ta';
+                            if($history_row['action_who']==$loguserid){
+                                        echo 'test';
+                            }
+                        }
+                    ?>
+                    <?php
                         $q = mysqli_query($con,"SELECT * FROM T_AD WHERE u_id = ".$_SESSION['u_id']." ORDER BY ad_date desc") or die ('nie');
                         while($pole = mysqli_fetch_array($q)){
                         echo "<div>".$pole['ad_title']."</div></br>";
