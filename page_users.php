@@ -102,7 +102,7 @@
                         <nav>
                             <ul class="nav nav-stacked">
                                 <h3>Kategorie</h3>
-                                <li><a href="?cat_id=0">Wszystkie</a></li>
+                                <li><a href="?u_id=<?php echo $u_row['u_id'];?>&cat_id=0">Wszystkie</a></li>
                                 <?php 
                                     include 'f_displaycategoriesonpageusers.php';
                                 ?>

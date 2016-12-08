@@ -156,6 +156,23 @@
                         include 'config/serverconfig.php';
                         $loguserid = $_SESSION['u_id'];
                         $hs_action_query = 0;
+                        $history_action_query = mysqli_query($con,"SELECT * FROM T_ACTIONS RIGHT JOIN T_USERS ON T_ACTIONS.action_who=T_USERS.u_id WHERE T_USERS.u_id='$loguserid'");
+                        while($history_action_row = mysqli_fetch_array($history_action_query)){
+                            if($history_action_row['action_whichad']>0){
+                                $hs_ad_id=$history_action_row['action_whichad'];
+                                $history_ad_query = mysqli_query($con,"SELECT * FROM T_AD WHERE ad_id='$hs_ad_id'");
+                                while($history_ad_row = mysqli_fetch_array($history_ad_query)){
+                                    echo 'ad ';
+                                }
+                            }
+                            if($history_action_row['action_whichcomm']>0){
+                                $hs_comm_id=$history_action_row['action_whichcomm'];
+                                $history_comm_query = mysqli_query($con,"SELECT * FROM T_COMMENTS WHERE comm_id='$hs_comm_id'");
+                                while($history_comm_row = mysqli_fetch_array($history_comm_query)){
+                                    echo 'comm ';
+                                }
+                            }
+                        }
                         $history_query = mysqli_query($con,"SELECT * FROM T_ACTIONS RIGHT JOIN T_USERS ON T_ACTIONS.action_who=T_USERS.u_id RIGHT JOIN T_AD ON T_ACTIONS.action_whichad=T_AD.ad_id RIGHT JOIN T_COMMENTS ON T_ACTIONS.action_whichcomm=T_COMMENTS.comm_id WHERE T_ACTIONS.action_who =".$loguserid." ORDER BY T_ACTIONS.action_date desc") or die ('nie');
                         while($history_row = mysqli_fetch_array($history_query)){
                             echo 'ta';
