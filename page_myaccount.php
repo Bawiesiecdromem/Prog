@@ -73,6 +73,7 @@
                     Informacje osobowe i prywatność:<br>
                 </div>
                 <div class="col-md-6">
+                    <form action="f_updatedata.php" method="POST">
                     <table>
                         <tr>
                             <td>{{Email}}</td>					
@@ -80,7 +81,7 @@
                                 <div class="second_child_td"><?php echo($_SESSION['u_email']);?></div>
 				<div id="A1_div">
                                     <input type="text" id="fu_email" name="fu_email" value="<?php echo($_SESSION['u_email']);?>" required>
-                                    <span class="komentarz"></span><br><br>
+                                    <span class="komentarz" style="width: 100%"></span><br><br>
 				</div>
                             </td>
                             <td><a id="A1" ng-click="EditSaveToggle1 = !EditSaveToggle1" {{CleverSender}}><span class="{{ESToggle1}}"></span></a></td>
@@ -91,7 +92,7 @@
                                 <div class="second_child_td"><?php echo($_SESSION['u_nick']);?></div>
 				<div id="A2_div">
                                     <input type="text" id="fu_nick" name="fu_nick" value="<?php echo($_SESSION['u_nick']);?>" required>
-                                    <span class="komentarz"></span><br><br>
+                                    <span class="komentarz" style="width: 100%"></span><br><br>
 				</div>
                             </td>
                         <td><a id="A2" ng-click="EditSaveToggle2 = !EditSaveToggle2"><span class="{{ESToggle2}}"></span></a></td>
@@ -99,10 +100,10 @@
                         <tr>
                             <td>{{Password}}</td>
                             <td>
-                                <div class="second_child_td"><?php echo($_SESSION['u_password']);?></div>
+                                <div class="second_child_td"><?php echo'*******';?></div>
                                 <div id="A3_div">
-                                    <input type="text" name="fu_password" value="<?php echo($_SESSION['u_password']);?>" required>
-                                    <span class="komentarz"></span><br><br>
+                                    <input type="password" name="fu_password" value="<?php echo($_SESSION['u_password']);?>" required>
+                                    <span class="komentarz" style="width: 100%"></span><br><br>
 				</div>
                             </td>
                             <td><a id="A3" ng-click="EditSaveToggle3 = !EditSaveToggle3"><span class="{{ESToggle3}}"></span></a></td>
@@ -113,7 +114,7 @@
                                 <div class="second_child_td"><?php echo($_SESSION['u_name']);?></div>
                                 <div id="A4_div">
                                     <input type="text" id="fu_name" name="fu_name" value="<?php echo($_SESSION['u_name']);?>" required>
-                                    <span class="komentarz"></span><br><br>
+                                    <span class="komentarz" style="width: 100%"></span><br><br>
 				</div>
                             </td>
                             <td><a id="A4" ng-click="EditSaveToggle4 = !EditSaveToggle4"><span class="{{ESToggle4}}"></span></a></td>
@@ -124,7 +125,7 @@
                                 <div class="second_child_td"><?php echo($_SESSION['u_forename']);?></div>
 				<div id="A5_div">
                                     <input type="text" id="fu_forename" name="fu_forename" value="<?php echo($_SESSION['u_forename']);?>" required>
-                                    <span class="komentarz"></span><br><br>
+                                    <span class="komentarz" style="width: 100%"></span><br><br>
 				</div>
                             </td>
                             <td><a id="A5" ng-click="EditSaveToggle5 = !EditSaveToggle5"><span class="{{ESToggle5}}"></span></a></td>
@@ -135,7 +136,7 @@
                                 <div class="second_child_td"><?php echo($_SESSION['u_phone']);?></div>
 				<div id="A6_div">
                                     <input type="text" id="fu_phone" name="fu_phone" value="<?php echo($_SESSION['u_phone']);?>" required>
-                                    <span class="komentarz"></span><br><br>
+                                    <span class="komentarz" style="width: 100%"></span><br><br>
 				</div>
                             </td>
                             <td><a id="A6" ng-click="EditSaveToggle6 = !EditSaveToggle6"><span class="{{ESToggle6}}"></span></a></td>
@@ -146,12 +147,14 @@
                                 <div class="second_child_td"><?php echo($_SESSION['u_birth']);?></div>
 				<div id="A7_div">
                                     <input type="text" id="fu_birth" name="fu_birth" value="<?php echo($_SESSION['u_birth']);?>" required>
-                                    <span class="komentarz"></span><br><br>
+                                    <span class="komentarz" style="width: 100%"></span><br><br>
 				</div>
                             </td>
                             <td><a id="A7" ng-click="EditSaveToggle7 = !EditSaveToggle7"><span class="{{ESToggle7}}"></span></a></td>
                         </tr>
-                    </table>
+                    </table><br>
+                    <input type="submit" name="formsend" class="btn btn-danger" value="Zapisz zmiany" style="float: right">
+                    </form>
                 </div>
                 <div class="col-md-3">
                     <div>
@@ -183,19 +186,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    Click me: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/>
-                    <div>
-                      Show:
-                      <div class="check-element animate-show" ng-show="checked">
-                        <span class="glyphicon glyphicon-thumbs-up"></span> I show up when your checkbox is checked.
-                      </div>
-                    </div>
-                    <div>
-                      Hide:
-                      <div class="check-element animate-show" ng-hide="checked">
-                        <span class="glyphicon glyphicon-thumbs-down"></span> I hide when your checkbox is checked.
-                      </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

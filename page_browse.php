@@ -3,6 +3,7 @@
     error_reporting(0);    
     include 'f_frozead.php';
     $limitofcomments=1;
+    include 'f_searchmodule.php';
 ?>
 <html ng-app="AdbiApp">
     <head ng-controller="AdbiHeadController">
@@ -94,7 +95,12 @@
                 <div class="col-md-8">
                     <?php
                         include 'config/serverconfig.php';
-                        $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
+                        if($providesearch>0){
+                            $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id WHERE ((T_AD.ad_title LIKE '%$searchstring%') OR (T_AD.ad_desc LIKE '%$searchstring%')) ORDER BY ad_date desc") or die ('nie');
+                        }
+                        else{
+                            $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
+                        }
                         while($row = mysqli_fetch_array($ads_query)){
                             if($_GET['cat_id'] == 0){
                                 include 'f_displayads.php';
@@ -106,7 +112,11 @@
                     ?>
                 </div>
                 <div class="col-md-2">
-                    
+                    <br>
+                    <form action="" method="POST">
+                        <input class="form-control" type="text" name="searchstring" maxlength="255" placeholder="Szukana fraza...">
+                        <input type="submit" name="search" value="Szukaj" class="btn btn-danger"><br>
+                    </form>
                 </div>
             </div>
         </div>

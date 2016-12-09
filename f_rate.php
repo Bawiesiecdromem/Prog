@@ -8,6 +8,10 @@ $action_date = date('Y-m-d H:i:s');
 $action_who = $_SESSION['u_id'];
 $action_whichcomm = $_GET['action_whichcomm'];
 include 'config/serverconfig.php';
+$thiscomm_query = mysqli_query($con,"SELECT * FROM T_COMMENTS WHERE `comm_id`=$action_whichcomm") or die ('nie');
+while($thiscomm_row = mysqli_fetch_array($thiscomm_query)){
+    $authorid=$thiscomm_row['u_id'];
+}
 $action_query = mysqli_query($con,"SELECT * FROM T_ACTIONS WHERE `action_who`=$action_who and `action_whichcomm`=$action_whichcomm") or die ('nie');
 $action_row = mysqli_fetch_array($action_query);
 $action_row_count = count($action_row);
@@ -16,7 +20,7 @@ if($action_row_count>1){
     header('Location: page_ad.php?ad_id='.$ad_id.'');
 }
 if($action_row_count<1){
-    $Rate_query = mysqli_query($con,"INSERT INTO T_ACTIONS (action_date, action_who, action_whichcomm) VALUES ('$action_date','$action_who','$action_whichcomm')");
+    $Rate_query = mysqli_query($con,"INSERT INTO T_ACTIONS (action_date, action_who, action_whichcomm, action_whose) VALUES ('$action_date','$action_who','$action_whichcomm','$authorid')");
     header('Location: page_ad.php?ad_id='.$ad_id.'');
 }
 ?>

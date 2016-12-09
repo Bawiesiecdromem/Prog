@@ -24,7 +24,8 @@ angular.module('AdbiApp', [])
             $scope.r1c3 = "test";
             $scope.r1c4 = "test";
             $scope.r1c5 = "test";
-            $scope.WIP = "Witamy, witamy! Proszę rozgość się, nasi develperzy właśnie tworzą fotele.";
+            $scope.WIP = "Beta-test.";
+            $scope.oldWIP = "Witamy, witamy! Proszę rozgość się, nasi develperzy właśnie tworzą fotele.";
             $scope.greeting = "ADBI Send The Regards";
             $scope.WelcomeInHeaven = "There is a Heaven, let's keep it a secret.";
             $scope.testo = '<h1>links!</h1>';
@@ -57,7 +58,7 @@ angular.module('AdbiApp', [])
             $scope.HolderBirth = "1997-01-01";
             //Togglers http://stackoverflow.com/questions/24320237/change-the-text-of-the-button-on-click-using-angular-js
             $E="glyphicon glyphicon-pencil"; //edytuj
-            $Z="glyphicon glyphicon-ok"; //zapisz
+            $Z=""; //zapisz
             $CSa=""; //edytuj
             $CSb='href="index.php"'; //wyślij
             $scope.EditSaveToggle1 = true;
@@ -105,6 +106,7 @@ angular.module('AdbiApp', [])
             $scope.Type2 = "Zdjęcie";
             $scope.Type3 = "Ogłoszenie";
             $scope.MyAds = "Moje ogłoszenia:";
+            $scope.History = "Historia:";
 })
         .controller('AdbiPageAccountEdit', function($scope,$http) {
 	    $scope.edit = function(u_id, u_email, u_nick, u_password, u_name, u_forename, u_phone, u_birth)

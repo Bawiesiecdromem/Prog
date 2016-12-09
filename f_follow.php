@@ -15,7 +15,7 @@ if($action_row_count>1){
     header('Location: page_users.php?u_id='.$action_whoisfollowed.'');
 }
 if($action_row_count<1){
-    $StartFollow_query = mysqli_query($con,"INSERT INTO T_ACTIONS (action_date, action_who, action_whoisfollowed) VALUES ('$action_date','$action_who','$action_whoisfollowed')");
+    $StartFollow_query = mysqli_query($con,"INSERT INTO T_ACTIONS (action_date, action_who, action_whoisfollowed, action_whose) VALUES ('$action_date','$action_who','$action_whoisfollowed','$action_whoisfollowed')");
     header('Location: page_users.php?u_id='.$action_whoisfollowed.'');
 }
 ?>

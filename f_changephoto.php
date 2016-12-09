@@ -9,7 +9,11 @@ $path = 'pics/u_avatar/';
 $u_avatar = $path.basename($_FILES['fu_avatar']['name']);
 if($submit){
     if($image_width==$image_height){
-        if(move_uploaded_file($_FILES['fu_avatar']['tmp_name'], $u_avatar)){ 
+        $temp = explode(".", $_FILES["fu_avatar"]["name"]);
+        $newfilename = round(microtime(true)) . '.' . end($temp);
+        if(move_uploaded_file($_FILES["fu_avatar"]["tmp_name"], $path . $newfilename)){
+            move_uploaded_file($_FILES["fu_avatar"]['tmp_name'], $newfilename);
+            $u_avatar = $path.$newfilename;
             include 'config/serverconfig.php';
             $query = mysqli_query($con, "UPDATE T_USERS SET u_avatar='$u_avatar' WHERE u_id='$u_id'");
             include 'f_sessionuserdataupdate.php';

@@ -1,6 +1,9 @@
 <?php
     session_start();
-    error_reporting();    
+    error_reporting();
+    if($_SESSION['u_god']<1){
+        header('location: index.php');
+    }
 ?>
 <html ng-app="AdbiApp">
     <head ng-controller="AdbiHeadController">

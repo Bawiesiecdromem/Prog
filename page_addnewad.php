@@ -121,12 +121,7 @@
                         <form action='f_addnewad.php' method='POST' enctype='multipart/form-data'>
                             <input class='form-control' type='text' name='fad_title' maxlength='48' placeholder='Tytuł'></br>
                             <textarea class='form-control' rows='7' type='text' name='fad_desc' value='fad_desc' maxlength='55555' placeholder='Treść'></textarea>
-                            Dodaj zdjęcie:<br>
-                            <input type="file" name="fad_photo" id="fad_photos" accept='image/*' class="inputfile inputfile-1" class="btn btn btn-info">
-                            <label for="fad_photos" class="adbi_fileupload-btn btn btn-info">
-                                <span>Wybierz zdjęcie</span>
-                            </label>
-                            <script src="scripts/uploadfilesbutton.js"></script><br>
+                            <!--tutaj kiedyś coś pewnie będzie ;-;-->
                             <input type="checkbox" name="fmature_content"> +18 <?php if($_SESSION['is_adult']==0){echo 'Jeśli musisz już umieścić taki post to przynajmniej nie psuj zabawy innym (zobaczysz ten post na swoim profilu) PS. jako osoba niepełnoletnia łamiesz prawo i robisz to na własną odpowiedzialność.';} ?><br>
                             <select class="form-control" name='fcat_id' id="fcat_id">
                                 <?php 
@@ -143,7 +138,7 @@
             </div>
             <div class="row" ng-controller="AdbiNewAdController">
                 <div id="MyAdsHeader" class="col-md-12">
-                    <h4>{{MyAds}}</h4>
+                    <h4>{{History}}</h4>
                     <p class="adbiseparator"></p>
                 </div>
             </div>
@@ -151,49 +146,10 @@
                 <div class="col-md-2">
                     
                 </div>
-                <div class="col-md-8" style="background-color: #ec7ebd;">
+                <div class="col-md-8">
                     <?php
                         include 'config/serverconfig.php';
-                        $loguserid = $_SESSION['u_id'];
-                        $hs_action_query = 0;
-                        $history_action_query = mysqli_query($con,"SELECT * FROM T_ACTIONS RIGHT JOIN T_USERS ON T_ACTIONS.action_who=T_USERS.u_id WHERE T_USERS.u_id='$loguserid'");
-                        while($history_action_row = mysqli_fetch_array($history_action_query)){
-                            if($history_action_row['action_whichad']>0){
-                                $hs_ad_id=$history_action_row['action_whichad'];
-                                $history_ad_query = mysqli_query($con,"SELECT * FROM T_AD WHERE ad_id='$hs_ad_id'");
-                                while($history_ad_row = mysqli_fetch_array($history_ad_query)){
-                                    echo 'ad ';
-                                }
-                            }
-                            if($history_action_row['action_whichcomm']>0){
-                                $hs_comm_id=$history_action_row['action_whichcomm'];
-                                $history_comm_query = mysqli_query($con,"SELECT * FROM T_COMMENTS WHERE comm_id='$hs_comm_id'");
-                                while($history_comm_row = mysqli_fetch_array($history_comm_query)){
-                                    echo 'comm ';
-                                }
-                            }
-                        }
-                        $history_query = mysqli_query($con,"SELECT * FROM T_ACTIONS RIGHT JOIN T_USERS ON T_ACTIONS.action_who=T_USERS.u_id RIGHT JOIN T_AD ON T_ACTIONS.action_whichad=T_AD.ad_id RIGHT JOIN T_COMMENTS ON T_ACTIONS.action_whichcomm=T_COMMENTS.comm_id WHERE T_ACTIONS.action_who =".$loguserid." ORDER BY T_ACTIONS.action_date desc") or die ('nie');
-                        while($history_row = mysqli_fetch_array($history_query)){
-                            echo 'ta';
-                            if($history_row['action_who']==$loguserid){
-                                        echo 'test';
-                            }
-                        }
-                    ?>
-                    <?php
-                        $q = mysqli_query($con,"SELECT * FROM T_AD WHERE u_id = ".$_SESSION['u_id']." ORDER BY ad_date desc") or die ('nie');
-                        while($pole = mysqli_fetch_array($q)){
-                        echo "<div>".$pole['ad_title']."</div></br>";
-                        echo "<div> Data dodania: ".$pole['ad_date']."</div></br>";
-                        echo "<div> Autor: ".$_SESSION['u_nick']." Zwany: ".$_SESSION['u_name']."</div>";
-                        echo "<div>".$pole['ad_desc']."</br></br></div>";
-                        //if($pole['ad_photo']){
-                        //echo "<img src='/pics/".$pole['ad_photo']."'></br></img></br> </div></br>";
-                        //}
-                        //else
-                        //echo "</div></br>";
-                        }
+                        include 'f_history.php';
                     ?>
                 </div>
                 <div class="col-md-2">

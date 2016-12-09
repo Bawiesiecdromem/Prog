@@ -1,6 +1,6 @@
 <?php
 session_start();
-$submit = $_POST['updateform'];
+$submit = $_POST['formsend'];
 $u_email = strip_tags($_POST['fu_email']);
 $u_nick = strip_tags($_POST['fu_nick']);
 $u_password = strip_tags($_POST['fu_password']);
@@ -17,19 +17,3 @@ header('location: page_myaccount.php');
 
 }
 ?>
-
-
-//ten form gdzieś w page_myaccount.php
-<div>
-<table class="table table-default">
-<form action="f_updatedata.php" method="POST">
-<tr><td><input type="text" id="fu_email" name="fu_email" value="<?php echo($_SESSION['u_email']);?>" required><td><span class="komentarz"></span></td>
-<td><input type="text" id="fu_nick" name="fu_nick" value="<?php echo($_SESSION['u_nick']);?>" required><td><span class="komentarz"></span></td></tr>
-<tr><td><input type="text" name="fu_password" value="<?php echo($_SESSION['u_password']);?>" required><td><span class="komentarz"></span></td>
-<td><input type="text" id="fu_name" name="fu_name" value="<?php echo($_SESSION['u_name']);?>" required><td><span class="komentarz"></span></td></tr>
-<tr><td><input type="text" id="fu_forename" name="fu_forename" value="<?php echo($_SESSION['u_forename']);?>" required><td><span class="komentarz"></span></td>
-<td><input type="text" id="fu_phone" name="fu_phone" value="<?php echo($_SESSION['u_phone']);?>" required><td><span class="komentarz"></span></td></tr>
-<tr><td><input type="text" id="fu_birth" name="fu_birth" value="<?php echo($_SESSION['u_birth']);?>" required><td><span class="komentarz"></span></td>
-<td><input type="submit" name="updateform" class="btn btn-default" value="Zapisz zmiany"></td></tr>
-</table>
-</div>

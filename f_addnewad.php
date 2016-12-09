@@ -28,9 +28,16 @@ if($submit1){
     }
 }
 if($submit2){
-    if(move_uploaded_file($_FILES['fad_photo']['tmp_name'], $ad_photo)){
+    $temp = explode(".", $_FILES["fad_photo"]["name"]);
+    $newfilename = round(microtime(true)) . '.' . end($temp);
+    if(move_uploaded_file($_FILES["fad_photo"]["tmp_name"], $path . $newfilename)){
+        move_uploaded_file($_FILES['fad_photo']['tmp_name'], $newfilename);
+        $ad_photo = $path.$newfilename;
         include 'config/serverconfig.php';
-        $slider = $_POST['slider'];	
+        $slider = $_POST['slider'];
+        if($slider<$ad_date){
+            $slider = 1;
+        }	
         $ad_transferdate= date('Y-m-d H:i:s', strtotime(' + '.$slider.' days'));
         $query = mysqli_query($con, "INSERT INTO T_AD (ad_photo, ad_date, ad_transferdate, u_id, cat_id, mature_content) VALUES ('$ad_photo','$ad_date', '$ad_transferdate','$u_id','2','$mature_content')");
         header('Location: page_browse.php');

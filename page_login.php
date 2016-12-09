@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <p>{{Password}}<br></p>
-                            <input type="text" class="form-control" name="fu_password" placeholder="{{HolderPassword}}" required>
+                            <input type="password" class="form-control" name="fu_password" placeholder="{{HolderPassword}}" required>
                             <span class="komentarz"></span><br><br>
                             <br>
                         </div>

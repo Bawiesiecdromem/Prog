@@ -3,6 +3,7 @@
     error_reporting(0);
     include 'f_frozead.php';
     $limitofcomments=1;
+    include 'f_searchmodule.php';
 ?>
 <html ng-app="AdbiApp">
     <head ng-controller="AdbiHeadController">
@@ -73,7 +74,7 @@
                     {{WIP}}
                 </div>
                 <div class="col-md-4">
-                    <a href="page_users.php?id=1"><h1>{{greeting}}</h1></a>
+                    <a href="somedaysmth.php"><h1>{{greeting}}</h1></a>
                 </div>
                 <div class="col-md-3">
                     <?php 
@@ -93,7 +94,7 @@
                 <div class="col-md-12">
                     <?php
                         if ($_SESSION['u_email']){
-                            echo "Witaj, ".$_SESSION['u_nick']."!";
+                            echo "<center>Witaj, ".$_SESSION['u_nick']."!</center>";
                         }
                     ?>
                 </div>
@@ -115,17 +116,29 @@
                 <div class="col-md-8">
                     <?php
                         include 'config/serverconfig.php';
+                        if($providesearch>0){
+                            $adss_query = mysqli_query($con,"SELECT * FROM T_ACTIONS RIGHT JOIN T_AD ON T_ACTIONS.action_whose=T_AD.u_id WHERE ((T_AD.ad_title LIKE '%$searchstring%') OR (T_AD.ad_desc LIKE '%$searchstring%')) ORDER BY ad_date desc") or die ('nie');
+                        }
+                        else{
+                            $adss_query = mysqli_query($con,"SELECT * FROM T_ACTIONS RIGHT JOIN T_AD ON T_ACTIONS.action_whose=T_AD.u_id ORDER BY ad_date desc") or die ('nie');
+                        }
                         if($_SESSION['userverificationkey']){
-                            $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS LEFT JOIN T_ACTIONS ON T_AD.u_id=T_USERS.u_id=T_ACTIONS.action_who ORDER BY ad_date desc") or die ('nie');
-                            while($row = mysqli_fetch_array($ads_query)){
+                            while($rows = mysqli_fetch_array($adss_query)){
+                                $thisadid=$rows['ad_id'];
                                 if($_GET['cat_id'] == 0){
-                                    if($row['action_whoisfollowed'] == $row['u_id']){
-                                        include 'f_displayads.php';
+                                    if(($rows['action_who'] == $_SESSION['u_id'])&&($rows['action_whoisfollowed']>0)){
+                                        $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id WHERE T_AD.ad_id='$thisadid' ORDER BY ad_date desc") or die ('nie');
+                                        while($row = mysqli_fetch_array($ads_query)){
+                                            include 'f_displayads.php';
+                                        }
                                     }
                                 }
-                                if($_GET['cat_id'] == $row['cat_id']){
-                                    if($row['action_whoisfollowed'] == $row['u_id']){
-                                        include 'f_displayads.php';
+                                if($_GET['cat_id'] == $rows['cat_id']){
+                                    if(($rows['action_who'] == $_SESSION['u_id'])&&($rows['action_whoisfollowed']>0)){
+                                        $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id WHERE T_AD.ad_id='$thisadid' ORDER BY ad_date desc") or die ('nie');
+                                        while($row = mysqli_fetch_array($ads_query)){
+                                            include 'f_displayads.php';
+                                        }
                                     }
                                 }
                             }
@@ -144,7 +157,11 @@
                     ?>
                 </div>
                 <div class="col-md-2">
-                    
+                    <br>
+                    <form action="" method="POST">
+                        <input class="form-control" type="text" name="searchstring" maxlength="255" placeholder="Szukana fraza...">
+                        <input type="submit" name="search" value="Szukaj" class="btn btn-danger"><br>
+                    </form>
                 </div>
             </div>
         </div>
