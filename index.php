@@ -127,8 +127,13 @@
                                 $thisadid=$rows['ad_id'];
                                 if($_GET['cat_id'] == 0){
                                     if(($rows['action_who'] == $_SESSION['u_id'])&&($rows['action_whoisfollowed']>0)){
-                                        $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id WHERE T_AD.ad_id='$thisadid' ORDER BY ad_date desc") or die ('nie');
-                                        while($row = mysqli_fetch_array($ads_query)){
+										if($providesearch>0){
+											$ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id WHERE ((T_AD.ad_id='$thisadid') AND((T_AD.ad_title LIKE '%$searchstring%') OR (T_AD.ad_desc LIKE '%$searchstring%'))) ORDER BY ad_date desc") or die ('nie');
+										}
+										else{
+											$ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id WHERE T_AD.ad_id='$thisadid' ORDER BY ad_date desc") or die ('nie');
+                                        }
+										while($row = mysqli_fetch_array($ads_query)){
                                             include 'f_displayads.php';
                                         }
                                     }
@@ -144,7 +149,12 @@
                             }
                         }
                         else{
-                            $ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
+							if($providesearch>0){
+								$ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id WHERE ((T_AD.ad_title LIKE '%$searchstring%') OR (T_AD.ad_desc LIKE '%$searchstring%')) ORDER BY ad_date desc") or die ('nie');
+							}
+							else{
+								$ads_query = mysqli_query($con,"SELECT * FROM T_AD INNER JOIN T_USERS ON T_AD.u_id=T_USERS.u_id ORDER BY ad_date desc") or die ('nie');
+							}
                             while($row = mysqli_fetch_array($ads_query)){
                                 if($_GET['cat_id'] == 0){
                                     include 'f_displayads.php';
